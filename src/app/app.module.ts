@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-// import { GoogleMaps } from '@ionic-native/google-maps/ngx';
+import { GoogleMaps } from '@ionic-native/google-maps/ngx';
 
 // Librerias
 
@@ -74,7 +74,7 @@ export function LanguageLoader(http: HttpClient) {
     SplashScreen,
     Network,
     // GooglePlus,
-    //  Facebook,
+    // Facebook,
     NativeStorage,
     SocialSharing,
     InAppBrowser,
@@ -83,7 +83,7 @@ export function LanguageLoader(http: HttpClient) {
     { provide: FirestoreSettingsToken, useValue: {} },
     Geolocation,
     NativeGeocoder,
-    // GoogleMaps,
+    GoogleMaps,
     Stripe,
     PayPal
   ],
