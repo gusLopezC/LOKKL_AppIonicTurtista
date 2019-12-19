@@ -1,0 +1,7 @@
+{
+  "name": "Lokkl",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

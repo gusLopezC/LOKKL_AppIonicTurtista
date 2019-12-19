@@ -1,0 +1,42 @@
+.image-slide {
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3,
+h5,
+p {
+    text-align: center;
+    font-weight: bold;
+}
+
+p .botonprimary {
+    margin: 5%;
+    font-weight: bold;
+}
+
+.botonsecondary {
+    margin: 5%;
+    font-weight: bold;
+}
+
+.bg-secondary {
+    background-color: #FFf;
+}
+
+.margin25 {
+    margin: 25%;
+}
+
+div .parraforesumen {
+    text-align: justify;
+    font-weight: normal !important;
+    padding: 5%;
+}
+
+.parraforesumen p {
+    margin: 0px;
+}

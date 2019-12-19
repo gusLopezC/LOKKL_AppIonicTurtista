@@ -1,0 +1,101 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button (click)="myBackButton()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="compartir()">
+                <ion-icon slot="icon-only" name="share"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-buttons (click)="agregarFavoritos()">
+                <ion-icon slot="icon-only" [name]="estrella"></ion-icon>
+            </ion-buttons>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+    <ion-text>
+        <h2>Descripción</h2>
+    </ion-text>
+    <ion-text>
+        <p class="text-descripton" [innerHTML]='data?.schedulle'></p>
+    </ion-text>
+
+    <div class="hr"> </div>
+    <ion-text>
+        <h2 id="itinerario">Itinerario</h2>
+    </ion-text>
+    <ion-list mode='ios' lines='none'>
+        <ion-item *ngFor="let item of data?.itinerary">
+            <ion-buttons>
+                <ion-icon name="radio-button-off" style="zoom:2.0;"></ion-icon>
+            </ion-buttons>
+            <ion-label class="ion-text-wrap">
+                <h3> {{ item.itinerary}}</h3>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div class="hr"> </div>
+    <ion-text>
+        <h2 id="Incluido">Que incluye</h2>
+    </ion-text>
+    <ion-list mode='ios' lines='none'>
+        <ion-item *ngFor="let item of data?.whatsIncluded">
+            <ion-buttons>
+                <ion-icon color="success" name="checkmark-circle-outline" style="zoom:2.0;"></ion-icon>
+            </ion-buttons>
+            <ion-label class="ion-text-wrap">
+                <h3> {{ item.whatsIncluded}}</h3>
+
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div class="hr"> </div>
+    <ion-text>
+        <h2>Que no incluye</h2>
+    </ion-text>
+    <ion-list mode='ios' lines='none'>
+        <ion-item>
+            <ion-buttons>
+                <ion-icon color="danger" name="close-circle" style="zoom:2.0;"></ion-icon>
+            </ion-buttons>
+            <ion-label class="ion-text-wrap">
+                <h3> Propinas </h3>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-buttons>
+                <ion-icon color="danger" name="close-circle" style="zoom:2.0;"></ion-icon>
+            </ion-buttons>
+            <ion-label class="ion-text-wrap">
+                <h3> Servicios adicionales </h3>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div class="hr"> </div>
+    <ion-text>
+        <h2>Politicas de cancelación</h2>
+    </ion-text>
+    <ion-item lines='none'>
+        <ion-label class="ion-text-wrap">
+            <h3> Cuentas con 48 horas para cancelacion sin costo </h3>
+        </ion-label>
+    </ion-item>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button class="botonprimary" color="primary" expand="block" (click)="reservarTour()">
+            Reservar ya
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

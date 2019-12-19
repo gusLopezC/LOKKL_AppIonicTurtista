@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button (click)="myBackButton()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ 'CancelReservation.Title' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="puedeCancelar">
+        <div>
+            <h3 text-wrap>¿{{ 'CancelReservation.SeguroQuieresCancelar' | translate }} {{pedido.NameTour}} ?</h3>
+
+        </div>
+        <ion-list>
+            <br>
+            <h6>{{ 'CancelReservation.IndicaElMotivo' | translate }}</h6>
+            <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="radioGroupChange($event)">
+                <ion-item *ngFor="let item of radio_list" (ionSelect)="radioSelect($event)" text-wrap>
+                    <ion-label>{{item.text}}</ion-label>
+                    <ion-radio slot="start" name="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}" color="{{item.color}}" disabled="{{item.disabled}}"></ion-radio>
+                </ion-item>
+
+            </ion-radio-group>
+        </ion-list>
+    </div>
+
+    <div *ngIf="nopuedeCancelar">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>{{ 'CancelReservation.NopuedesCancelar' | translate }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                {{ 'CancelReservation.NopuedesCancelarText' | translate }}
+                <br><br> {{ 'CancelReservation.NopuedesCancelarText2' | translate }}
+                <br><br>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
+
+<ion-footer *ngIf="puedeCancelar">
+    <ion-toolbar>
+        <ion-button expand="block" (click)="CancelarTour()">{{ 'CancelReservation.CancelarTour' | translate }}</ion-button>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,49 @@
+<ion-content class="no-border">
+    <div *ngIf="Conexion">
+        <ion-refresher slot="fixed" (ionRefresh)="buscarTours($event)">
+            <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+        <ion-toolbar>
+            <ion-card class="cardsearch">
+                <img src="https://images.unsplash.com/photo-1464326230576-cf38ed045dfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1191&q=80" alt="">
+                <div class="text-white card-title">Reserva un tour con nosotros! <br></div>
+                <div class="card-search">
+                    <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Places" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
+                    <ion-list [hidden]="!search.length" lines='none'>
+                        <ion-item (click)="selectSearchResult(searchResults)">
+                            {{searchResults.description}}
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-card>
+        </ion-toolbar>
+        <app-listastours *ngIf="Existentours" [tours]="tours"></app-listastours>
+        <ion-slides [options]="sliderOpts" *ngIf="NoExistentours">
+            <ion-slide>
+                <div class="texto">
+                    <ion-icon name="search" style="zoom:4.0;"></ion-icon>
+                    <h2>Aun no tienes reservas</h2>
+                    <ion-label>Explora y encuentro tu viaje ideal</ion-label>
+                    <br><br>
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+
+    <div *ngIf="NoConexion">
+        <ion-slides [options]="sliderOpts">
+            <ion-slide>
+                <div class="texto">
+                    <h2>Hubo un error. <br> Por favor vuelve a intentar mas tarde</h2>
+                    <ion-label>Ponte en contacto con nosotros si el problema continua </ion-label>
+                    <br><br>
+                    <ion-button class="log-in-button" color="primary" expand="block" (click)="obtenerReservaciones()">
+                        Actualizar
+                    </ion-button>
+                </div>
+
+            </ion-slide>
+        </ion-slides>
+    </div>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-grid fixed>
+    <ion-row>
+        <div *ngFor="let reserva of reservas" class="fullwidth">
+            <ion-card class="tall">
+                <ion-toolbar>
+                    <div slot="start" style="padding-left: 5%; width: 100%;">
+                        <ion-card-subtitle *ngIf="reserva.status == 'Pendiente'">
+                            <ion-icon class="margin5" name="warning"></ion-icon> {{ 'Resertation.Pendiente' | translate }}</ion-card-subtitle>
+                        <ion-card-subtitle *ngIf="reserva.status == 'Aceptado'">
+                            <ion-icon class="margin5" name="checkmark"></ion-icon>{{ 'Resertation.Aceptado' | translate }}</ion-card-subtitle>
+                        <ion-card-subtitle *ngIf="reserva.status == 'Realizado'">
+                            <ion-icon class="margin5" name="done-all"></ion-icon>{{ 'Resertation.Realizado' | translate }}</ion-card-subtitle>
+                        <ion-card-subtitle *ngIf="reserva.status == 'Cancelado'">
+                            <ion-icon class="margin5" name="close-circle-outline"></ion-icon>{{ 'Resertation.Cancelado' | translate }}</ion-card-subtitle>
+                    </div>
+                    <div slot="end" *ngIf="reserva.status == 'Pendiente' || reserva.status == 'Aceptado'">
+                        <ion-button fill="clear" (click)="lanzarMenu(reserva)">
+                            <ion-icon slot="icon-only" name="more"></ion-icon>
+                        </ion-button>
+                    </div>
+                </ion-toolbar>
+                <ion-card-header>
+
+                    <ion-card-title><b>{{reserva.NameTour}}</b>
+                        <strong style="float: right;"> $ {{reserva.Monto}} {{reserva.Moneda}}</strong>
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-card-subtitle>{{ reserva.Fechareserva }}</ion-card-subtitle>
+                    <ion-list mode='ios' lines='none'>
+                        <ion-item>
+                            <ion-avatar slot="start">
+                                <img [src]="reserva.get_guia[0].img  | imagenprofile:'profile'">
+                            </ion-avatar>
+                            <ion-label>{{reserva.get_guia[0].name}}</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+    </ion-row>
+</ion-grid>

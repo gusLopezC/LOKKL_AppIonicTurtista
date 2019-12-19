@@ -1,0 +1,34 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button (click)="regresar()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'Help.Acerdede' | translate }}
+        </ion-title>
+
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-slides [options]="sliderOpts">
+        <ion-slide>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-img src="assets/img/logo.png"></ion-img>
+                </ion-col>
+                <br>
+                <ion-col size="12">
+                    <ion-label>Version 1.0.1</ion-label>
+                </ion-col>
+            </ion-row>
+
+        </ion-slide>
+    </ion-slides>
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="text-center">
+        <small> 2019 Lokkl Tour Servicies SA de CV. MR Todos los derechos reservados.</small>
+    </ion-toolbar>
+</ion-footer>

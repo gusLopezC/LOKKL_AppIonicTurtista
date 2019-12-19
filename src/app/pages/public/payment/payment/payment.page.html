@@ -1,0 +1,141 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button (click)="myBackButton()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            {{'Payment.Pago' | translate}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <h1><b>{{'Payment.Completapedido' | translate}} </b></h1>
+        <h4><b>{{tour?.name}}</b></h4>
+    </div>
+    <ion-list mode='ios' lines='none'>
+        <ion-item>
+            <ion-icon color="dark" slot="start" name="calendar"></ion-icon>
+            <ion-label><b>{{fechaCalender}}</b> </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon color="dark" slot="start" name="pin"></ion-icon>
+            <ion-label> <b>{{'Facturation.En' | translate}} {{ tour?.cuidad}}, {{ tour?.pais}}</b> </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon color="dark" slot="start" name="contacts"></ion-icon>
+            <ion-label><b>{{numberTuristias}} x {{'Facturation.Participantes' | translate}}</b> </ion-label>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label slot="start">
+                <h2><b>{{'Payment.Total' | translate}}:</b></h2>
+                <small>:</small>
+            </ion-label>
+            <ion-label slot="end" style="margin-inline-start: -20%;">
+                <h2><b>$ {{priceFinal}}</b></h2>
+                <small>$ {{comision}}</small>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div class="hr"></div>
+    <ion-list>
+        <ion-radio-group>
+            <ion-list-header>
+                <h4>{{'Payment.Seleccionametodopago' | translate}}</h4>
+            </ion-list-header>
+
+            <ion-item>
+                <ion-radio slot="start" value="Paypal" (ionSelect)="radioChecked('Paypal')"></ion-radio>
+                <ion-label>{{'Payment.Paypal' | translate}}</ion-label>
+                <ion-thumbnail slot="end">
+                    <img src="assets/icon/icon-paypal.png" />
+                </ion-thumbnail>
+            </ion-item>
+
+            <ion-item>
+                <ion-radio slot="start" value="Card" (ionSelect)="radioChecked('Card')"></ion-radio>
+                <ion-label>{{'Payment.Tarjeta' | translate}}</ion-label>
+                <ion-thumbnail slot="end">
+                    <img src="assets/icon/icon-visa.png" />
+                </ion-thumbnail>
+                <ion-thumbnail slot="end">
+                    <img src="assets/icon/icon-mastercard.png" />
+                </ion-thumbnail>
+            </ion-item>
+
+        </ion-radio-group>
+    </ion-list>
+
+    <div *ngIf="metododepago == 1">
+        <form [formGroup]='PagoForm' (ngSubmit)="guardar(formulario)">
+            <ion-item>
+                <ion-label position="floating">{{ 'Payment.NameCard' | translate }}</ion-label>
+                <ion-input class="form-control" type="text" formControlName="nameCard" required>
+                </ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">{{ 'Payment.NumberCard' | translate }}</ion-label>
+                <ion-input class="form-control" type="number" formControlName="numberCard" required>
+                </ion-input>
+            </ion-item>
+            <ion-row>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-select formControlName="expMonth">
+                            <ion-label position="floating">{{ 'Payment.MesExpiracion' | translate }}</ion-label>
+                            <ion-select-option value="01">January</ion-select-option>
+                            <ion-select-option value="02">February</ion-select-option>
+                            <ion-select-option value="03">March</ion-select-option>
+                            <ion-select-option value="04">April</ion-select-option>
+                            <ion-select-option value="05">May</ion-select-option>
+                            <ion-select-option value="06">June</ion-select-option>
+                            <ion-select-option value="07">July</ion-select-option>
+                            <ion-select-option value="08">August</ion-select-option>
+                            <ion-select-option value="09">September</ion-select-option>
+                            <ion-select-option value="10">October</ion-select-option>
+                            <ion-select-option value="11">November</ion-select-option>
+                            <ion-select-option value="12">December</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-select formControlName="expYear">
+                            <ion-label position="floating">{{ 'Payment.AnioExpiracion' | translate }}</ion-label>
+                            <ion-select-option value="19">2019</ion-select-option>
+                            <ion-select-option value="20">2020</ion-select-option>
+                            <ion-select-option value="21">2021</ion-select-option>
+                            <ion-select-option value="22">2022</ion-select-option>
+                            <ion-select-option value="23">2023</ion-select-option>
+                            <ion-select-option value="24">2024</ion-select-option>
+                            <ion-select-option value="25">2025</ion-select-option>
+                            <ion-select-option value="26">2026</ion-select-option>
+                            <ion-select-option value="27">2027</ion-select-option>
+                            <ion-select-option value="28">2028</ion-select-option>
+                            <ion-select-option value="29">2029</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-item>
+                <ion-label position="floating">{{ 'Login.CVV' | translate }}</ion-label>
+                <ion-input class="form-control" type="number" formControlName="cvc" minlength="3" maxlength="4" required>
+                </ion-input>
+            </ion-item>
+            <br>
+            <br>
+            <ion-button [disabled]="!PagoForm.valid" expand="full" color="primary" (click)="payWithStripe()"><b>{{ 'Login.Reservar' | translate }}</b></ion-button>
+
+        </form>
+    </div>
+
+    <div>
+        <ion-button expand="full" color="primary" (click)="payWithPaypal()">
+            <ion-icon name="card"></ion-icon>
+            Pay with PayPal</ion-button>
+    </div>
+</ion-content>

@@ -1,0 +1,86 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/">
+            </ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <div class="user-box">
+        <ion-row>
+            <ion-col size="12">
+                {{ 'Profile.Comopodemosayudarte' | translate }}
+            </ion-col>
+        </ion-row>
+    </div>
+    <br><br>
+    <h3><strong>
+        {{ 'Help.HelpTitle' | translate }}
+    </strong></h3>
+    <br><br>
+    <h6><strong>
+        {{ 'Help.Tienesunapregunta' | translate }}
+    </strong></h6>
+    <div class="texto">
+        <p>{{ 'Help.TienesunapreguntaTexto' | translate }} </p>
+        <p (click)="abrirlink()">{{ 'Help.LLevameahora' | translate }}</p>
+        <br>
+    </div>
+    <ion-list>
+        <ion-item (click)="changeWhatsapp()">
+            <ion-icon color="success" slot="start" name="logo-whatsapp"></ion-icon>
+            <ion-label>{{ 'Help.EnvianosWhatsApp' | translate }}</ion-label>
+        </ion-item>
+        <ion-row *ngIf="verWhatsapp">
+            <ion-card-content>
+                <br> {{ 'Help.EnvianosWhatsAppText' | translate }}
+                <br>
+                <br>
+                <ion-text>
+                    <p color="secondary-shade" onclick="window.plugins.socialsharing.shareViaWhatsAppToPhone('+524425944974', '', null /* img */, null /* url */, function() {console.log('share ok')})">
+                        + 52 442 594 4974</p>
+                </ion-text>
+                <br>
+            </ion-card-content>
+        </ion-row>
+
+        <ion-item (click)="changeCorreo()">
+            <ion-icon slot="start" name="mail" color="danger"></ion-icon>
+            <ion-label>{{ 'Help.Enviamosmail' | translate }}</ion-label>
+        </ion-item>
+        <ion-row>
+            <ion-card-content *ngIf="verCorreo">
+                <br> {{ 'Help.EnviamosmailText' | translate }}
+                <form [formGroup]='contactForm' (ngSubmit)="sendEmail()">
+                    <ion-item>
+                        <ion-label position="floating">{{ 'Login.Name' | translate }} </ion-label>
+                        <ion-input class="form-control" type="text" formControlName="name" required>
+                        </ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">{{ 'Login.Email' | translate }} </ion-label>
+                        <ion-input class="form-control" type="email" formControlName="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
+                        </ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">{{ 'Login.Password' | translate }} </ion-label>
+                        <ion-textarea class="form-control" formControlName="message" type="text">
+                        </ion-textarea>
+                    </ion-item>
+                    <br>
+                    <br>
+                    <br>
+                    <!--password-->
+                    <ion-row>
+                        <ion-col size="12" style="margin:auto">
+                            <ion-button [disabled]="!contactForm.valid" color="primary" type="submit" expand="full" shape="round" class="btn-primary" mode="ios">
+                                {{ 'Login.IniciarSesion' | translate }}
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-card-content>
+        </ion-row>
+    </ion-list>
+</ion-content>

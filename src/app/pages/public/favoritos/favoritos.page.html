@@ -1,0 +1,22 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-title>{{ 'Favoritos.Favoritos' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-slides [options]="sliderOpts" *ngIf="_dataLocalService.tours.length === 0">
+        <ion-slide>
+            <div class="texto">
+                <h2>{{ 'Favoritos.NotienesFavoritos' | translate }}</h2>
+                <ion-label>{{ 'Favoritos.NotienesActividades' | translate }}</ion-label>
+                <br><br>
+                <ion-button class="log-in-button" color="primary" expand="block" [routerLink]="['/home/home']" routerLinkActive="router-link-active">
+                    {{ 'Favoritos.Exploremos' | translate }}
+                </ion-button>
+            </div>
+
+        </ion-slide>
+    </ion-slides>
+    <app-listastours *ngIf="_dataLocalService.tours.length > 0" [tours]="_dataLocalService.tours"></app-listastours>
+</ion-content>

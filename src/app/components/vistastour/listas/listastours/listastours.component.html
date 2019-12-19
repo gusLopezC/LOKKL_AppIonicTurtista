@@ -1,0 +1,18 @@
+<ion-grid fixed>
+    <ion-row>
+        <div *ngFor="let tour of tours">
+            <ion-card class="tall" (click)="abrirTour(tour)">
+                <img alt="featureimg" [src]="tour.get_photos[0].photo | imagenprofile">
+                <ion-card-header>
+                    <ion-card-title><b>{{tour.name}}</b></ion-card-title>
+                    <div class="hr"></div>
+                </ion-card-header>
+                <ion-card-content>
+                    <p class="price"> $ {{tour.price}} {{tour.moneda}}</p>
+                    <app-stars [rating]="tour?.calification"></app-stars>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+    </ion-row>
+</ion-grid>

@@ -1,0 +1,144 @@
+form {
+    padding: 6%;
+}
+
+.hr {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+    width: 100%;
+}
+
+ion-button {
+    --ion-button-round-border-radius: 50px;
+    --ion-button-border-radius: 50px;
+    --ion-border-radius: 50px;
+    --border-radius: 50px;
+}
+
+.list-md {
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+
+/*
+  *Profile 
+  */
+
+.bg-gradient {
+    background: linear-gradient(90deg, rgba(0, 78, 160, 1) 0%, rgba(0, 78, 160, 1) 100%);
+    background-image: linear-gradient(90deg, rgba(0, 78, 160, 1) 0%, rgba(0, 78, 160, 1) 100%);
+    --background: linear-gradient(90deg, rgba(0, 78, 160, 1) 0%, rgba(0, 78, 160, 1) 100%);
+}
+
+.searchbar-white {
+    --background: white;
+}
+
+$image-size: 120px;
+.description {
+    text-align: center;
+}
+
+.bg-secondary {
+    background-color: var(--ion-color-primary)
+}
+
+.border-white {
+    border-color: #FAFAFA !important;
+}
+
+.empty {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.image-round {
+    background-color: #CECECE;
+    border: 2px solid #FAFAFA;
+    border-radius: 50%;
+    display: block;
+    height: $image-size;
+    margin: 0 auto;
+    width: $image-size;
+}
+
+.image-over-div {
+    margin-top: -($image-size/ 2);
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.text-bold {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.text-profile {
+    font-size: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.text-job {
+    font-size: 12px;
+}
+
+.text-statics-big {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.text-primary {
+    color: var(--ion-color-primary) !important;
+}
+
+.text-tertiary {
+    color: var(--ion-color-tertiary) !important;
+}
+
+.text-muted {
+    color: #898c91 !important;
+}
+
+.text-white {
+    color: #FAFAFA !important;
+}
+
+.vertical-padding {
+    padding-bottom: 15px;
+    padding-top: 15px
+}
+
+
+/*
+  *Calendario 
+  */
+
+.li-ionic4-datePicker {
+    .modal-wrapper {
+        height: 470px;
+        max-height: 100%;
+        width: 312px;
+    }
+}
+
+.li-ionic4-datePicker {
+    .modal-wrapper {
+        height: 470px;
+        max-height: 100%;
+        width: 312px;
+    }
+}
+
+ion-toolbar {
+    --background-color: transparent;
+    --ion-color-base: transparent !important;
+}

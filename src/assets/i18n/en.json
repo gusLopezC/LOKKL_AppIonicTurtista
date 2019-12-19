@@ -1,0 +1,110 @@
+{
+    "TabsMenu": {
+        "Explora": "Explora",
+        "Reservaciones": "Reservaciones",
+        "Favoritos": "Favoritos",
+        "Perfil": "Perfil"
+    },
+    "Login": {
+        "Welcome1": "Descubre que hacer en los alrededores",
+        "Welcome2": "Reserva experiencias inolvidables",
+        "Welcome3": "Reserva experiencias inolvidables",
+        "IniciarSesion": "Iniciar Sesión",
+        "Comenzar": "Comenzar",
+        "LoginGoogle": "Iniciar Sesion con Google",
+        "LoginFacebook": "Iniciar Sesion con Facebook",
+        "LoginMail": "Iniciar Sesion con Mail",
+        "¿Olvidastetucontraseña?": "¿Olvidaste tu contraseña?",
+        "Reservaexperiencia": "Reserva experiencias inovidables en todo el mundo",
+        "Registrate": "Registrate",
+        "Registrarme": "Registrarme",
+        "Name": "Nombre",
+        "Email": "Correo electronico",
+        "Password": "Contraseña",
+        "AceptasTerminos1": "Al continar, confirmas que haz leido y aceptas nuestras",
+        "AceptasTerminos2": "Condiciones de uso",
+        "AceptasTerminos3": "Privacidad",
+        "Olvidemicontrasena": "Olvidé mi contraseña",
+        "OlvidemicontrasenaTexto": "Introduce tu dirección de correo electronico y te enviaremos un enlace para configurar una nueva contraseña",
+        "Recuperar": "Recuperar",
+        "": ""
+    },
+    "Profile": {
+        "MyPerfil": "Mi Perfil",
+        "IniciaSesion": " Inicia sesión o registrate",
+        "SincronizaSesion": "Sincroniza tu reservacion y administra tu tour y accede mas rapido a tus actividades favoritas.",
+        "IniciarSesion": "Iniciar Sesión",
+        "Editar": "Editar",
+        "Comofunciona": "Como funciona",
+        "Terminosycondiciones": "Terminos y condiciones",
+        "Comopodemosayudarte": "¿Como podemos ayudarte?",
+        "AcerdedeLOKKL": "Acerde de LOKKL",
+        "CerrarSesion": "Cerrar Sesión"
+
+    },
+
+    "EditProfile": {
+        "EditProfileTitle": "Editar Perfil",
+        "Selectphoto": "Actualiza tu foto",
+        "InformacionPersonal": "Informacion personal",
+        "name": "Nombre",
+        "telephone": "Telefono",
+        "Biografia": "Biografia",
+        "Enviar": "Enviar",
+        "ChangePassword": "Cambiar Contraseña",
+        "PasswordActual": "Contraseña Actual",
+        "PasswordOld": "Nueva Contraseña",
+        "PasswordOldConfirm": "Confirma tu nueva contraseña",
+        "Desactivarcuenta": "Desactivar cuenta",
+        "DesactivarcuentaTexto": "Si desactiva su cuenta, ya no estará disponible. No podrá iniciar sesión y acceder a su perfil. Todas las opiniones, fotos y consejos que ha proporcionado específicamente aparecieron en el sitio web.",
+        "Deletecuenta": " Desactivar cuenta"
+
+    },
+    "ComoFunciona": {
+        "ComoFuncionaTitle": "Diseña tu viaje ideal",
+        "Title1": "Busca tu destino",
+        "Title1Texto": "Descubre el mundo a través de la mirada de LOKKL, el ingrediente mágico de tu viaje es nuestra obsesión por personalizar tu experiencia, de acuerdo a lo que desees conocer y sugerirte lo que solo un LOKKL conoce.",
+        "Title2": "Elige entre múltiples opciones",
+        "Title2Texto": "Selecciona la opción que más te agrade entre nuestros guías certificados y exclusivos tours y ¡listo! tendrás el tour a tu medida, reservado y garantizado.",
+        "Title3": "Hora de viajar",
+        "Title3Texto": "Hay muchas y diferentes maneras de viajar, pero tú, has elegido la mejor, solo te queda disfrutar de esta inigualable experiencia. Nuestro equipo de especialistas está para servirte 24/7.",
+        "Title4": "Comparte tu experiencia",
+        "Title4Texto": "Ayudanos a mejorar nuestro servicio comparte y califica tu experiencia."
+
+    },
+    "Help": {
+        "HelpTitle": "Necesitas contactarnos",
+        "Enviamosmail": "Enviamos un email",
+        "EnviamosmailText": "Escribe a nuestro departamento de atención al cliente",
+        "EnvianosWhatsApp": "Escribemos via WhatsApp",
+        "EnvianosWhatsAppText": "Escribemos de manera directa y rapida, uno de nuestros representantes te atendera a la brevedad",
+        "Tienesunapregunta": "¿Tienes una pregunta?",
+        "TienesunapreguntaTexto": "Si tienes alguna pregunta puedes consultar nuestra seccion de ayuda y te apoyaremos en cad apaso ",
+        "LLevameahora": "LLevame ahora",
+        "Acerdede": "Acerde de Lokkl"
+    },
+    "Favoritos": {
+        "Favoritos": "Favoritos",
+        "NotienesFavoritos": "Parece que aun no tienes favoritos",
+        "NotienesActividades": "No tienes actividades o actracciones aun explora uno de nuestros destinos",
+        "Exploremos": "Exploremos"
+    },
+    "Resertation": {
+        "Title": "Reservaciones",
+        "Activas": "Activas",
+        "Historial": "Historial",
+        "NoSesion": "Inicia sesión para sincronizar tus resevas",
+        "IniciaSesion": "Inicia Sesión",
+        "NotienesReservaciones": "Aun no tienes reservaciones",
+        "NotienesHistorial": "No tienes viajes en historial",
+        "Explora": "Explora y encuentra tu viaje idea"
+    },
+    "Alertas": {
+        "Exploremos": "Exploremos",
+        "HuboError": "Hubo un error.",
+        "Nointernet": "Por favor vuelve a intentar mas tarde",
+        "NoInternet2": "Ponte en contacto con nosotros si el problema continua",
+        "Actualizar": "Actualizar"
+    }
+
+}

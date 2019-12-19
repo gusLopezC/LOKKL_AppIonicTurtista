@@ -1,0 +1,26 @@
+img {
+    max-height: 400px;
+}
+
+@media screen and (max-height: 775px) {
+    img {
+        width: 70%;
+    }
+}
+
+.logo {
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+.description {
+    font-size: 22px;
+    text-align: center;
+}
+
+.log-in-button {
+    margin: 5%;
+    font-weight: bold;
+}

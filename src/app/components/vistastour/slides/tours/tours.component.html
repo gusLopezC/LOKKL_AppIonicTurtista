@@ -1,0 +1,26 @@
+<ion-grid fixed>
+    <ion-row fixed>
+        <ion-col size="12">
+            <ion-slides pager="false" [options]="slideOpts">
+                <ion-slide *ngFor="let tour of tours">
+                    <ion-row (click)="abrirTour(tour)">
+                        <ion-col size="6">
+                            <ion-img [src]="tour.get_photos[0].photo | imagenprofile"></ion-img>
+                        </ion-col>
+                        <ion-col size="6" class="mx-auto">
+                            <ion-text>
+                                <p><b>{{tour.name}}</b></p>
+                            </ion-text>
+                            <ion-text>
+                                <p class="price"> $ {{tour.price}} {{tour.moneda}}</p>
+                                <app-stars [rating]="tour?.calification"></app-stars>
+                            </ion-text>
+                        </ion-col>
+
+                    </ion-row>
+                </ion-slide>
+
+            </ion-slides>
+        </ion-col>
+    </ion-row>
+</ion-grid>

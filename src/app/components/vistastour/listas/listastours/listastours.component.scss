@@ -1,0 +1,44 @@
+    img {
+        height: 200px;
+        width: 100%;
+    }
+    
+    .mx-auto {
+        margin: auto;
+    }
+    
+    p {
+        margin: 1px !important;
+    }
+    
+    .price {
+        padding-left: 5%;
+        font-size: 13px;
+        text-align: justify;
+    }
+    
+    ion-card {
+        margin-inline-start: 5px;
+        margin-inline-end: 5px;
+    }
+    
+    .ion-card img {
+        height: 250px;
+    }
+    
+    ion-card-header {
+        padding-inline-start: 5px;
+        padding-inline-end: 5px;
+        padding-bottom: 0px !important;
+    }
+    
+    ion-card-title {
+        font-size: 20px;
+    }
+    
+    ion-card-content {
+        padding-inline-start: 0px;
+        padding-inline-end: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }

@@ -1,0 +1,36 @@
+<div>
+    <ion-card class="cardsearch">
+        <img src="assets/img/fondobusqueda.jpg" alt="">
+        <div class="text-white card-title">Reserva un tour con nosotros! <br></div>
+        <div class="card-search">
+            <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Categories" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
+            <ion-list [hidden]="!search.length" lines='none'>
+                <ion-item (click)="selectSearchResult(searchResults)">
+                    {{searchResults.description}}
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-card>
+</div>
+<div>
+    <div *ngIf="tours.length >= 1">
+        <ion-text>
+            <h6><b>Nuevos Tours</b></h6>
+        </ion-text>
+        <app-tours [tours]="tours"></app-tours>
+    </div>
+
+    <div *ngIf="toursMexico.length >= 1">
+        <ion-text>
+            <h6><b>Conoce Mexico</b></h6>
+        </ion-text>
+        <app-tours [tours]="toursMexico"></app-tours>
+    </div>
+
+    <div *ngIf="toursPeru.length >= 1">
+        <ion-text>
+            <h6><b>Conoce Peru</b></h6>
+        </ion-text>
+        <app-tours [tours]="toursPeru"></app-tours>
+    </div>
+</div>

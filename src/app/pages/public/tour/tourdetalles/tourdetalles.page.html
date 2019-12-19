@@ -1,0 +1,124 @@
+<ion-header no-border *ngIf="tour">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button (click)="myBackButton()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ tour?.name}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="compartir()">
+                <ion-icon slot="icon-only" name="share"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-buttons (click)="agregarFavoritos()">
+                <ion-icon slot="icon-only" [name]="estrella"></ion-icon>
+            </ion-buttons>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="tour">
+    <ion-slides pager="true">
+        <ion-slide *ngFor="let fotos of tour?.get_photos" class="image-slide">
+            <ion-img [src]="fotos.photo | imagenprofile"></ion-img>
+
+        </ion-slide>
+    </ion-slides>
+    <ion-row>
+        <h3>{{ tour?.name}}</h3>
+        <ion-col size="4">
+            <app-stars [rating]="tour?.calification"></app-stars>
+        </ion-col>
+        <ion-col size="8">
+            <ion-list mode='ios' lines='none'>
+                <ion-item expand="block" fill="clear" style="margin: auto;">
+                    <b>  {{ 'TourDetalle.Desde' | translate }}  {{ tour?.price}} {{ tour?.moneda}} <small> {{ 'TourDetalle.porpersona' | translate }} </small></b>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+        <ion-col size=12>
+            <ion-button class="botonprimary" color="primary" expand="block" (click)="reservarTour()">
+                {{ 'TourDetalle.Reservarya' | translate }}
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <br>
+    <ion-text id="testitem">
+        <h5>{{ 'TourDetalle.Informaciongeneral' | translate }}</h5>
+    </ion-text>
+    <ion-list mode='ios' lines='none'>
+        <ion-item>
+            <ion-icon color="dark" slot="start" name="time"></ion-icon>
+            <ion-label> <small>{{ 'TourDetalle.Duración' | translate }} {{ tour?.duration }} hrs.</small> </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon color="danger" slot="start" name="pin"></ion-icon>
+            <ion-label> <small>{{ 'TourDetalle.Lugar' | translate }} {{ tour?.cuidad}}</small> </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon color="success" slot="start" name="globe"></ion-icon>
+            <ion-label> <small>{{ 'TourDetalle.Disponibleen' | translate }} {{ tour?.lenguajes}}</small> </ion-label>
+        </ion-item>
+
+    </ion-list>
+    <ion-text>
+        <h5>{{ 'TourDetalle.Conocemasdetalles' | translate }}</h5>
+    </ion-text>
+    <br>
+    <ion-text>
+        <div *ngFor="let parrafo of resumenSchedulle">
+            <div class="parraforesumen" [innerHTML]='parrafo'></div>
+        </div>
+
+    </ion-text>
+    <ion-list mode='ios' lines='none'>
+        <ion-item detail (click)=" obtenerDetallesTour( 'detalles') ">
+            <ion-label>
+                {{ 'TourDetalle.Detallescompletos' | translate }}
+            </ion-label>
+        </ion-item>
+        <ion-item detail (click)="obtenerDetallesTour( 'itinerario') ">
+            <ion-label>
+                {{ 'TourDetalle.Itinerario' | translate }}
+            </ion-label>
+        </ion-item>
+        <ion-item detail (click)="obtenerDetallesTour( 'Incluido') ">
+            <ion-label>
+                {{ 'TourDetalle.Queincluye' | translate }}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div class="hr "> </div>
+    <!-- -->
+    <ion-text>
+        <h5> {{ 'TourDetalle.Queincluye' | translate }} </h5>
+    </ion-text>
+    <ion-text>
+        <p>{{tour?.puntoInicio}}</p>
+    </ion-text>
+    <app-mapa-tour [coordenadas]="tour?.mapaGoogle "></app-mapa-tour>
+    <br>
+    <ion-list mode='ios' lines='none'>
+        <ion-item detail (click)="mandaraGoogleMaps() ">
+            <ion-label>
+                {{ 'TourDetalle.AbrirGoogleMaps' | translate }}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div class="hr "> </div>
+    <ion-text>
+        <h5> {{ 'TourDetalle.TuLOKKL' | translate }}</h5>
+    </ion-text>
+    <div class="bg-secondary vertical-padding ">
+
+        <img [src]="guia?.img | imagenprofile: 'profile' " alt=" " class="image-round ">
+
+        <div class="ion-text-center ">
+            <h4>{{ guia?.name}}</h4>
+        </div>
+    </div>
+    <div class="margin25 "></div>
+</ion-content>

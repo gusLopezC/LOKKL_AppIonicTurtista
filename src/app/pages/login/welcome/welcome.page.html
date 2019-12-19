@@ -1,0 +1,29 @@
+<ion-content fullscreen padding scroll-y="true">
+    <ion-slides>
+
+        <ion-slide>
+            <img src="https://lokkl.com/assets/img/aboutus/mosaico/Mexico.jpg" />
+            <h2>{{ 'Login.Welcome1' | translate }}
+            </h2>
+        </ion-slide>
+
+        <ion-slide>
+            <img src="https://lokkl.com/assets/img/aboutus/mosaico/USA.jpg" />
+            <h2>{{ 'Login.Welcome2' | translate }}</h2>
+        </ion-slide>
+
+        <ion-slide>
+            <img src="https://lokkl.com/assets/img/aboutus/mosaico/France.jpg" />
+            <h2>{{ 'Login.Welcome3' | translate }}</h2>
+            <ion-button fill="clear" [routerLink]="['/login']" routerLinkActive="router-link-active"> {{ 'Login.IniciarSesion' | translate }}
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+            <br>
+            <ion-button fill="clear" [routerLink]="['/home/home']" routerLinkActive="router-link-active">{{ 'Login.Comenzar' | translate }}
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+
+        </ion-slide>
+
+    </ion-slides>
+</ion-content>

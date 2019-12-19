@@ -1,0 +1,55 @@
+.alingright {
+    float: right;
+}
+
+ion-item {
+    --border-width: 0;
+    --inner-border-width: 0;
+    --show-full-highlight: 0;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    ion-label {
+        overflow: visible;
+    }
+}
+
+.floatingwithicon {
+    .calicon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .clearButton {
+        right: 37px !important;
+        bottom: 9px !important;
+    }
+}
+
+.inputcalender {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.botondecremen {
+    zoom: 1.5;
+    margin-right: 15px;
+}
+
+.botonincrement {
+    zoom: 1.5;
+    margin-left: 15px;
+}
+
+h3,
+h5,
+p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.iconmargin {
+    margin-inline-end: 32px;
+    margin-left: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
