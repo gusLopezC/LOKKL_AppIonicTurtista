@@ -40,7 +40,7 @@ export class AppComponent {
         this.router.navigate(['/home/home']);
         this.splashScreen.hide();
       } else {
-        this.router.navigate(['/welcome']);
+        this.router.navigate(['/login']);
         this.splashScreen.hide();
       }
 

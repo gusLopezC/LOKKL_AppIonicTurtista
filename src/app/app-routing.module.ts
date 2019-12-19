@@ -6,9 +6,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './pages/public/tabs/tabs.module#TabsPageModule' },
 
   // Login
-  { path: 'welcome', loadChildren: './pages/login/welcome/welcome.module#WelcomePageModule' },
   { path: 'login', loadChildren: './pages/login/login/login.module#LoginPageModule' },
-  { path: 'loginemail', loadChildren: './pages/login/loginemail/loginemail.module#LoginemailPageModule' },
   { path: 'register', loadChildren: './pages/login/register/register.module#RegisterPageModule' },
 
   // Tour

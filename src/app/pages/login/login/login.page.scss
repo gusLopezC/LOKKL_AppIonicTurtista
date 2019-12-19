@@ -1,26 +1,10 @@
-img {
-    max-height: 400px;
-}
-
-@media screen and (max-height: 775px) {
-    img {
-        width: 70%;
+:host {
+    ion-content {
+        --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
     }
 }
 
-.logo {
-    font-size: 64px;
-    font-weight: bold;
-    text-align: center;
-    margin: auto;
-}
-
-.description {
-    font-size: 22px;
-    text-align: center;
-}
-
-.log-in-button {
-    margin: 5%;
-    font-weight: bold;
+.paz {
+    position: relative;
+    z-index: 10;
 }

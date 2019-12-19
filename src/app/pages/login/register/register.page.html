@@ -1,57 +1,96 @@
-<ion-header no-border>
-    <ion-toolbar color="primary">
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
-        <ion-title>
-            {{ 'Login.Registrarme' | translate }}
-        </ion-title>
-    </ion-toolbar>
-</ion-header>
+<ion-content padding class="login auth-page">
 
-<ion-content fullscreen padding scroll-y="true">
-    <ion-row>
-        <ion-col size="12">
-            <h1 class="description bold"></h1>
-        </ion-col>
-    </ion-row>
-    <form [formGroup]='loginForm' (ngSubmit)="register(formulario)">
-        <ion-item>
-            <ion-label position="floating">{{ 'Login.Name' | translate }} </ion-label>
-            <ion-input class="form-control" type="text" formControlName="name" required>
-            </ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">{{ 'Login.Email' | translate }} </ion-label>
-            <ion-input class="form-control" type="email" formControlName="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
-            </ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">{{ 'Login.Password' | translate }} </ion-label>
-            <ion-input class="form-control" formControlName="password" type="password" required>
-            </ion-input>
-            <div *ngIf="loginForm.controls.password.required">
-                Passwords should be at least 6 characters.
-            </div>
-        </ion-item>
-        <br>
-        <br>
-        <br>
-        <!--password-->
-        <ion-row>
+    <div class="auth-content">
+        <!-- Logo -->
+        <div padding-horizontal text-center>
+            <div class="logo"></div>
+            <h3 no-margin>
+                <ion-text color="light" class="fw700">
+                    <ion-text color="secondary">Register</ion-text>
+                </ion-text>
+            </h3>
+        </div>
 
-            <ion-col size="12" style="margin:auto">
-                <ion-button [disabled]="!loginForm.valid" color="primary" type="submit" expand="full" shape="round" class="btn-primary" mode="ios">
-                    {{ 'Login.IniciarSesion' | translate }}
-                </ion-button>
-            </ion-col>
-            <ion-col size="12">
-                <h3 class="description">{{ 'Login.AceptasTerminos1' | translate }}
-                    <ion-text color="primary" (click)="abrirlink('https://lokkl.com/support/termsAndConditions')">{{ 'Login.AceptasTerminos2' | translate }} </ion-text> &
-                    <ion-text color="primary" (click)="abrirlink('https://lokkl.com/support/privacity')">{{ 'Login.AceptasTerminos3' | translate }}</ion-text>
-                </h3>
-            </ion-col>
-        </ion-row>
-    </form>
+        <!-- Register form -->
+        <form [formGroup]="onRegisterForm" class="list-form">
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="mail" item-start></ion-icon>
+                    Full Name
+                </ion-label>
+                <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">
+                <ion-text color="warning">
+                    This field is required
+                </ion-text>
+            </p>
 
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="mail" item-start></ion-icon>
+                    Email
+                </ion-label>
+                <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
+                <ion-text color="warning">
+                    This field is required
+                </ion-text>
+            </p>
+
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="lock" item-start></ion-icon>
+                    Password
+                </ion-label>
+                <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+                <ion-text color="warning">
+                    This field is required
+                </ion-text>
+            </p>
+        </form>
+
+        <div margin-top>
+            <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="signUp()" [disabled]="!onRegisterForm.valid" tappable>
+                <ion-icon name="log-in"></ion-icon>
+                Sign Up
+            </ion-button>
+
+            <p text-center>
+                <ion-text color="light">
+                    Or Sign Up with:
+                </ion-text>
+            </p>
+
+            <ion-grid class="btn-group">
+                <ion-row>
+                    <ion-col size="2"> </ion-col>
+                    <ion-col size="4">
+                        <ion-button shape="round" (click)="LoginFacebook()" expand="full" color="secondary">
+                            <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-button shape="round" expand="full" color="secondary">
+                            <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </div>
+
+        <!-- Other links -->
+        <div text-center margin-top>
+            <span [routerLink]="['/login']" routerLinkActive="router-link-active" tappable>
+                <ion-text color="light">
+          <strong>I have an account!</strong>
+        </ion-text>
+      </span>
+        </div>
+
+    </div>
 </ion-content>

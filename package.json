@@ -44,7 +44,6 @@
         "com.paypal.cordova.mobilesdk": "^3.5.0",
         "cordova-android": "^8.1.0",
         "cordova-browser": "^6.0.0",
-        "cordova-plugin-facebook4": "^6.2.0",
         "cordova-plugin-geolocation": "^4.0.2",
         "cordova-plugin-googlemaps": "^2.6.2",
         "cordova-plugin-inappbrowser": "^3.1.0",
@@ -120,7 +119,6 @@
             }
         },
         "platforms": [
-            "browser",
             "android"
         ]
     }

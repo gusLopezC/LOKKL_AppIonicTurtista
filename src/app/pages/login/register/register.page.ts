@@ -14,41 +14,39 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class RegisterPage {
 
-  usuario: Usuario;
-  loginForm: FormGroup;
+  public onRegisterForm: FormGroup;
   role: string;
 
   constructor(
     private formBuilder: FormBuilder,
-    private modalCtrl: ModalController,
     private _usuariosService: UsuariosService,
     public navCtrl: NavController,
-    private toastController: ToastController,
-    private router: Router,
-    private iab: InAppBrowser) {
-    this.loginForm = formBuilder.group({
-      name: ['', Validators.compose([Validators.required])],
-      email: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+) {
+  }
+
+  ngOnInit() {
+    this.onRegisterForm = this.formBuilder.group({
+      'fullName': [null, Validators.compose([Validators.required])],
+      'email': [null, Validators.compose([Validators.required])],
+      'password': [null, Validators.compose([Validators.required])]
     });
   }
 
-  async register() {
+  async signUp() {
 
     const usuario = new Usuario(
-      this.loginForm.value.name,
-      this.loginForm.value.email,
-      this.loginForm.value.password,
-      this.loginForm.value.image,
-      this.loginForm.value.telefono,
-      this.loginForm.value.infopersonal,
+      this.onRegisterForm.value.fullName,
+      this.onRegisterForm.value.email,
+      this.onRegisterForm.value.password,
+      this.onRegisterForm.value.image,
+      this.onRegisterForm.value.telefono,
+      this.onRegisterForm.value.infopersonal,
       this.role = 'USER_ROLE',
-      this.loginForm.value.google,
+      this.onRegisterForm.value.google,
     );
 
 
     const valido = await this._usuariosService.register(usuario);
-    console.log(valido);
     if (valido) {
       this.navCtrl.navigateRoot('/home/home', { animated: true });
     } else {
@@ -56,22 +54,5 @@ export class RegisterPage {
 
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'Se a registrado correctamente',
-      duration: 2000
-    });
-    toast.present();
-  }
-
-
-  abrirlink(url: string) {
-    const browser = this.iab.create(url);
-
-  }
-
-  regresar() {
-    this.modalCtrl.dismiss();
-  }
 
 }
