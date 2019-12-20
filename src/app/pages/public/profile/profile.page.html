@@ -42,26 +42,31 @@
     </ion-grid>
     <ion-list mode='ios' lines='none'>
         <ion-item detail [routerLink]="[ '/comofunciona'] " routerLinkActive="router-link-active ">
+            <ion-icon name="help" slot="start"></ion-icon>
             <ion-label>
                 {{ 'Profile.Comofunciona' | translate }}
             </ion-label>
         </ion-item>
         <ion-item detail [routerLink]="[ '/termsandcondicions'] " routerLinkActive="router-link-active ">
+            <ion-icon name="help-circle-outline" slot="start"></ion-icon>
             <ion-label>
                 {{ 'Profile.Terminosycondiciones' | translate }}
             </ion-label>
         </ion-item>
         <ion-item detail [routerLink]="[ '/help'] " routerLinkActive="router-link-active ">
+            <ion-icon name="help-buoy" slot="start"></ion-icon>
             <ion-label>
                 {{ 'Profile.Comopodemosayudarte' | translate }}
             </ion-label>
         </ion-item>
         <ion-item detail (click)="abrirAboutUs() ">
+            <ion-icon name="cog" slot="start"></ion-icon>
             <ion-label>
                 {{ 'Profile.AcerdedeLOKKL' | translate }}
             </ion-label>
         </ion-item>
-        <ion-item detail *ngIf="user ">
+        <ion-item detail *ngIf="user">
+            <ion-icon name="arrow-forward" slot="start"></ion-icon>
             <ion-label (click)="cerrarSesion() ">
                 {{ 'Profile.CerrarSesion' | translate }}
             </ion-label>

@@ -40,14 +40,15 @@ export class SearchTourPage implements OnInit {
     private _networkService: NetworkService,
     private loadingController: LoadingController
   ) {
-    this.route.queryParams.subscribe(params => {
+  }
+
+  async ngOnInit() {
+    await this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.item;
       }
     });
-  }
-
-  ngOnInit() {
+    console.log(this.data);
     this.buscarTours(this.data.place_id);
   }
 

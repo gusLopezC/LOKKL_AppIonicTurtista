@@ -26,10 +26,10 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.obtenerTipoDeVista();
+    // this.obtenerTipoDeVista();
   }
 
-  obtenerTipoDeVista(refresher?) {
+  /*obtenerTipoDeVista(refresher?) {
     this.revisarConexion().then((valido) => {
       if (valido) {
         this._dataLocalService.obtenerUbicacion().then((result) => {
@@ -49,7 +49,7 @@ export class HomePage implements OnInit {
     if (refresher) {
       refresher.target.complete();
     }
-  }
+  }*/
 
   async revisarConexion() {
     let result;

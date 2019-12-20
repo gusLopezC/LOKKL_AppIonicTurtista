@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SearchTourPage } from './search-tour.page';
 import { ComponentsModule } from '../../../../components/components.module';
+import { PipesModule } from '../../../../pipes/pipes.module';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     ComponentsModule,
+    PipesModule,
     CommonModule,
     FormsModule,
     IonicModule,

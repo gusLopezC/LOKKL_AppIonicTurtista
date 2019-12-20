@@ -25,6 +25,7 @@ export class ToursWelcomeComponent implements OnInit {
   tours: Tours[] = [];
   toursPeru: Tours[] = [];
   toursMexico: Tours[] = [];
+  NoConexion: boolean;
 
   constructor(
     // tslint:disable-next-line: variable-name
@@ -37,8 +38,6 @@ export class ToursWelcomeComponent implements OnInit {
 
   async ngOnInit() {
     this.cargarTours();
-    this.obtenerToursMexico();
-    this.obtenerToursPeru();
 
   }
 
@@ -53,7 +52,7 @@ export class ToursWelcomeComponent implements OnInit {
       types: ['(cities)'],
     };
     this.googleAutocomplete.getPlacePredictions(options, predictions => {
-        this.searchResults = predictions[0];
+      this.searchResults = predictions[0];
     });
   }
 
@@ -76,26 +75,27 @@ export class ToursWelcomeComponent implements OnInit {
       message: 'Loading'
     });
     await loading.present();
+    this.NoConexion = false;
     this._toursServices.obtenerToursNuevos()
       .subscribe(resp => {
         // this.tours = resp.Tour;
         this.tours.push(...resp.Tour);
         loading.dismiss();
-      });
+      },
+        error => {
+          this.NoConexion = true;
+        });
   }
 
-  obtenerToursPeru() {
-    this._toursciudadService.obtenerToursCiudad('Perú')
-      .subscribe(resp => {
-        // this.tours = resp.Tour;
-        this.toursPeru.push(...resp.Tour);
-      });
+  abriCiudad(ciudad: string) {
+
+    const options = {
+      input: ciudad,
+      types: ['(cities)'],
+    };
+    this.googleAutocomplete.getPlacePredictions(options, predictions => {
+      this.selectSearchResult(predictions[0]);
+    });
   }
-  obtenerToursMexico() {
-    this._toursciudadService.obtenerToursCiudad('Mexico')
-      .subscribe(resp => {
-        // this.tours = resp.Tour;
-        this.toursMexico.push(...resp.Tour);
-      });
-  }
+
 }

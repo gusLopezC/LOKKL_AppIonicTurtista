@@ -1,9 +1,9 @@
 <div>
     <ion-card class="cardsearch">
         <img src="assets/img/fondobusqueda.jpg" alt="">
-        <div class="text-white card-title">Reserva un tour con nosotros! <br></div>
+        <div class="text-white card-title">Reserva un tour con nosotros!</div>
         <div class="card-search">
-            <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Categories" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
+            <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Tour" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
             <ion-list [hidden]="!search.length" lines='none'>
                 <ion-item (click)="selectSearchResult(searchResults)">
                     {{searchResults.description}}
@@ -13,24 +13,92 @@
     </ion-card>
 </div>
 <div>
+    <ion-row>
+        <ion-col size="12">
+            <ion-title class="text-center">
+                <h3>Nuestros mejores destinos</h3>
+            </ion-title>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Mérida, Yuc., México')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Mexico.jpg" alt="">
+                <div class="card-pais">Rivera Maya</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('El Cairo, Egipto')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Egypt.jpg" alt="">
+                <div class="card-pais">Egipto</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Roma, Italia')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Italia.jpg" alt="">
+                <div class="card-pais">Roma</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Tokio, Japón')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Japan.jpg" alt="">
+                <div class="card-pais">Tokio</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('París, Francia')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/France.jpg" alt="">
+                <div class="card-pais">Paris</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Madrid, España')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Spain.jpg" alt="">
+                <div class="card-pais">Madrid</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Berlín, Alemania')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Germany.jpg" alt="">
+                <div class="card-pais">Alemania</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Atenas, Grecia')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Greece.jpg" alt="">
+                <div class="card-pais">Grecia</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('New York, Nueva York, EE. UU.')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/USA.jpg" alt="">
+                <div class="card-pais">New York</div>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card class="cardsearch" (click)="abriCiudad('Moscú, Rusia')">
+                <img src="https://lokkl.com/assets/img/aboutus/mosaico/Rusia.jpg" alt="">
+                <div class="card-pais">Moscu</div>
+            </ion-card>
+        </ion-col>
+
+    </ion-row>
+</div>
+<div>
     <div *ngIf="tours.length >= 1">
-        <ion-text>
-            <h6><b>Nuevos Tours</b></h6>
-        </ion-text>
+        <ion-col size="12">
+            <ion-title class="text-center">
+                <h3>Nuevos tours</h3>
+            </ion-title>
+        </ion-col>
         <app-tours [tours]="tours"></app-tours>
     </div>
-
-    <div *ngIf="toursMexico.length >= 1">
-        <ion-text>
-            <h6><b>Conoce Mexico</b></h6>
-        </ion-text>
-        <app-tours [tours]="toursMexico"></app-tours>
-    </div>
-
-    <div *ngIf="toursPeru.length >= 1">
-        <ion-text>
-            <h6><b>Conoce Peru</b></h6>
-        </ion-text>
-        <app-tours [tours]="toursPeru"></app-tours>
-    </div>
 </div>
+<ion-card mode="ios" class="cardmensaje">
+    <ion-card-content class="bg-gradient-2 ">
+        <br>
+        <ion-icon name="stopwatch" style="zoom: 3;"></ion-icon>
+        <div class="text-9pt"><strong>Cancelación gratiuta</strong></div>
+        <br>
+        <div class="text-8pt">Obtén un reembolso completo si cancelas durante las 24 horas posteriores a la compra. En caso de una actividad especial debes contactar al operador para el rembolso.</div>
+        <br>
+    </ion-card-content>
+</ion-card>
