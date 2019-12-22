@@ -12,7 +12,6 @@ import { StarsComponent } from './tour/stars/stars.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ChangePasswordComponent } from './profile/editprofie/change-password/change-password.component';
 import { ToursWelcomeComponent } from './home/tours-welcome/tours-welcome.component';
-import { ToursGeolocationComponent } from './home/tours-geolocation/tours-geolocation.component';
 import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-activas.component';
 
 
@@ -24,7 +23,6 @@ import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-a
   ],
   declarations: [
     ToursWelcomeComponent,
-    ToursGeolocationComponent,
     ToursComponent,
     ListastoursComponent,
     AboutusComponent,
@@ -34,7 +32,6 @@ import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-a
   ],
   exports: [
     ToursWelcomeComponent,
-    ToursGeolocationComponent,
     ToursComponent,
     ListastoursComponent,
     StarsComponent,

@@ -11,7 +11,7 @@
     <div *ngIf="Conexion">
         <ion-toolbar>
             <ion-card class="cardsearch" *ngIf="tours">
-                <img [src]="tours[0].get_photos[1].photo | imagenprofile" alt="">
+                <img [src]="tours[0].get_photos[1].photo | imagenprofile" alt="" style="height: 300px !important;">
                 <div class="text-white card-title">{{ this.data?.description }} <br></div>
                 <div class="card-search">
                     <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Places" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>

@@ -5,6 +5,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { TourService, ToursciudadService } from 'src/app/services/service.index';
 import { NetworkService, ConnectionStatus } from '../../../services/network/network.service';
 import { Tours } from '../../../models/tour.model';
+import { DataLocalService } from '../../../services/datalocal/data-local.service';
 
 declare var google: any;
 
@@ -31,6 +32,7 @@ export class ToursWelcomeComponent implements OnInit {
     // tslint:disable-next-line: variable-name
     private _toursServices: TourService,
     private _toursciudadService: ToursciudadService,
+    private _dataLocalService: DataLocalService,
     private _networkService: NetworkService,
     public loadingController: LoadingController,
     private router: Router, ) {
@@ -86,6 +88,16 @@ export class ToursWelcomeComponent implements OnInit {
           this.NoConexion = true;
         });
   }
+
+  buscarporGeolocation() {
+    this._dataLocalService.obtenerUbicacion().then((result) => {
+      console.log(result);
+      this.abriCiudad(result.description);
+    });
+  }
+  /**
+   * Abrir CIUDAD
+   */
 
   abriCiudad(ciudad: string) {
 

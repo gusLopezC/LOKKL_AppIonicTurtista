@@ -18,7 +18,7 @@
             </ion-item>
             <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
                 <ion-text color="warning">
-                    Required Field
+                    Campo requerido
                 </ion-text>
             </p>
 
@@ -31,26 +31,26 @@
             </ion-item>
             <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
                 <ion-text color="warning">
-                    Required Field
+                    Campo requerido
                 </ion-text>
             </p>
         </form>
 
         <p text-right tappable (click)="forgotPass()" class="paz">
             <ion-text color="light">
-                <strong>Forgot Pass?</strong>
+                <strong>Olvide mi contraseña?</strong>
             </ion-text>
         </p>
 
         <div>
             <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="onLogin()" [disabled]="!onLoginForm.valid" tappable>
                 <ion-icon name="log-in"></ion-icon>
-                Signin
+                Iniciar Sesión
             </ion-button>
 
             <p text-center>
                 <ion-text color="light">
-                    Or Signin with:
+                    Inicia con:
                 </ion-text>
             </p>
 
@@ -77,7 +77,7 @@
         <div text-center margin-top>
             <span [routerLink]="['/register']" routerLinkActive="router-link-active" class="paz" tappable>
         <ion-text color="light">
-          New here? <strong>Sign Up</strong>
+          Nuevo aqui? <strong>Registrate</strong>
         </ion-text>
       </span>
         </div>

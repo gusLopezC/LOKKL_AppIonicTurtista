@@ -82,6 +82,18 @@
 
     </ion-row>
 </div>
+<ion-card mode="ios" class="cardmensaje">
+    <ion-card-content class="bg-gradient-2 ">
+        <div class="text-9pt"><strong>Busca experiencias en su cercania </strong></div>
+        <br>
+        <div class="text-8pt">
+            <ion-button color="dark" fill="outline" expand="full" shape="round" (click)="buscarporGeolocation()" mode="ios">
+                Buscar
+            </ion-button>
+        </div>
+        <br>
+    </ion-card-content>
+</ion-card>
 <div>
     <div *ngIf="tours.length >= 1">
         <ion-col size="12">

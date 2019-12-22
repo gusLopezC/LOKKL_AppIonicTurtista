@@ -48,7 +48,6 @@ export class SearchTourPage implements OnInit {
         this.data = this.router.getCurrentNavigation().extras.state.item;
       }
     });
-    console.log(this.data);
     this.buscarTours(this.data.place_id);
   }
 

@@ -26,33 +26,6 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    // this.obtenerTipoDeVista();
   }
 
-  /*obtenerTipoDeVista(refresher?) {
-    this.revisarConexion().then((valido) => {
-      if (valido) {
-        this._dataLocalService.obtenerUbicacion().then((result) => {
-          if (result) {
-            this.MostrarVistaGeocalizacion = true;
-            this.MostrarVistaBienvenida = false;
-          } else {
-            this.MostrarVistaGeocalizacion = false;
-            this.MostrarVistaBienvenida = true;
-          }
-        });
-      } else {
-        this.NoConexion = true;
-      }
-
-    });
-    if (refresher) {
-      refresher.target.complete();
-    }
-  }*/
-
-  async revisarConexion() {
-    let result;
-    return result = await this._networkService.revisarConexion();
-  }
 }
