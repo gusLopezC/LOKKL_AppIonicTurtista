@@ -24,7 +24,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 
 // import { GooglePlus } from '@ionic-native/google-plus/ngx';
-// import { Facebook } from '@ionic-native/facebook/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 
 import { Network } from '@ionic-native/network/ngx';
@@ -74,7 +74,7 @@ export function LanguageLoader(http: HttpClient) {
     SplashScreen,
     Network,
     // GooglePlus,
-    // Facebook,
+    Facebook,
     NativeStorage,
     SocialSharing,
     InAppBrowser,

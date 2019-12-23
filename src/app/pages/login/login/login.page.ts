@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 
 // import { GooglePlus } from '@ionic-native/google-plus/ngx';
-// import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { LoadingController, AlertController, Platform, NavController, MenuController, ToastController } from '@ionic/angular';
@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private platform: Platform,
-    // private fb: Facebook,
+    private fb: Facebook,
     // private googlePlus: GooglePlus,
     private fireAuth: AngularFireAuth,
     private _usuariosService: UsuariosService) {
@@ -151,37 +151,40 @@ export class LoginPage implements OnInit {
         });
 
     }
-    async doFbLogin() {
-      console.log('Inicio de sesion con facebook');
-      // the permissions your facebook app needs from the user
-      const permissions = ['email'];
-
-      this.fb.login(permissions)
-        .then((response: FacebookLoginResponse) => {
-          this.onLoginSuccessFacebbok(response);
-        }, error => {
-          console.log(error);
-          if (!this.platform.is('cordova')) {
-          }
-        });
-    }
-
-    onLoginSuccessFacebbok(res: FacebookLoginResponse) {
-      // const { token, secret } = res;
-      const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-      this.fireAuth.auth.signInWithCredential(credential)
-        .then((response) => {
-
-          const valido = this._usuariosService.loginRedSocial(response.user.providerData[0]);
-          if (valido) {
-            this.navCtrl.navigateRoot('/home/home', { animated: true });
-          } else {
-          }
-        });
+    */
 
 
-    onLoginError(err) {
-      console.log(err);
-    }*/
+  async doFbLogin() {
+    console.log('Inicio de sesion con facebook');
+    // the permissions your facebook app needs from the user
+    const permissions = ['email'];
+
+    this.fb.login(permissions)
+      .then((response: FacebookLoginResponse) => {
+        this.onLoginSuccessFacebbok(response);
+      }, error => {
+        console.log(error);
+        if (!this.platform.is('cordova')) {
+        }
+      });
+  }
+
+  onLoginSuccessFacebbok(res: FacebookLoginResponse) {
+    // const { token, secret } = res;
+    const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+    this.fireAuth.auth.signInWithCredential(credential)
+      .then((response) => {
+
+        const valido = this._usuariosService.loginRedSocial(response.user.providerData[0]);
+        if (valido) {
+          this.navCtrl.navigateRoot('/home/home', { animated: true });
+        } else {
+        }
+      });
+  }
+
+  onLoginError(err) {
+    console.log(err);
+  }
 
 }
