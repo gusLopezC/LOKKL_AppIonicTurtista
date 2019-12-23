@@ -47,6 +47,8 @@ export class UsuariosService {
   loginRedSocial(usuario: any) {
 
     usuario.name = usuario.displayName;
+
+    console.log(usuario);
     const url = environment.apiUrl + '/api/LoginGoogle';
 
     return new Promise(resolve => {

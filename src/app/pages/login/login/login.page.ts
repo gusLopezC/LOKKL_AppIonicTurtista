@@ -126,7 +126,7 @@ export class LoginPage implements OnInit {
     if (this.platform.is('android')) {
       params = {
         'scopes': '',
-        'webClientId': '409077895951-qaitrdbd57oji686am5pipdngh377r98.apps.googleusercontent.com',
+        'webClientId': '409077895951-gdqh987iiqakjob7gded6ece16292vlm.apps.googleusercontent.com',
         'offline': true,
       };
     } else {
@@ -134,26 +134,42 @@ export class LoginPage implements OnInit {
     }
     this.googlePlus.login(params)
       .then((response) => {
-        console.log('Todo bien');
-        const { idToken, accessToken } = response;
-        this.onLoginSuccess(idToken, accessToken);
+        console.log(response);
+        this.onLoginSuccess((response.email));
       }).catch((error) => {
         console.log(error);
-        alert('error:' + JSON.stringify(error));
+        alert('Error');
       });
   }// end login Google
 
-  onLoginSuccess(accessToken, accessSecret) {
+  onLoginSuccess(response) {
+
+    const UsuarioReponse = {
+      uid : response.userId,
+      displayName: response.displayName,
+      photoURL: response.imageUrl,
+      email: response.email,
+      phoneNumber: null,
+      providerId: null,
+      name : response.givenName
+    };
+
+    const valido = this._usuariosService.loginRedSocial(UsuarioReponse);
+    if (valido) {
+      this.navCtrl.navigateRoot('/home/home', { animated: true });
+    } else {
+      return false;
+    }
+    /* 
     const credential = accessSecret ? firebase.auth.GoogleAuthProvider
       .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
         .credential(accessToken);
     this.fireAuth.auth.signInWithCredential(credential)
       .then((response) => {
         console.log(response);
-      });
+      });*/
 
   }
-
 
 
   async doFbLogin() {
@@ -176,11 +192,12 @@ export class LoginPage implements OnInit {
     const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
     this.fireAuth.auth.signInWithCredential(credential)
       .then((response) => {
-
+        console.log(response.user.providerData[0]);
         const valido = this._usuariosService.loginRedSocial(response.user.providerData[0]);
         if (valido) {
           this.navCtrl.navigateRoot('/home/home', { animated: true });
         } else {
+          return false;
         }
       });
   }
