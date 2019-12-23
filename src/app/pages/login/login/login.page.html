@@ -12,45 +12,45 @@
             <ion-item no-padding class="animated fadeInUp">
                 <ion-label position="floating">
                     <ion-icon name="mail" item-start></ion-icon>
-                    Email
+                    {{ 'Login.Email' | translate }}
                 </ion-label>
                 <ion-input color="secondary" type="email" formControlName="email"></ion-input>
             </ion-item>
             <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
                 <ion-text color="warning">
-                    Campo requerido
+                    {{ 'Login.Camporequerido' | translate }}
                 </ion-text>
             </p>
 
             <ion-item no-padding class="animated fadeInUp">
                 <ion-label position="floating">
                     <ion-icon name="lock" item-start></ion-icon>
-                    Password
+                    {{ 'Login.Password' | translate }}
                 </ion-label>
                 <ion-input color="secondary" type="password" formControlName="password"></ion-input>
             </ion-item>
             <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
                 <ion-text color="warning">
-                    Campo requerido
+                    {{ 'Login.Camporequerido' | translate }}
                 </ion-text>
             </p>
         </form>
 
         <p text-right tappable (click)="forgotPass()" class="paz">
             <ion-text color="light">
-                <strong>Olvide mi contraseña?</strong>
+                <strong>{{ 'Login.Olvidastetucontraseña' | translate }}</strong>
             </ion-text>
         </p>
 
         <div>
             <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="onLogin()" [disabled]="!onLoginForm.valid" tappable>
                 <ion-icon name="log-in"></ion-icon>
-                Iniciar Sesión
+                {{ 'Login.IniciarSesion' | translate }}
             </ion-button>
 
             <p text-center>
                 <ion-text color="light">
-                    Inicia con:
+                    {{ 'Login.Logincon' | translate }}
                 </ion-text>
             </p>
 
@@ -64,7 +64,7 @@
                     </ion-col>
 
                     <ion-col size="4">
-                        <ion-button shape="round" expand="full" color="secondary">
+                        <ion-button shape="round" expand="full" color="secondary" (click)="doGoogleLogin()">
                             <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
                         </ion-button>
                     </ion-col>
@@ -77,7 +77,7 @@
         <div text-center margin-top>
             <span [routerLink]="['/register']" routerLinkActive="router-link-active" class="paz" tappable>
         <ion-text color="light">
-          Nuevo aqui? <strong>Registrate</strong>
+          <strong> {{ 'Login.Registrarme' | translate }}</strong>
         </ion-text>
       </span>
         </div>

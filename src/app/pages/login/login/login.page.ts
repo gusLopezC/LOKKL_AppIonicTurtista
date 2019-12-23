@@ -5,10 +5,11 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 
-// import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { TranslateService } from '@ngx-translate/core';
 import { LoadingController, AlertController, Platform, NavController, MenuController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -38,7 +39,8 @@ export class LoginPage implements OnInit {
     private router: Router,
     private platform: Platform,
     private fb: Facebook,
-    // private googlePlus: GooglePlus,
+    private googlePlus: GooglePlus,
+    public translate: TranslateService,
     private fireAuth: AngularFireAuth,
     private _usuariosService: UsuariosService) {
   }
@@ -73,8 +75,8 @@ export class LoginPage implements OnInit {
 
   async forgotPass() {
     const alert = await this.alertCtrl.create({
-      header: 'Forgot Password?',
-      message: 'Enter you email address to send a reset link password.',
+      header: this.translate.instant('Login.RecuperarCuenta'),
+      message: this.translate.instant('Login.OlvidemicontrasenaTexto'),
       inputs: [
         {
           name: 'email',
@@ -91,7 +93,7 @@ export class LoginPage implements OnInit {
             console.log('Confirm Cancel');
           }
         }, {
-          text: 'Confirm',
+          text: this.translate.instant('Login.RecuperarCuenta'),
           handler: async () => {
             const loader = await this.loadingCtrl.create({
               duration: 2000
@@ -116,42 +118,42 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  /*
-    async doGoogleLogin() {
 
-      console.log('Inicia intento de sesion con Google');
-      let params;
-      if (this.platform.is('android')) {
-        params = {
-          'scopes': '',
-          'webClientId': '409077895951-qaitrdbd57oji686am5pipdngh377r98.apps.googleusercontent.com',
-          'offline': true,
-        };
-      } else {
-        params = {};
-      }
-      this.googlePlus.login(params)
-        .then((response) => {
-          console.log('Todo bien');
-          const { idToken, accessToken } = response;
-          this.onLoginSuccess(idToken, accessToken);
-        }).catch((error) => {
-          console.log(error);
-          alert('error:' + JSON.stringify(error));
-        });
-    }// end login Google
+  async doGoogleLogin() {
 
-    onLoginSuccess(accessToken, accessSecret) {
-      const credential = accessSecret ? firebase.auth.GoogleAuthProvider
-        .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
-          .credential(accessToken);
-      this.fireAuth.auth.signInWithCredential(credential)
-        .then((response) => {
-          console.log(response);
-        });
-
+    console.log('Inicia intento de sesion con Google');
+    let params;
+    if (this.platform.is('android')) {
+      params = {
+        'scopes': '',
+        'webClientId': '409077895951-qaitrdbd57oji686am5pipdngh377r98.apps.googleusercontent.com',
+        'offline': true,
+      };
+    } else {
+      params = {};
     }
-    */
+    this.googlePlus.login(params)
+      .then((response) => {
+        console.log('Todo bien');
+        const { idToken, accessToken } = response;
+        this.onLoginSuccess(idToken, accessToken);
+      }).catch((error) => {
+        console.log(error);
+        alert('error:' + JSON.stringify(error));
+      });
+  }// end login Google
+
+  onLoginSuccess(accessToken, accessSecret) {
+    const credential = accessSecret ? firebase.auth.GoogleAuthProvider
+      .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
+        .credential(accessToken);
+    this.fireAuth.auth.signInWithCredential(credential)
+      .then((response) => {
+        console.log(response);
+      });
+
+  }
+
 
 
   async doFbLogin() {
