@@ -24,7 +24,7 @@
 
 <ion-content [scrollEvents]="true">
     <ion-text>
-        <h2>Descripción</h2>
+        <h2>{{ 'TourDetalleExtra.Descripción' | translate }}</h2>
     </ion-text>
     <ion-text>
         <p class="text-descripton" [innerHTML]='data?.schedulle'></p>
@@ -32,7 +32,7 @@
 
     <div class="hr"> </div>
     <ion-text>
-        <h2 id="itinerario">Itinerario</h2>
+        <h2 id="itinerario">{{ 'TourDetalleExtra.Itinerario' | translate }}</h2>
     </ion-text>
     <ion-list mode='ios' lines='none'>
         <ion-item *ngFor="let item of data?.itinerary">
@@ -46,7 +46,7 @@
     </ion-list>
     <div class="hr"> </div>
     <ion-text>
-        <h2 id="Incluido">Que incluye</h2>
+        <h2 id="Incluido">{{ 'TourDetalleExtra.Queincluye' | translate }}</h2>
     </ion-text>
     <ion-list mode='ios' lines='none'>
         <ion-item *ngFor="let item of data?.whatsIncluded">
@@ -61,7 +61,7 @@
     </ion-list>
     <div class="hr"> </div>
     <ion-text>
-        <h2>Que no incluye</h2>
+        <h2>{{ 'TourDetalleExtra.Quenoincluye' | translate }}</h2>
     </ion-text>
     <ion-list mode='ios' lines='none'>
         <ion-item>
@@ -69,7 +69,7 @@
                 <ion-icon color="danger" name="close-circle" style="zoom:2.0;"></ion-icon>
             </ion-buttons>
             <ion-label class="ion-text-wrap">
-                <h3> Propinas </h3>
+                <h3>{{ 'TourDetalleExtra.Propinas' | translate }} </h3>
             </ion-label>
         </ion-item>
         <ion-item>
@@ -77,17 +77,17 @@
                 <ion-icon color="danger" name="close-circle" style="zoom:2.0;"></ion-icon>
             </ion-buttons>
             <ion-label class="ion-text-wrap">
-                <h3> Servicios adicionales </h3>
+                <h3>{{ 'TourDetalleExtra.ServiciosAdicionales' | translate }} </h3>
             </ion-label>
         </ion-item>
     </ion-list>
     <div class="hr"> </div>
     <ion-text>
-        <h2>Politicas de cancelación</h2>
+        <h2>{{ 'TourDetalleExtra.Politicasdecancelación' | translate }}</h2>
     </ion-text>
     <ion-item lines='none'>
         <ion-label class="ion-text-wrap">
-            <h3> Cuentas con 48 horas para cancelacion sin costo </h3>
+            <h3>{{ 'TourDetalleExtra.Cancelacion48' | translate }} </h3>
         </ion-label>
     </ion-item>
 </ion-content>
@@ -95,7 +95,7 @@
 <ion-footer>
     <ion-toolbar>
         <ion-button class="botonprimary" color="primary" expand="block" (click)="reservarTour()">
-            Reservar ya
+            {{ 'TourDetalleExtra.Reservar' | translate }}
         </ion-button>
     </ion-toolbar>
 </ion-footer>

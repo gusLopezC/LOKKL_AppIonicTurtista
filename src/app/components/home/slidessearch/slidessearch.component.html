@@ -1,0 +1,25 @@
+<ion-slides #IonSlides [options]="slideOptsOne">
+    <ion-slide class="image-slide">
+        <ion-img src="https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/76602123_450376155616800_5316938370193031168_n.jpg?_nc_cat=100&_nc_oc=AQnEsN15fFl3Ht1ZmQaCiIcd1CXCzgiBVm_zM1oxOdlb5hX00qDwXr-CdNXvnC3aYok&_nc_ht=scontent.fmex10-2.fna&oh=829f54bbb2fe0c3d55be64cad92d77a9&oe=5EAE3DDF"></ion-img>
+    </ion-slide>
+    <ion-slide class="image-slide">
+        <ion-img src="https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/73317990_441430456511370_6817386127058534400_n.png?_nc_cat=109&_nc_oc=AQl06Sln1ExiMIzlp1fsTYv7I2qqtTQ-epdyiYXkhwFlMLBCEsMMYoQVzrovrDjBfNs&_nc_ht=scontent.fmex10-2.fna&oh=5e34f251ba435a2171015a7220b07262&oe=5E740CD3"></ion-img>
+    </ion-slide>
+    <ion-slide class="image-slide">
+        <ion-img src="https://images.unsplash.com/photo-1469443168033-4623821959af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"></ion-img>
+    </ion-slide>
+    <ion-slide class="image-slide">
+        <ion-img src="https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/72254835_421659118488504_7240974021041324032_n.jpg?_nc_cat=105&_nc_oc=AQn5FJurirDoBZAfM8tYtPw8bGLlPbUMdUrdqNMiL5_EllB8TFjyruz24Vu2MAHG2sM&_nc_ht=scontent.fmex10-2.fna&oh=c8cf1c7cae9246d4aba9293d36a39ea9&oe=5E74D84E"></ion-img>
+    </ion-slide>
+</ion-slides>
+<ion-title class="text-center">
+    <h2 class="ion-text-wrap">Reserva experiencias inolvidables en todo el mundo</h2>
+</ion-title>
+<div class="card-search">
+    <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Tour" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
+    <ion-list [hidden]="!search.length" lines='none'>
+        <ion-item (click)="selectSearchResult(searchResults)">
+            {{searchResults.description}}
+        </ion-item>
+    </ion-list>
+</div>

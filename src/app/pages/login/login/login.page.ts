@@ -135,7 +135,7 @@ export class LoginPage implements OnInit {
     this.googlePlus.login(params)
       .then((response) => {
         console.log(response);
-        this.onLoginSuccess((response.email));
+        this.onLoginSuccess((response));
       }).catch((error) => {
         console.log(error);
         alert('Error');
@@ -144,6 +144,7 @@ export class LoginPage implements OnInit {
 
   onLoginSuccess(response) {
 
+    console.log(response);
     const UsuarioReponse = {
       uid : response.userId,
       displayName: response.displayName,
@@ -154,13 +155,15 @@ export class LoginPage implements OnInit {
       name : response.givenName
     };
 
+    console.log(UsuarioReponse);
+
     const valido = this._usuariosService.loginRedSocial(UsuarioReponse);
     if (valido) {
       this.navCtrl.navigateRoot('/home/home', { animated: true });
     } else {
       return false;
     }
-    /* 
+    /*
     const credential = accessSecret ? firebase.auth.GoogleAuthProvider
       .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
         .credential(accessToken);

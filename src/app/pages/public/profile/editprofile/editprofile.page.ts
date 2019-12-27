@@ -81,6 +81,8 @@ export class EditprofilePage implements OnInit {
 
   async onUpload(e) {
 
+    console.log('Actualizar foto');
+
     const file = e.target.files[0];
 
     const reader = new FileReader();

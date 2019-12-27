@@ -13,6 +13,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { ChangePasswordComponent } from './profile/editprofie/change-password/change-password.component';
 import { ToursWelcomeComponent } from './home/tours-welcome/tours-welcome.component';
 import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-activas.component';
+import { SlidessearchComponent } from './home/slidessearch/slidessearch.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-a
     ChangePasswordComponent
   ],
   declarations: [
+    SlidessearchComponent,
     ToursWelcomeComponent,
     ToursComponent,
     ListastoursComponent,
@@ -31,6 +33,7 @@ import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-a
     ReservasActivasComponent
   ],
   exports: [
+    SlidessearchComponent,
     ToursWelcomeComponent,
     ToursComponent,
     ListastoursComponent,
