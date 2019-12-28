@@ -71,7 +71,7 @@
     </ion-list>
 
     <div *ngIf="metododepago == 1">
-        <form [formGroup]='PagoForm' (ngSubmit)="guardar(formulario)">
+        <form [formGroup]='PagoForm'>
             <ion-item>
                 <ion-label position="floating">{{ 'Payment.NameCard' | translate }}</ion-label>
                 <ion-input class="form-control" type="text" formControlName="nameCard" required>

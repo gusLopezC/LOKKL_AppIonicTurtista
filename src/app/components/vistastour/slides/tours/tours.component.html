@@ -1,7 +1,7 @@
 <ion-grid fixed>
     <ion-row fixed>
         <ion-col size="12">
-            <ion-slides pager="false" [options]="slideOpts">
+            <ion-slides pager="false">
                 <ion-slide *ngFor="let tour of tours">
                     <ion-row (click)="abrirTour(tour)">
                         <ion-col size="6">

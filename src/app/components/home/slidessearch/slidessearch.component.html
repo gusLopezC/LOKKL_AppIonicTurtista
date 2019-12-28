@@ -19,7 +19,7 @@
     <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Tour" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
     <ion-list [hidden]="!search.length" lines='none'>
         <ion-item (click)="selectSearchResult(searchResults)">
-            {{searchResults.description}}
+            {{searchResults?.description}}
         </ion-item>
     </ion-list>
 </div>

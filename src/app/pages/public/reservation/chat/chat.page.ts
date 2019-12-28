@@ -72,4 +72,8 @@ export class ChatPage implements OnInit {
     });
   }
 
+  sendChatMessage() {
+
+  }
+
 }

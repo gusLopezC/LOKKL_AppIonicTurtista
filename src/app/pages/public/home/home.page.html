@@ -3,26 +3,4 @@
         <app-tours-welcome></app-tours-welcome>
 
     </div>
-    <div *ngIf="NoConexion" class="fullscreen">
-
-        <ion-refresher slot="fixed" (ionRefresh)="obtenerTipoDeVista($event)">
-            <ion-refresher-content>
-            </ion-refresher-content>
-        </ion-refresher>
-
-        <ion-slides [options]="sliderOpts">
-            <ion-slide>
-                <div class="texto">
-                    <h2>{{ 'Alertas.Exploremos' | translate }} <br> {{ 'Alertas.Nointernet' | translate }}</h2>
-                    <ion-label>{{ 'Alertas.NoInternet2' | translate }} </ion-label>
-                    <br><br>
-                    <ion-button class="log-in-button" color="primary" expand="block" (click)="obtenerTipoDeVista()">
-                        {{ 'Alertas.Actualizar' | translate }}
-                    </ion-button>
-                </div>
-
-            </ion-slide>
-        </ion-slides>
-    </div>
-
 </ion-content>

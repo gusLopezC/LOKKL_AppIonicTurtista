@@ -16,9 +16,8 @@ export class SlidessearchComponent {
 
   public search = '';
   private googleAutocomplete = new google.maps.places.AutocompleteService();
-  public searchResults = new Array<any>();
+  public searchResults: any = {};
 
-  sliderOne: any;
 
   slideOptsOne = {
     initialSlide: 0,
@@ -43,8 +42,9 @@ export class SlidessearchComponent {
       input: this.search,
       types: ['(cities)'],
     };
-    this.googleAutocomplete.getPlacePredictions(options, predictions => {
+    this.googleAutocomplete.getPlacePredictions(options, (predictions: any) => {
       this.searchResults = predictions[0];
+      console.log(this.searchResults);
     });
   }
 

@@ -30,7 +30,7 @@
             <ion-text>
                 <h3>{{ 'EditProfile.InformacionPersonal' | translate }}</h3>
             </ion-text>
-            <form [formGroup]='formulario' (ngSubmit)="actualizarInfo(formulario.value)">
+            <form [formGroup]='formulario' (ngSubmit)="actualizarInfo()">
                 <ion-label position="floating"> </ion-label>
 
                 <ion-item>

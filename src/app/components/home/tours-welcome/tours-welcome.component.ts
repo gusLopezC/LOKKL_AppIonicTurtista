@@ -28,6 +28,10 @@ export class ToursWelcomeComponent implements OnInit {
   toursMexico: Tours[] = [];
   NoConexion: boolean;
   Conexion: boolean;
+  sliderOpts = {
+    allowSlidePrev: false,
+    allowSlideNext: false
+  };
 
   constructor(
     // tslint:disable-next-line: variable-name

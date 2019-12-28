@@ -9,20 +9,7 @@
 
 <ion-content class="no-border">
     <div *ngIf="Conexion">
-        <ion-toolbar>
-            <ion-card class="cardsearch" *ngIf="tours">
-                <img [src]="tours[0].get_photos[1].photo | imagenprofile" alt="" style="height: 300px !important;">
-                <div class="text-white card-title">{{ this.data?.description }} <br></div>
-                <div class="card-search">
-                    <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Places" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
-                    <ion-list [hidden]="!search.length" lines='none'>
-                        <ion-item (click)="selectSearchResult(searchResults)">
-                            {{searchResults.description}}
-                        </ion-item>
-                    </ion-list>
-                </div>
-            </ion-card>
-        </ion-toolbar>
+        <app-slidessearch></app-slidessearch>
         <app-listastours *ngIf="Existentours" [tours]="tours"></app-listastours>
         <ion-slides [options]="sliderOpts" *ngIf="NoExistentours">
             <ion-slide>
@@ -43,7 +30,7 @@
                     <h2>Hubo un error. <br> Por favor vuelve a intentar mas tarde</h2>
                     <ion-label>Ponte en contacto con nosotros si el problema continua </ion-label>
                     <br><br>
-                    <ion-button class="log-in-button" color="primary" expand="block" (click)="obtenerReservaciones()">
+                    <ion-button class="log-in-button" color="primary" expand="block" (click)="buscarTours(data.place_id)">
                         Actualizar
                     </ion-button>
                 </div>

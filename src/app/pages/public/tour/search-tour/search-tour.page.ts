@@ -17,7 +17,7 @@ export class SearchTourPage implements OnInit {
 
   public search = '';
   private googleAutocomplete = new google.maps.places.AutocompleteService();
-  public searchResults = new Array<any>();
+  public searchResults: any;
   data: any;
   // ---
   tours: Tours;

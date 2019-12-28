@@ -37,7 +37,7 @@
             <h1 class="description bold">{{'Facturation.IngresaDatos' | translate}}</h1>
         </ion-col>
     </ion-row>
-    <form [formGroup]='facturacionform' (ngSubmit)="guardar(formulario)">
+    <form [formGroup]='facturacionform' (ngSubmit)="guardar()">
         <ion-item>
             <ion-label position="floating">{{ 'Login.Name' | translate }}</ion-label>
             <ion-input class="form-control" type="text" formControlName="name" required>
