@@ -50,6 +50,18 @@
         "Deletecuenta": "Deactivate account"
 
     },
+    "ComoFunciona": {
+        "ComoFuncionaTitle": "Diseña tu viaje ideal",
+        "Title1": "Busca tu destino",
+        "Title1Texto": "Descubre el mundo a través de la mirada de LOKKL, el ingrediente mágico de tu viaje es nuestra obsesión por personalizar tu experiencia, de acuerdo a lo que desees conocer y sugerirte lo que solo un LOKKL conoce.",
+        "Title2": "Elige entre múltiples opciones",
+        "Title2Texto": "Selecciona la opción que más te agrade entre nuestros guías certificados y exclusivos tours y ¡listo! tendrás el tour a tu medida, reservado y garantizado.",
+        "Title3": "Hora de viajar",
+        "Title3Texto": "Hay muchas y diferentes maneras de viajar, pero tú, has elegido la mejor, solo te queda disfrutar de esta inigualable experiencia. Nuestro equipo de especialistas está para servirte 24/7.",
+        "Title4": "Comparte tu experiencia",
+        "Title4Texto": "Ayudanos a mejorar nuestro servicio comparte y califica tu experiencia."
+
+    },
     "Help": {
         "HelpTitle": "You need to contact us",
         "Enviamosmail": "We send an email",

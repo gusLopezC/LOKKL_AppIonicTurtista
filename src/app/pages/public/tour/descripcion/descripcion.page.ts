@@ -12,7 +12,7 @@ import { IonContent } from '@ionic/angular';
 })
 export class DescripcionPage implements OnInit {
 
-  // @ViewChild(IonContent) content: Content;
+  @ViewChild(IonContent, { static: true }) content: IonContent;
   estrella = 'ios-heart-empty';
   data: any;
   section: any;
@@ -38,8 +38,8 @@ export class DescripcionPage implements OnInit {
 
   scrollTo(elementId: string) {
     setTimeout(() => {
-      //  let y = document.getElementById(elementId).offsetTop;
-      //  this.content.scrollToPoint(0, y);
+      let y = document.getElementById(elementId).offsetTop;
+      this.content.scrollToPoint(0, y);
     }, 1000);
   }
 

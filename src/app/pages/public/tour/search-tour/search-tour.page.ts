@@ -6,8 +6,6 @@ import { TourService } from 'src/app/services/service.index';
 import { LoadingController } from '@ionic/angular';
 import { NetworkService } from '../../../../services/network/network.service';
 
-declare var google: any;
-
 @Component({
   selector: 'app-search-tour',
   templateUrl: './search-tour.page.html',
@@ -15,10 +13,7 @@ declare var google: any;
 })
 export class SearchTourPage implements OnInit {
 
-  public search = '';
-  private googleAutocomplete = new google.maps.places.AutocompleteService();
-  public searchResults: any;
-  data: any;
+  data: any = {};
   // ---
   tours: Tours;
   imagenfondo: any;
@@ -46,6 +41,7 @@ export class SearchTourPage implements OnInit {
     await this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.item;
+        console.log(this.data);
       }
     });
     this.buscarTours(this.data.place_id);
@@ -79,27 +75,7 @@ export class SearchTourPage implements OnInit {
       refresher.target.complete();
     }
   }
-  /**
-   * Metodos para la busqueda
-   */
 
-  buscar() {
-    if (!this.search.trim().length) { return; }
-    let options = {
-      input: this.search,
-      types: ['(cities)'],
-    };
-    this.googleAutocomplete.getPlacePredictions(options, predictions => {
-      this.searchResults = predictions[0];
-    });
-  }
-
-
-  selectSearchResult(item: any) {
-    this.search = '';
-    console.log(item.place_id);
-    this.buscarTours(item.place_id);
-  }
 
   async revisarConexion() {
     return await this._networkService.revisarConexion();

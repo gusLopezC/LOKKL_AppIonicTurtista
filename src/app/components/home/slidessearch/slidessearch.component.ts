@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { NavigationExtras, Router } from '@angular/router';
 
+import { ImagenesFondo } from './imagenesfondo';
+
+
 declare var google: any;
 
 
@@ -17,19 +20,17 @@ export class SlidessearchComponent {
   public search = '';
   private googleAutocomplete = new google.maps.places.AutocompleteService();
   public searchResults: any = {};
-
+  public Fondo = ImagenesFondo;
 
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
     speed: 1000,
     autoplay: true,
-    zoom: {
-      maxRatio: 5
-    }
   };
 
   constructor(private router: Router, ) {
+    console.log(this.Fondo);
   }
 
   /**

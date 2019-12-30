@@ -42,7 +42,6 @@ export class ToursWelcomeComponent implements OnInit {
     public loadingController: LoadingController,
     public toastCtrl: ToastController,
     private router: Router, ) {
-    console.log('=================================================');
 
   }
 
@@ -70,7 +69,6 @@ export class ToursWelcomeComponent implements OnInit {
    */
 
   async cargarTours() {
-    console.log('====================ENTRA A CARGAR=========================');
     this.NoConexion = false;
     this.Conexion = false;
 
@@ -87,8 +85,6 @@ export class ToursWelcomeComponent implements OnInit {
         this.Conexion = true;
         loading.dismiss();
       }, (err => {
-        console.log('No hay conexion');
-        console.log(err);
         loading.dismiss();
         this.NoConexion = true;
         return false;
@@ -97,7 +93,6 @@ export class ToursWelcomeComponent implements OnInit {
 
   buscarporGeolocation() {
     this._dataLocalService.obtenerUbicacion().then((result) => {
-      console.log(result);
       this.abriCiudad(result.description);
     })
       .catch(error => console.log(error));
@@ -107,14 +102,12 @@ export class ToursWelcomeComponent implements OnInit {
    */
 
   abriCiudad(ciudad: string) {
-    console.log(ciudad);
     const options = {
       input: ciudad,
       types: ['(cities)'],
     };
     this.googleAutocomplete.getPlacePredictions(options, async predictions => {
       if (predictions == null) {
-        console.log('Error perro');
         const toast = await this.toastCtrl.create({
           showCloseButton: true,
           message: 'A ocurrido un error vuelve a intentar.',
@@ -129,7 +122,6 @@ export class ToursWelcomeComponent implements OnInit {
 
       this.selectSearchResult(predictions[0]);
     }, (err => {
-      console.log(err);
     }));
   }
 
