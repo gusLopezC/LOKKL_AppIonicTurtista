@@ -11,6 +11,7 @@
         "Olvidastetucontraseña": "¿Olvidaste tu contraseña?",
         "Registrate": "Registrate",
         "Registrarme": "Registrarme",
+        "NoLogin": "Exploremos",
         "Name": "Nombre Completo",
         "Email": "Correo electrónico",
         "Password": "Contraseña",
@@ -18,6 +19,22 @@
         "TengoCuenta": "Tengo una cuenta ya!!",
         "OlvidemicontrasenaTexto": "Introduce tu dirección de correo electrónico y te enviaremos un enlace para configurar una nueva contraseña",
         "RecuperarCuenta": "Recuperar Cuenta"
+    },
+    "Home": {
+        "TitleHome": "Nuestros mejores destinos",
+        "RiveraMaya": "Rivera Maya",
+        "MachuPicchu": "Machu Picchu",
+        "Egipto": "Egipto",
+        "Roma": "Roma",
+        "Tokio": "Tokio",
+        "Paris": "Paris",
+        "Madrid": "Madrid",
+        "Grecia": "Grecia",
+        "NewYork": "New York",
+        "Moscu": "Moscu",
+        "": "Busca experiencias en su cercania",
+        "": "",
+        "": ""
     },
     "Profile": {
         "MyPerfil": "Mi Perfil",

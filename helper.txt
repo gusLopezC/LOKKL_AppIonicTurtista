@@ -1,11 +1,11 @@
 https://www.youtube.com/watch?v=ikMrTQvw8MQ
-
 https://www.youtube.com/watch?v=5lnWs61VXl0
-
 https://qiita.com/s_kozake/items/6c7a0cec75c957606a33
 
 
 cordova plugin add cordova-android-support-gradle-release
-
-
 android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+
+
+ionic cordova plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=''
+

@@ -121,12 +121,11 @@ export class LoginPage implements OnInit {
 
   async doGoogleLogin() {
 
-    console.log('Inicia intento de sesion con Google');
     let params;
     if (this.platform.is('android')) {
       params = {
         'scopes': '',
-        'webClientId': '409077895951-gdqh987iiqakjob7gded6ece16292vlm.apps.googleusercontent.com',
+        'webClientId': '934468496584-na6ekv4cm9vps0dudst0u92bqi0djig0.apps.googleusercontent.com',
         'offline': true,
       };
     } else {
@@ -138,7 +137,7 @@ export class LoginPage implements OnInit {
         this.onLoginSuccess((response));
       }).catch((error) => {
         console.log(error);
-        alert('Error');
+        alert('Error' + error);
       });
   }// end login Google
 
@@ -146,13 +145,13 @@ export class LoginPage implements OnInit {
 
     console.log(response);
     const UsuarioReponse = {
-      uid : response.userId,
+      uid: response.userId,
       displayName: response.displayName,
       photoURL: response.imageUrl,
       email: response.email,
       phoneNumber: null,
       providerId: null,
-      name : response.givenName
+      name: response.givenName
     };
 
     console.log(UsuarioReponse);

@@ -30,7 +30,6 @@ export class SlidessearchComponent {
   };
 
   constructor(private router: Router, ) {
-    console.log(this.Fondo);
   }
 
   /**
@@ -45,7 +44,6 @@ export class SlidessearchComponent {
     };
     this.googleAutocomplete.getPlacePredictions(options, (predictions: any) => {
       this.searchResults = predictions[0];
-      console.log(this.searchResults);
     });
   }
 

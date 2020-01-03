@@ -129,8 +129,7 @@
                 "ANDROID_SUPPORT_VERSION": "27.+"
             },
             "cordova-plugin-googleplus": {
-                "REVERSED_CLIENT_ID": "0oCPBdVspTfRMCT-N-1Z7Eys",
-                "WEB_APPLICATION_CLIENT_ID": "409077895951-gdqh987iiqakjob7gded6ece16292vlm.apps.googleusercontent.com"
+                "REVERSED_CLIENT_ID": "934468496584-q3jdk50063ciu61cg6gl2l1qb4hv14mf.apps.googleusercontent.com"
             }
         },
         "platforms": [

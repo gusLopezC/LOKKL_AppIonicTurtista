@@ -29,3 +29,29 @@
         height: 130% !important;
         max-height: 130% !important;
     }
+    
+    @media (min-width: 1024px) {
+        .image-slide {
+            width: 100%;
+            height: 650px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .swiper-slide img {
+            width: auto;
+            max-width: 100%;
+            height: 500% !important;
+            max-height: 500% !important;
+        }
+        ion-title {
+            top: -25%;
+        }
+        h2 {
+            margin-top: 0px;
+            font-size: 41px;
+        }
+        .card-search {
+            top: 35%;
+        }
+    }
