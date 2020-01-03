@@ -73,11 +73,11 @@
     </div>
     <ion-card mode="ios" class="cardmensaje">
         <ion-card-content class="bg-gradient-2 ">
-            <div class="text-9pt"><strong>Busca experiencias en su cercania </strong></div>
+            <div class="text-9pt"><strong>{{ 'Home.Buscacercania' | translate }} </strong></div>
             <br>
             <div class="text-8pt">
                 <ion-button color="dark" fill="outline" expand="full" shape="round" (click)="buscarporGeolocation()" mode="ios">
-                    Buscar
+                    {{ 'Home.Buscar' | translate }}
                 </ion-button>
             </div>
             <br>
@@ -87,7 +87,7 @@
         <div *ngIf="tours.length >= 1">
             <ion-col size="12">
                 <ion-title class="text-center">
-                    <h3>Nuevos tours</h3>
+                    <h3>{{ 'Home.Nuevostours' | translate }}</h3>
                 </ion-title>
             </ion-col>
             <app-tours [tours]="tours"></app-tours>
@@ -97,9 +97,9 @@
         <ion-card-content class="bg-gradient-2 ">
             <br>
             <ion-icon name="stopwatch" style="zoom: 3;"></ion-icon>
-            <div class="text-9pt"><strong>Cancelación gratiuta</strong></div>
+            <div class="text-9pt"><strong>{{ 'Home.Cancelaciongratuita' | translate }}</strong></div>
             <br>
-            <div class="text-8pt">Obtén un reembolso completo si cancelas durante las 24 horas posteriores a la compra. En caso de una actividad especial debes contactar al operador para el rembolso.</div>
+            <div class="text-8pt">{{ 'Home.CancelaciongratuitaTexto' | translate }}</div>
             <br>
         </ion-card-content>
     </ion-card>
@@ -108,11 +108,11 @@
     <ion-slides [options]="sliderOpts">
         <ion-slide>
             <div class="texto">
-                <h2>Hubo un error. <br> Por favor vuelve a intentar mas tarde</h2>
-                <ion-label>Ponte en contacto con nosotros si el problema continua </ion-label>
+                <h2>{{ 'Alertas.HuboError' | translate }}<br> {{ 'Alertas.Nointernet' | translate }}</h2>
+                <ion-label>{{ 'Alertas.NoInternet2' | translate }} </ion-label>
                 <br><br>
                 <ion-button class="log-in-button" color="primary" expand="block" (click)="cargarTours()">
-                    Actualizar
+                    {{ 'Alertas.Actualizar' | translate }}
                 </ion-button>
             </div>
 

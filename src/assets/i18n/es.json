@@ -21,6 +21,8 @@
         "RecuperarCuenta": "Recuperar Cuenta"
     },
     "Home": {
+        "Title": "Reserva experiencias inolvidables en todo el mundo",
+        "Dondeviajar": "¿A dónde quieres viajar?",
         "TitleHome": "Nuestros mejores destinos",
         "RiveraMaya": "Rivera Maya",
         "MachuPicchu": "Machu Picchu",
@@ -32,9 +34,11 @@
         "Grecia": "Grecia",
         "NewYork": "New York",
         "Moscu": "Moscu",
-        "": "Busca experiencias en su cercania",
-        "": "",
-        "": ""
+        "Buscacercania": "Busca experiencias en su cercania",
+        "Buscar": "Buscar",
+        "Nuevostours": "Nuevos tours",
+        "Cancelaciongratuita": "Cancelación gratuita",
+        "CancelaciongratuitaTexto": "Obtén un reembolso completo si cancelas durante las 24 horas posteriores a la compra. En caso de una actividad especial debes contactar al operador para el rembolso."
     },
     "Profile": {
         "MyPerfil": "Mi Perfil",
@@ -138,6 +142,7 @@
         "Detallescompletos": "Ver Detalles completos",
         "Itinerario": "Itinerario",
         "Queincluye": "Que incluye",
+        "DondeEncontrarme": "Donde encontrarme",
         "AbrirGoogleMaps": " Abrir en Google Maps",
         "TuLOKKL": "Tu LOKKL"
     },

@@ -81,15 +81,16 @@
             </ion-label>
         </ion-item>
     </ion-list>
-    <div class="hr"> </div>
-    <ion-text>
-        <h2>{{ 'TourDetalleExtra.Politicasdecancelación' | translate }}</h2>
-    </ion-text>
-    <ion-item lines='none'>
-        <ion-label class="ion-text-wrap">
-            <h3>{{ 'TourDetalleExtra.Cancelacion48' | translate }} </h3>
-        </ion-label>
-    </ion-item>
+    <ion-card mode="ios" class="cardmensaje">
+        <ion-card-content class="bg-gradient-2 ">
+            <br>
+            <ion-icon name="stopwatch" style="zoom: 3;"></ion-icon>
+            <div class="text-9pt"><strong>{{ 'Home.Cancelaciongratuita' | translate }}</strong></div>
+            <br>
+            <div class="text-8pt">{{ 'Home.CancelaciongratuitaTexto' | translate }}</div>
+            <br>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
 
 <ion-footer>

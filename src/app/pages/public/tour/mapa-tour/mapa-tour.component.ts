@@ -50,6 +50,11 @@ export class MapaTourComponent implements OnInit {
     let mapOptions: GoogleMapOptions = {
       controls: {
         zoom: false,
+      },
+      gestures: {
+        rotate: false,
+        tilt: false,
+        scroll: false
       }
     };
 

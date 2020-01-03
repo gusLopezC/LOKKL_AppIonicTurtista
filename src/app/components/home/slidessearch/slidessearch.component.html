@@ -5,10 +5,10 @@
 
 </ion-slides>
 <ion-title class="text-center">
-    <h2 class="ion-text-wrap">Reserva experiencias inolvidables en todo el mundo</h2>
+    <h2 class="ion-text-wrap"> {{ 'Home.Title' | translate }}</h2>
 </ion-title>
 <div class="card-search">
-    <ion-searchbar [(ngModel)]="search" class="searchbar-white" placeholder="Search Tour" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="search" class="searchbar-white" [placeholder]="'Home.Dondeviajar' | translate" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
     <ion-list [hidden]="!search.length" lines='none'>
         <ion-item (click)="selectSearchResult(searchResults)">
             {{searchResults?.description}}

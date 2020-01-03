@@ -3,7 +3,7 @@
     <name>Lokkl</name>
     <description>Reserva tours</description>
     <author email="guslopezcallejas@gmail.com" href="http://ionicframework.com/">Lokkl Team</author>
-    <content original-src="index.html" src="http://localhost:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <access launch-external="yes" origin="whatsapp//*" />
     <allow-intent href="http://*/*" />
@@ -107,5 +107,4 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyAioR39TAyFp6nIBvQGDdcl0Q10TaoMXjw" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyAioR39TAyFp6nIBvQGDdcl0Q10TaoMXjw" />
-    <allow-navigation href="http://localhost:8100" sessionid="3804bd34" />
 </widget>
