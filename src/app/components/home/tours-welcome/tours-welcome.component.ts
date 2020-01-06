@@ -26,7 +26,7 @@ export class ToursWelcomeComponent implements OnInit {
   tours: Tours[] = [];
   toursPeru: Tours[] = [];
   toursMexico: Tours[] = [];
-  NoConexion: boolean;
+  NoConexion = false;
   Conexion: boolean;
   sliderOpts = {
     allowSlidePrev: false,
@@ -73,14 +73,12 @@ export class ToursWelcomeComponent implements OnInit {
     this.Conexion = false;
 
     const loading = await this.loadingController.create({
-      message: 'Loading'
+      message: ''
     });
     await loading.present();
 
-
     this._toursServices.obtenerToursNuevos()
       .subscribe(resp => {
-        // this.tours = resp.Tour;
         this.tours.push(...resp.Tour);
         this.Conexion = true;
         loading.dismiss();
@@ -89,7 +87,10 @@ export class ToursWelcomeComponent implements OnInit {
         this.NoConexion = true;
         return false;
       }));
+    loading.dismiss();
   }
+
+
 
   buscarporGeolocation() {
     this._dataLocalService.obtenerUbicacion().then((result) => {
@@ -124,5 +125,11 @@ export class ToursWelcomeComponent implements OnInit {
     }, (err => {
     }));
   }
+
+  async revisarConexion() {
+    let result;
+    return result = await this._networkService.revisarConexion();
+  }
+
 
 }

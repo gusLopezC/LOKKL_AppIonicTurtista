@@ -35,7 +35,6 @@ export class AppComponent {
     this.platform.ready().then(async () => {
 
       this.estaLogueado = await this.storage.get('token');
-
       if (this.estaLogueado) {
         this.router.navigate(['/home/home']);
         this.splashScreen.hide();

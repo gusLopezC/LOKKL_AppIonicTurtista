@@ -18,7 +18,7 @@ export class GeolocationService {
     maxResults: 5
   };
 
-  private googleAutocomplete = new google.maps.places.AutocompleteService();
+  private googleAutocomplete;
   public searchResults = new Array<any>();
 
   constructor(
@@ -26,7 +26,21 @@ export class GeolocationService {
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
     private platform: Platform,
-    private storage: Storage) { }
+    private storage: Storage) {
+    this.setGoogleAutocomplete();
+  }
+
+
+  setGoogleAutocomplete() {
+    console.log(google.maps);
+    if (google.maps) {
+      this.googleAutocomplete = new google.maps.places.AutocompleteService();
+
+    } else {
+      console.log('No existe Google');
+    }
+
+  }
 
 
   obtenerUbicacion() {

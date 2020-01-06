@@ -133,17 +133,14 @@ export class LoginPage implements OnInit {
     }
     this.googlePlus.login(params)
       .then((response) => {
-        console.log(response);
         this.onLoginSuccess((response));
       }).catch((error) => {
-        console.log(error);
         alert('Error' + error);
       });
   }// end login Google
 
   onLoginSuccess(response) {
 
-    console.log(response);
     const UsuarioReponse = {
       uid: response.userId,
       displayName: response.displayName,
@@ -153,8 +150,6 @@ export class LoginPage implements OnInit {
       providerId: null,
       name: response.givenName
     };
-
-    console.log(UsuarioReponse);
 
     const valido = this._usuariosService.loginRedSocial(UsuarioReponse);
     if (valido) {
@@ -175,7 +170,6 @@ export class LoginPage implements OnInit {
 
 
   async doFbLogin() {
-    console.log('Inicio de sesion con facebook');
     // the permissions your facebook app needs from the user
     const permissions = ['email'];
 
@@ -183,7 +177,6 @@ export class LoginPage implements OnInit {
       .then((response: FacebookLoginResponse) => {
         this.onLoginSuccessFacebbok(response);
       }, error => {
-        console.log(error);
         if (!this.platform.is('cordova')) {
         }
       });
@@ -194,7 +187,6 @@ export class LoginPage implements OnInit {
     const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
     this.fireAuth.auth.signInWithCredential(credential)
       .then((response) => {
-        console.log(response.user.providerData[0]);
         const valido = this._usuariosService.loginRedSocial(response.user.providerData[0]);
         if (valido) {
           this.navCtrl.navigateRoot('/home/home', { animated: true });

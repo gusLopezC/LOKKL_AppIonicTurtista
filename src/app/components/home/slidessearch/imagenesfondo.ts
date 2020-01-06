@@ -1,7 +1,10 @@
 export const ImagenesFondo = [
     {
-        imgRuta: 'https://images.freeimages.com/images/large-previews/1cd/travel-around-thailand-3-1549155.jpg'
+        imgRuta: 'assets/img/tikis/Mariachi.png'
     },
+    // {
+    //    imgRuta: 'https://images.freeimages.com/images/large-previews/1cd/travel-around-thailand-3-1549155.jpg'
+    // },
     {
         imgRuta: 'https://images.freeimages.com/images/large-previews/e9f/venice-5-1231469.jpg'
     },
