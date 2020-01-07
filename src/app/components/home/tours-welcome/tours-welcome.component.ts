@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 
-import { TourService, ToursciudadService } from 'src/app/services/service.index';
+import { TourService, ToursciudadService, GeolocationService } from 'src/app/services/service.index';
 import { NetworkService, ConnectionStatus } from '../../../services/network/network.service';
 import { Tours } from '../../../models/tour.model';
 import { DataLocalService } from '../../../services/datalocal/data-local.service';
@@ -39,6 +39,7 @@ export class ToursWelcomeComponent implements OnInit {
     private _toursciudadService: ToursciudadService,
     private _dataLocalService: DataLocalService,
     private _networkService: NetworkService,
+    private _geolocationService: GeolocationService,
     public loadingController: LoadingController,
     public toastCtrl: ToastController,
     private router: Router, ) {
@@ -93,6 +94,9 @@ export class ToursWelcomeComponent implements OnInit {
 
 
   buscarporGeolocation() {
+
+    this._geolocationService.obtenerUbicacion();
+
     this._dataLocalService.obtenerUbicacion().then((result) => {
       this.abriCiudad(result.description);
     })

@@ -15,15 +15,14 @@ import * as firebase from 'firebase';
 })
 export class ChatPage implements OnInit {
 
-  roomkey: string;
-  nickname: string;
-  chatMessage: string;
-
-  chats = [];
-  offStatus = false;
   reserva: any;
 
-  // @ViewChild(Content) content: Content;
+  roomkey: string;
+
+  userId = '';
+  message: string;
+  messages = [];
+  chats = [];
 
   constructor(
     private chatService: ChatService,
@@ -54,19 +53,16 @@ export class ChatPage implements OnInit {
 
   exitChat() {
     // this.sendExitMessage();
-    this.offStatus = true;
     this.location.back();
   }
 
-  sendExitMessage() {
-    this.sendMessage('exit', this.nickname + ' has exited this room.');
-  }
+
 
   sendMessage(type: string, message: string) {
     const newData = firebase.database().ref('chatrooms/' + this.roomkey + '/chats').push();
     newData.set({
       type: type,
-      user: this.nickname,
+      user: this.userId,
       message: message,
       sendDate: Date()
     });

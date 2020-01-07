@@ -112,7 +112,8 @@
         "Pendiente": "Pendiente",
         "Aceptado": "Aceptado",
         "Realizado": "Realizado",
-        "Cancelado": "Cancelado"
+        "Cancelado": "Cancelado",
+        "Exploremos": "Exploremos"
     },
     "CancelReservation": {
         "Title": "Cancelar Reservación",
