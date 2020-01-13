@@ -121,21 +121,17 @@ export class LoginPage implements OnInit {
 
   async doGoogleLogin() {
 
-    let params;
-    if (this.platform.is('android')) {
-      params = {
-        'scopes': '',
-        'webClientId': '934468496584-na6ekv4cm9vps0dudst0u92bqi0djig0.apps.googleusercontent.com',
-        'offline': true,
-      };
-    } else {
-      params = {};
-    }
+    const params = {
+      'scopes': '',
+      'webClientId': '934468496584-q3jdk50063ciu61cg6gl2l1qb4hv14mf.apps.googleusercontent.com',
+      'offline': true,
+    };
+
     this.googlePlus.login(params)
       .then((response) => {
         this.onLoginSuccess((response));
       }).catch((error) => {
-        alert('Error' + error);
+        this.onLoginError(error);
       });
   }// end login Google
 
@@ -157,28 +153,20 @@ export class LoginPage implements OnInit {
     } else {
       return false;
     }
-    /*
-    const credential = accessSecret ? firebase.auth.GoogleAuthProvider
-      .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
-        .credential(accessToken);
-    this.fireAuth.auth.signInWithCredential(credential)
-      .then((response) => {
-        console.log(response);
-      });*/
 
   }
 
-
   async doFbLogin() {
+    console.log('Intento ingreso facebook');
     // the permissions your facebook app needs from the user
     const permissions = ['email'];
 
     this.fb.login(permissions)
       .then((response: FacebookLoginResponse) => {
+        console.log(response);
         this.onLoginSuccessFacebbok(response);
       }, error => {
-        if (!this.platform.is('cordova')) {
-        }
+        this.onLoginError(error);
       });
   }
 
@@ -196,8 +184,18 @@ export class LoginPage implements OnInit {
       });
   }
 
-  onLoginError(err) {
-    console.log(err);
-  }
+  async onLoginError(err) {
+    const toast = await this.toastCtrl.create({
+      showCloseButton: true,
+      message: 'A ocurrido un error vuelve a intentar.' + err,
+      duration: 3000,
+      color: 'danger',
+      position: 'bottom'
+    });
 
+    toast.present();
+
+    console.log(err);
+
+  }
 }

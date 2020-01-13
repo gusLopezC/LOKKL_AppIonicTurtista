@@ -19,7 +19,6 @@ export const environment = {
   // apiUrl: 'http://192.168.1.237:8001',
   apiUrl: 'https://api.lokkl.com/',
   URL_AWS: 'https://lokkl.s3.us-east-2.amazonaws.com',
-  googleWebClientId: '934468496584-na6ekv4cm9vps0dudst0u92bqi0djig0.apps.googleusercontent.com'
 
 };
 

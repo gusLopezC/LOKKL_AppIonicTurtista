@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lokkl.app" version="0.0.1" 
+<widget id="com.lokkl.app" version="0.0.2" 
     xmlns="http://www.w3.org/ns/widgets" 
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Lokkl</name>
@@ -105,5 +105,4 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyAioR39TAyFp6nIBvQGDdcl0Q10TaoMXjw" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyAioR39TAyFp6nIBvQGDdcl0Q10TaoMXjw" />
-
 </widget>
