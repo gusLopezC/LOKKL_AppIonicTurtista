@@ -166,7 +166,8 @@ export class LoginPage implements OnInit {
         console.log(response);
         this.onLoginSuccessFacebbok(response);
       }, error => {
-        this.onLoginError(error);
+        console.log(error.errorMessage);
+        this.onLoginError(error.errorMessage);
       });
   }
 
@@ -194,8 +195,6 @@ export class LoginPage implements OnInit {
     });
 
     toast.present();
-
-    console.log(err);
 
   }
 }
