@@ -9,3 +9,13 @@ android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
 
 ionic cordova plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=''
 
+
+
+
+
+
+
+
+
+
+66:A8:B2:26:EA:0C:53:EB:A4:31:E1:80:3D:2A:E2:74:A1:93:61:13

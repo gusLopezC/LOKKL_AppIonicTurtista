@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lokkl.app" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.lokkl.app" version="0.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Lokkl</name>
     <description>Reserva tours</description>
     <author email="guslopezcallejas@gmail.com" href="http://ionicframework.com/">Lokkl Team</author>
@@ -105,6 +105,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-googleplus" spec="^5.19.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.934468496584-280f9qmnpmafj30m2qm9t84kq3c3cml2" />
+        <variable name="WEB_APPLICATION_CLIENT_ID" value="934468496584-280f9qmnpmafj30m2qm9t84kq3c3cml2.apps.googleusercontent.com" />
+    </plugin>
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyAioR39TAyFp6nIBvQGDdcl0Q10TaoMXjw" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyAioR39TAyFp6nIBvQGDdcl0Q10TaoMXjw" />
 </widget>

@@ -122,8 +122,7 @@ export class LoginPage implements OnInit {
   async doGoogleLogin() {
 
     const params = {
-      'scopes': '',
-      'webClientId': '934468496584-q3jdk50063ciu61cg6gl2l1qb4hv14mf.apps.googleusercontent.com',
+      'webClientId': '934468496584-u8a02oqm0httfv6d81hhl84etfibgo41.apps.googleusercontent.com',
       'offline': true,
     };
 
@@ -131,6 +130,7 @@ export class LoginPage implements OnInit {
       .then((response) => {
         this.onLoginSuccess((response));
       }).catch((error) => {
+        console.log(error);
         this.onLoginError(error);
       });
   }// end login Google
