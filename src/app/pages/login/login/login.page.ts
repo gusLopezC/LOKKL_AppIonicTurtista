@@ -122,7 +122,7 @@ export class LoginPage implements OnInit {
   async doGoogleLogin() {
 
     const params = {
-      'webClientId': '934468496584-u8a02oqm0httfv6d81hhl84etfibgo41.apps.googleusercontent.com',
+      'webClientId': '934468496584-g0ul9nf2bqval2denhddhk9njcqpknlb.apps.googleusercontent.com',
       'offline': true,
     };
 

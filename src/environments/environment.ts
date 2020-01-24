@@ -6,15 +6,14 @@ export const environment = {
   production: false,
 
   firebaseConfig: {
-    apiKey: "AIzaSyATdDxbSq-svZhQ835riaDHh9u0z4BpazI",
-    authDomain: "lokklandroid.firebaseapp.com",
-    databaseURL: "https://lokklandroid.firebaseio.com",
-    projectId: "lokklandroid",
-    storageBucket: "lokklandroid.appspot.com",
-    messagingSenderId: "934468496584",
-    appId: "1:934468496584:web:6e215761c7083bf89f09fd",
-    measurementId: "G-MY74C6R0GY"
-
+    apiKey: 'AIzaSyDkQVb1mFwS2cRyxS4d5_p-njAxL60Hohc',
+    authDomain: 'lokklandroid.firebaseapp.com',
+    databaseURL: 'https://lokklandroid.firebaseio.com',
+    projectId: 'lokklandroid',
+    storageBucket: 'lokklandroid.appspot.com',
+    messagingSenderId: '934468496584',
+    appId: '1:934468496584:web:a6ae8a4738aba31b9f09fd',
+    measurementId: 'G-HGHL7PMRVZ'
   },
   // apiUrl: 'http://192.168.1.237:8001',
   apiUrl: 'https://api.lokkl.com/',
