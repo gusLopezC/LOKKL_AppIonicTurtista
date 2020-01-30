@@ -15,8 +15,8 @@ export const environment = {
     appId: '1:934468496584:web:a6ae8a4738aba31b9f09fd',
     measurementId: 'G-HGHL7PMRVZ'
   },
-  // apiUrl: 'http://192.168.1.237:8001',
   apiUrl: 'https://api.lokkl.com/',
+  // apiUrl: 'http://localhost:8001',
   URL_AWS: 'https://lokkl.s3.us-east-2.amazonaws.com',
 
 };

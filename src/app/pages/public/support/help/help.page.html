@@ -7,14 +7,6 @@
     </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-    <div class="user-box">
-        <ion-row>
-            <ion-col size="12">
-                {{ 'Profile.Comopodemosayudarte' | translate }}
-            </ion-col>
-        </ion-row>
-    </div>
-    <br><br>
     <h3><strong>
         {{ 'Help.HelpTitle' | translate }}
     </strong></h3>
@@ -24,8 +16,10 @@
     </strong></h6>
     <div class="texto">
         <p>{{ 'Help.TienesunapreguntaTexto' | translate }} </p>
-        <p (click)="abrirlink()">{{ 'Help.LLevameahora' | translate }}</p>
-        <br>
+        <h6 style="color: #2589BD;"><strong (click)="abrirlink()">
+            {{ 'Help.LLevameahora' | translate }}
+        </strong></h6>
+
     </div>
     <ion-list>
         <ion-item (click)="changeWhatsapp()">
@@ -38,8 +32,8 @@
                 <br>
                 <br>
                 <ion-text>
-                    <p color="secondary-shade" onclick="window.plugins.socialsharing.shareViaWhatsAppToPhone('+524425944974', '', null /* img */, null /* url */, function() {console.log('share ok')})">
-                        + 52 442 594 4974</p>
+                    <h6 style="color: #2589BD;" color="#2589BD" onclick="window.plugins.socialsharing.shareViaWhatsAppToPhone('+524425944974', '', null /* img */, null /* url */, function() {console.log('share ok')})">
+                        + 52 442 594 4974</h6>
                 </ion-text>
                 <br>
             </ion-card-content>
@@ -75,7 +69,7 @@
                     <ion-row>
                         <ion-col size="12" style="margin:auto">
                             <ion-button [disabled]="!contactForm.valid" color="primary" type="submit" expand="full" shape="round" class="btn-primary" mode="ios">
-                                {{ 'Login.IniciarSesion' | translate }}
+                                {{ 'Help.Send' | translate }}
                             </ion-button>
                         </ion-col>
                     </ion-row>

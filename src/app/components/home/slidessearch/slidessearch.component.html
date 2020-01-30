@@ -2,11 +2,7 @@
     <ion-slide class="image-slide" *ngFor="let imagen of Fondo">
         <img [src]="imagen.imgRuta" alt="">
     </ion-slide>
-
 </ion-slides>
-<ion-title class="text-center">
-    <h2 class="ion-text-wrap"> {{ 'Home.Title' | translate }}</h2>
-</ion-title>
 <div class="card-search">
     <ion-searchbar [(ngModel)]="search" class="searchbar-white" [placeholder]="'Home.Dondeviajar' | translate" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
     <ion-list [hidden]="!search.length" lines='none'>

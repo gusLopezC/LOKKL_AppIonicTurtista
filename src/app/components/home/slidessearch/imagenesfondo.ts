@@ -1,15 +1,34 @@
 export const ImagenesFondo = [
 
     {
-        imgRuta: 'https://images.freeimages.com/images/large-previews/1cd/travel-around-thailand-3-1549155.jpg'
+        imgRuta: 'assets/img/tikis/Yucatan.jpg'
     },
     {
-        imgRuta: 'https://images.freeimages.com/images/large-previews/e9f/venice-5-1231469.jpg'
+        imgRuta: 'assets/img/tikis/Peru.jpg'
     },
     {
-        imgRuta: 'https://images.freeimages.com/images/large-previews/bd6/time-to-leave-1450777.jpg'
+        imgRuta: 'assets/img/tikis/Teotihuacan.jpg'
     },
     {
-        imgRuta: 'https://images.freeimages.com/images/large-previews/fdb/tower-of-pisa-1487986.jpg'
+        imgRuta: 'assets/img/tikis/China.jpg'
     },
+    {
+        imgRuta: 'assets/img/tikis/greece.jpg'
+    },
+    {
+        imgRuta: 'assets/img/tikis/Jirafas.jpg'
+    },
+    {
+        imgRuta: 'assets/img/tikis/libertad.jpg'
+    },
+    {
+        imgRuta: 'assets/img/tikis/medita.jpg'
+    },
+    {
+        imgRuta: 'assets/img/tikis/Pascua.jpg'
+    },
+    {
+        imgRuta: 'assets/img/tikis/Venecia.jpg'
+    }
+    
 ];

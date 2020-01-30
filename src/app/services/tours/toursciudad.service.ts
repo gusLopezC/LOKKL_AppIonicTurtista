@@ -13,7 +13,8 @@ export class ToursciudadService {
 
 
   obtenerToursCiudad(ciudad: string): Observable<any> {
-    const url = environment.apiUrl + '/api/tours/ObtenerToursCiudad/' + ciudad;
+    const url = environment.apiUrl + 'api/tours/ObtenerToursCiudad/' + ciudad;
     return this.http.get(url);
   }
 }
+

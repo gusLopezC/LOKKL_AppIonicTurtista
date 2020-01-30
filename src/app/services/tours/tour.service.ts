@@ -20,7 +20,7 @@ export class TourService {
   }
 
   obtenerToursNuevos(): Observable<any> {
-    const url = environment.apiUrl + '/api/tours/ObtenerToursNuevos';
+    const url = environment.apiUrl + 'api/tours/ObtenerToursNuevos';
     return this.http.get(url);
   }
 
@@ -36,7 +36,7 @@ export class TourService {
 
   buscarPorCiudad(placeID: string): Observable<any> {
 
-    const url = environment.apiUrl + '/api/tours/ObtenerPorCiudad/' + placeID;
+    const url = environment.apiUrl + 'api/tours/ObtenerPorCiudad/' + placeID;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
@@ -44,5 +44,14 @@ export class TourService {
       headers = headers.set('Authorization', 'Bearer ' + this.token);
 
     return this.http.get(url, { headers });
+  }
+
+
+  obtenerTourScrollInfinite(numeropagina: number): Observable<any> {
+
+    const url = environment.apiUrl + 'api/tours/ObtenerTourInfiniteScroll?page=' + numeropagina;
+
+    return this.http.get(url);
+
   }
 }

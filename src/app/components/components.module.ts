@@ -14,6 +14,7 @@ import { ChangePasswordComponent } from './profile/editprofie/change-password/ch
 import { ToursWelcomeComponent } from './home/tours-welcome/tours-welcome.component';
 import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-activas.component';
 import { SlidessearchComponent } from './home/slidessearch/slidessearch.component';
+import { ScrollinfinitetourComponent } from './vistastour/scrollinfinitetour/scrollinfinitetour.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SlidessearchComponent } from './home/slidessearch/slidessearch.componen
     ChangePasswordComponent
   ],
   declarations: [
+    ScrollinfinitetourComponent,
     SlidessearchComponent,
     ToursWelcomeComponent,
     ToursComponent,
@@ -33,6 +35,7 @@ import { SlidessearchComponent } from './home/slidessearch/slidessearch.componen
     ReservasActivasComponent
   ],
   exports: [
+    ScrollinfinitetourComponent,
     SlidessearchComponent,
     ToursWelcomeComponent,
     ToursComponent,
