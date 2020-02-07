@@ -40,15 +40,7 @@ export class ChatPage implements OnInit {
 
   ngOnInit() {
 
-    this.chatService.getChatRooms().subscribe(chats => {
-      console.log(chats);
-      // this.chatRooms = chats;
-
-    });
-
-
-
-  }//end ngOnit
+  }// end ngOnit
 
 
   exitChat() {

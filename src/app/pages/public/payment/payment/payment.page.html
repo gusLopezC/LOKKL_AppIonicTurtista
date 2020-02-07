@@ -122,20 +122,20 @@
                 </ion-col>
             </ion-row>
             <ion-item>
-                <ion-label position="floating">{{ 'Login.CVV' | translate }}</ion-label>
+                <ion-label position="floating">{{ 'Payment.CVV' | translate }}</ion-label>
                 <ion-input class="form-control" type="number" formControlName="cvc" minlength="3" maxlength="4" required>
                 </ion-input>
             </ion-item>
             <br>
             <br>
-            <ion-button [disabled]="!PagoForm.valid" expand="full" color="primary" (click)="payWithStripe()"><b>{{ 'Login.Reservar' | translate }}</b></ion-button>
-
+            <ion-button [disabled]="!PagoForm.valid" expand="full" color="primary" *ngIf="!formProcess" (click)="payWithStripe()"><b>{{ 'Payment.Reservar' | translate }}</b></ion-button>
+            <ion-button expand="full" color="primary" *ngIf="formProcess"><b>Processing please wait..</b></ion-button>
         </form>
     </div>
 
     <div *ngIf="metododepago == 2">
         <ion-button expand="full" color="primary" (click)="payWithPaypal()">
             <ion-icon name="card"></ion-icon>
-            Pagar con PayPal</ion-button>
+            {{ 'Payment.Paypal' | translate }}</ion-button>
     </div>
 </ion-content>

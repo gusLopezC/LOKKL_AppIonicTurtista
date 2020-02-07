@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs/internal/Observable';
 import { Storage } from '@ionic/storage';
 import { environment } from '../../../environments/environment';
@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 
 import { Usuario } from 'src/app/models/usuario.model';
 import { Password } from '../../models/password.model';
+import { DatosPersonales } from '../../models/datosPersonales.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,8 @@ export class UsuariosService {
   constructor(
     private http: HttpClient,
     private storage: Storage,
-    private navCtrl: NavController) { }
+    private navCtrl: NavController,
+    public toastController: ToastController, ) { }
 
 
   login(usuario: Usuario) {
@@ -38,7 +40,15 @@ export class UsuariosService {
             this.storage.clear();
             resolve(false);
           }
-        });
+        },
+          (async err => {
+            const toast = await this.toastController.create({
+              message: 'Tu correo o contraseña es incorrecto vuelve a intentar',
+              duration: 2000,
+              color: 'danger'
+            });
+            toast.present();
+          }));
     });
 
 
@@ -95,6 +105,13 @@ export class UsuariosService {
 
     this.user = await this.storage.get('usuario') || null;
     return this.user;
+
+  }
+
+  async getToken() {
+
+    this.token = await this.storage.get('token') || null;
+    return this.token;
 
   }
 
@@ -208,4 +225,47 @@ export class UsuariosService {
         });
     });
   }
+
+  obtenerInformacionContacto(id: number, token: string): Observable<any> {
+
+    const url = environment.apiUrl + 'api/users/contactoEmergencia/' + id;
+
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    headers = headers.set('Accept', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+
+
+    return this.http.get(url, { headers });
+  }
+
+  guardarContactoemergencia(datos: DatosPersonales): Observable<any> {
+
+    const url = environment.apiUrl + 'api/users/guardarcontactoEmergencia';
+
+
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    headers = headers.set('Accept', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + this.token);
+
+    return this.http.post(url, datos, { headers });
+
+  }
+
+  archivoValidacion(archivo, token: string): Observable<any> {
+
+    var cuerpoDatos = {
+      archivo
+    }
+    
+    const url = environment.apiUrl + 'api/users/archivovalidacionApp';
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    headers = headers.set('Accept', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+
+    return this.http.post(url, cuerpoDatos, { headers });
+  }
+
 }

@@ -16,22 +16,6 @@
         font-weight: bold;
     }
     
-    .card-search {
-        z-index: 999;
-        position: absolute;
-        top: 45%;
-        width: 100%;
-    }
-    
-    @media (min-height: 2000px) {
-        .card-search {
-            z-index: 999;
-            position: absolute;
-            top: 40%;
-            width: 100%;
-        }
-    }
-    
     .swiper-slide img {
         width: auto;
         max-width: 100%;
@@ -39,13 +23,21 @@
         max-height: 130% !important;
     }
     
-    .texth2 {
-        font-size: 18px;
-        margin-top: 27%;
-    }
-    
     ion-searchbar {
         text-align: center;
+        z-index: 99999;
+        position: absolute;
+        --background: white;
+    }
+    
+    .card-search {
+        text-align: center;
+        z-index: 99999;
+        --background: red;
+    }
+    
+    .list-md {
+        padding-top: 51px;
     }
     
     @media (min-width: 1024px) {
@@ -68,8 +60,5 @@
         h2 {
             margin-top: 0px;
             font-size: 17px;
-        }
-        .card-search {
-            top: 35%;
         }
     }

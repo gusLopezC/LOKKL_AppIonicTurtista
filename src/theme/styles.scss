@@ -32,7 +32,7 @@ ion-button {
 }
 
 .searchbar-white {
-    --background: white;
+    background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.07);
 }
 
 $image-size: 120px;

@@ -32,6 +32,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera/ngx';
+
+
 
 import { Stripe } from '@ionic-native/stripe/ngx';
 import { PayPal } from '@ionic-native/paypal/ngx';
@@ -78,6 +81,7 @@ export function LanguageLoader(http: HttpClient) {
     NativeStorage,
     SocialSharing,
     InAppBrowser,
+    Camera,
     TranslateconfigService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue: {} },

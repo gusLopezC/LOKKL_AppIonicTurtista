@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NetworkService, UsuariosService } from 'src/app/services/service.index';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario.model';
-import { Storage } from '@ionic/storage';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { ModalComponent } from '../../../../components/profile/documentvalidation/modal/modal.component';
 
 
 @Component({
@@ -25,12 +25,15 @@ export class EditprofilePage implements OnInit {
     private _usuarioService: UsuariosService,
     private _networkService: NetworkService,
     private formBuilder: FormBuilder,
-    public alertController: AlertController) {
+    public alertController: AlertController,
+    public modalController: ModalController) {
 
     this.formulario = formBuilder.group({
       name: new FormControl('', { updateOn: 'blur' }),
+      email: new FormControl('', { updateOn: 'blur' }),
       telephone: new FormControl('', { updateOn: 'blur' }),
-      infopersonal: new FormControl('', { updateOn: 'blur' })
+      infopersonal: new FormControl('', { updateOn: 'blur' }),
+      sexo: new FormControl('', { updateOn: 'blur' })
     }, { updateOn: 'change' });
 
   }
@@ -39,14 +42,15 @@ export class EditprofilePage implements OnInit {
 
     this.revisarConexion();
     this.user = await this._usuarioService.getUsuario();
-
     if (!(this.user.password === ':D')) {
       this.PasswordRedSocial = true;
     }
     this.formulario.patchValue({
       name: this.user.name,
+      email: this.user.email,
       telephone: this.user.telephone,
       infopersonal: this.user.infopersonal,
+      sexo: this.user.sexo,
     });
   }
 
@@ -62,7 +66,10 @@ export class EditprofilePage implements OnInit {
       null,
       null,
       this.user.id,
+      null,
+      this.formulario.value.sexo,
     );
+
     this.revisarConexion().then(async (resp) => {
       if (resp) {
         const valido = await this._usuarioService.actualizarUsuario(usuario);
@@ -124,6 +131,12 @@ export class EditprofilePage implements OnInit {
     });
   }
 
+  async abrirModalCargar() {
+    const modal = await this.modalController.create({
+      component: ModalComponent
+    });
+    return await modal.present();
+  }
 
   async revisarConexion() {
     this.Conexion = false;

@@ -16,7 +16,7 @@ export const environment = {
     measurementId: 'G-HGHL7PMRVZ'
   },
   apiUrl: 'https://api.lokkl.com/',
-  // apiUrl: 'http://localhost:8001',
+  // apiUrl: 'http://localhost:8001/',
   URL_AWS: 'https://lokkl.s3.us-east-2.amazonaws.com',
 
 };

@@ -23,6 +23,7 @@ const routes: Routes = [
   // Perfil
   { path: 'comofunciona', loadChildren: './pages/public/profile/como-funciona/como-funciona.module#ComoFuncionaPageModule' },
   { path: 'editprofile', loadChildren: './pages/public/profile/editprofile/editprofile.module#EditprofilePageModule' },
+  { path: 'emergencia', loadChildren: './pages/public/profile/emergencia/emergencia.module#EmergenciaPageModule' },
 
 
   // Soporte
@@ -34,6 +35,14 @@ const routes: Routes = [
   { path: 'chat', loadChildren: './pages/public/reservation/chat/chat.module#ChatPageModule' },
   // tslint:disable-next-line: max-line-length
   { path: 'cancel-reservation', loadChildren: './pages/public/reservation/cancel-reservation/cancel-reservation.module#CancelReservationPageModule' },
+
+
+  { path: 'mensajes', loadChildren: './pages/public/mensajes/mensajes.module#MensajesPageModule' },
+
+
+
+
+
 
 ];
 @NgModule({

@@ -40,7 +40,6 @@ export class TourdetallesPage implements OnInit {
         this.tour = this.router.getCurrentNavigation().extras.state.tour;
       }
     });
-    console.log(this.tour);
   }
 
   async ngOnInit() {

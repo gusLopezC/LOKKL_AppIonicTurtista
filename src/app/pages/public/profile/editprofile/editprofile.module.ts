@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditprofilePage } from './editprofile.page';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { ComponentsModule } from '../../../../components/components.module';
+//import { ModalCargarPage } from '../../../../components/profile/documentvalidation/modal-cargar/modal-cargar.page';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+
   imports: [
     ComponentsModule,
     CommonModule,
@@ -27,6 +29,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     TranslateModule.forChild(),
   ],
-  declarations: [EditprofilePage, ]
+  declarations: [EditprofilePage,]
 })
 export class EditprofilePageModule { }

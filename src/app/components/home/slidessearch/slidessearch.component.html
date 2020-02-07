@@ -1,13 +1,14 @@
-<ion-slides #IonSlides [options]="slideOptsOne">
-    <ion-slide class="image-slide" *ngFor="let imagen of Fondo">
-        <img [src]="imagen.imgRuta" alt="">
-    </ion-slide>
-</ion-slides>
-<div class="card-search">
-    <ion-searchbar [(ngModel)]="search" class="searchbar-white" [placeholder]="'Home.Dondeviajar' | translate" (ionChange)="buscar()" [debounce]="250" mode="ios"></ion-searchbar>
+<div>
+    <ion-searchbar mode="ios" type="text" [(ngModel)]="search" [placeholder]="'Home.Dondeviajar' | translate" (ionChange)="buscar()" [debounce]="250">
+    </ion-searchbar>
     <ion-list [hidden]="!search.length" lines='none'>
         <ion-item (click)="selectSearchResult(searchResults)">
             {{searchResults?.description}}
         </ion-item>
     </ion-list>
 </div>
+<ion-slides #IonSlides [options]="slideOptsOne" (ionSlideDidChange)="getIndex()">
+    <ion-slide class="image-slide" *ngFor="let imagen of Fondo">
+        <img [src]="imagen.imgRuta" alt="">
+    </ion-slide>
+</ion-slides>

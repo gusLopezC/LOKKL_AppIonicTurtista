@@ -12,6 +12,8 @@ export class  Usuario {
         public google?: boolean,
         public id?: string,
         public verified?: string,
+        public sexo?: string,
+        public archivovalidacion?: string,
 
     ) { }
 

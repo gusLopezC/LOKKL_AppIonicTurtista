@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'mensajes',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../mensajes/mensajes.module').then(m => m.MensajesPageModule)
+          }
+        ]
+      },
+      {
         path: 'profile',
         children: [
           {

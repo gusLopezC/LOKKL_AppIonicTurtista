@@ -19,7 +19,7 @@ export class ReservasService {
   }
   obtenerMisViajes(id: string): Observable<any> {
 
-    const url = environment.apiUrl + '/api/reservaciones/obtenerMisViajes/' + id;
+    const url = environment.apiUrl + 'api/reservaciones/obtenerMisViajes/' + id;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
@@ -32,7 +32,7 @@ export class ReservasService {
 
   obtenerHistorialMisViajes(id: string): Observable<any> {
 
-    const url = environment.apiUrl + '/api/reservaciones/obtenerHistorialMisViajes/' + id;
+    const url = environment.apiUrl + 'api/reservaciones/obtenerHistorialMisViajes/' + id;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
@@ -50,7 +50,7 @@ export class ReservasService {
 
 
   revisarPuedeCancelar(pedido: string) {
-    const url = environment.apiUrl + '/api/reservaciones/obtenerDiferenciasDias/' + pedido;
+    const url = environment.apiUrl + 'api/reservaciones/obtenerDiferenciasDias/' + pedido;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
@@ -62,7 +62,7 @@ export class ReservasService {
   }
 
   cancelarReservacionCliente(pedido: string, motivo: string) {
-    const url = environment.apiUrl + '/api/reservaciones/cancelarReservacionCliente';
+    const url = environment.apiUrl + 'api/reservaciones/cancelarReservacionCliente';
 
     const DatosCancelacion = {
       pedido,

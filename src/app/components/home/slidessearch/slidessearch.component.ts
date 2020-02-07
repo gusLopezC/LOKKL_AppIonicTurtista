@@ -27,6 +27,7 @@ export class SlidessearchComponent {
     slidesPerView: 1,
     speed: 1000,
     autoplay: true,
+    loop: true
   };
 
   constructor(private router: Router, ) {
@@ -56,6 +57,10 @@ export class SlidessearchComponent {
     };
     this.router.navigate(['/searchtour'], navigationExtras);
 
+  }
+
+  getIndex() {
+    //  console.log(this.slider.getActiveIndex());
   }
 
 }

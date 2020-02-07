@@ -15,13 +15,15 @@ import { ToursWelcomeComponent } from './home/tours-welcome/tours-welcome.compon
 import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-activas.component';
 import { SlidessearchComponent } from './home/slidessearch/slidessearch.component';
 import { ScrollinfinitetourComponent } from './vistastour/scrollinfinitetour/scrollinfinitetour.component';
+import { ModalComponent } from './profile/documentvalidation/modal/modal.component';
 
 
 @NgModule({
   entryComponents: [
     AboutusComponent,
     StarsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ModalComponent
   ],
   declarations: [
     ScrollinfinitetourComponent,
@@ -32,7 +34,9 @@ import { ScrollinfinitetourComponent } from './vistastour/scrollinfinitetour/scr
     AboutusComponent,
     StarsComponent,
     ChangePasswordComponent,
-    ReservasActivasComponent
+    ReservasActivasComponent,
+    ModalComponent
+
   ],
   exports: [
     ScrollinfinitetourComponent,
@@ -42,7 +46,9 @@ import { ScrollinfinitetourComponent } from './vistastour/scrollinfinitetour/scr
     ListastoursComponent,
     StarsComponent,
     ChangePasswordComponent,
-    ReservasActivasComponent
+    ReservasActivasComponent,
+    ModalComponent
+
   ],
   imports: [
     CommonModule,

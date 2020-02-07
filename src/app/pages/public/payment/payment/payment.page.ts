@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UsuariosService, PaymentService } from '../../../../services/service.index';
 import { Payment } from '../../../../models/payment.model';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.page.html',
@@ -27,6 +27,7 @@ export class PaymentPage implements OnInit {
   priceFinal: any;
   comision: any;
   datosFacturacion = {};
+  formProcess = false;
 
   stripe_key = 'pk_live_MFjCYjJg6B1jNNx5mUaSwFRY00q1xLT3gH';
   cardDetails: { number: string; expMonth: number; expYear: number; cvc: string; };
@@ -40,6 +41,7 @@ export class PaymentPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public loadingController: LoadingController,
+    public toastCtrl: ToastController,
     private stripe: Stripe,
     private payPal: PayPal) {
 
@@ -85,6 +87,7 @@ export class PaymentPage implements OnInit {
 
   payWithStripe() {
 
+    this.formProcess = true;
     this.stripe.setPublishableKey(this.stripe_key);
 
     this.cardDetails = {
@@ -99,8 +102,19 @@ export class PaymentPage implements OnInit {
         this.creacionPagoStripe(token.id);
       })
       .catch(error => {
-        console.error(error);
-        console.log('A ocurrido un problema pureba con otra tarjeta');
+        setTimeout(async () => {
+          this.formProcess = false;
+
+          const toast = await this.toastCtrl.create({
+            showCloseButton: true,
+            message: error.message,
+            duration: 3000,
+            color: 'danger',
+            position: 'bottom'
+          });
+
+          toast.present();
+        }, 1000);
       });
   }
 
@@ -131,7 +145,8 @@ export class PaymentPage implements OnInit {
     //const valido =
     this._PaymentService.crearPagoStripe(pago)
       .subscribe(resp => {
-        console.log(resp);
+        this.formProcess = false;
+        this.router.navigate(['/home/reservations']);
         loading.dismiss();
       });
     loading.dismiss();

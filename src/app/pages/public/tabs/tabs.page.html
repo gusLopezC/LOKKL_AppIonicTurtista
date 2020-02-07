@@ -1,10 +1,6 @@
 <ion-tabs>
 
     <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-            <ion-icon name="search"></ion-icon>
-            <ion-label>{{ 'TabsMenu.Explora' | translate }}</ion-label>
-        </ion-tab-button>
 
         <ion-tab-button tab="reservations">
             <ion-icon name="briefcase"></ion-icon>
@@ -14,6 +10,17 @@
         <ion-tab-button tab="favoritos">
             <ion-icon name="heart"></ion-icon>
             <ion-label>{{ 'TabsMenu.Favoritos' | translate }}</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="home">
+            <ion-icon name="search"></ion-icon>
+            <ion-label>{{ 'TabsMenu.Explora' | translate }}</ion-label>
+        </ion-tab-button>
+
+
+        <ion-tab-button tab="mensajes">
+            <ion-icon name="chatbubbles" mode="ios"></ion-icon>
+            <ion-label>{{ 'TabsMenu.Chat' | translate }}</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="profile">

@@ -1,0 +1,35 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-title>{{ 'Mensajes.Mensajes' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-slides [options]="sliderOpts" *ngIf="NoHaySesioIniciada">
+        <ion-slide>
+            <div class="texto">
+                <h2>{{ 'Resertation.NoSesion' | translate }}</h2>
+                <ion-label></ion-label>
+                <br><br>
+                <ion-button class="log-in-button" color="primary" expand="block" [routerLink]="['/login']" routerLinkActive="router-link-active">
+                    {{ 'Resertation.IniciaSesion' | translate }}
+                </ion-button>
+            </div>
+
+        </ion-slide>
+    </ion-slides>
+
+    <ion-slides [options]="sliderOpts" *ngIf="Nomensajes">
+        <ion-slide>
+            <div class="texto">
+                <h4>{{ 'Mensajes.Nomensajes' | translate }} </h4>
+                <br><br>
+                <ion-button class="log-in-button" color="primary" expand="block" [routerLink]="['/home/home']" routerLinkActive="router-link-active">
+                    {{ 'Resertation.Exploremos' | translate }}
+                </ion-button>
+            </div>
+
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>

@@ -28,18 +28,7 @@ export class PaymentService {
     headers = headers.set('Accept', 'application/json'),
       headers = headers.set('Authorization', 'Bearer ' + this.token);
 
-    //return new Promise(resolve => {
     return this.http.post(url, pago, { headers });
-    //.subscribe(resp => {
-    //console.log(resp);
-    //    resolve(true);
-    // },
-    // (err => {
-    // resolve(true);
-    // })
-    // );
-    // });
-
   }
 
 

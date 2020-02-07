@@ -3,6 +3,7 @@
         "Explora": "Explore",
         "Reservaciones": "Reservations",
         "Favoritos": "Favorites",
+        "Chat": "Chat",
         "Perfil": "Profile"
     },
     "Login": {
@@ -46,6 +47,7 @@
         "SincronizaSesion": "Synchronize your reservation and manage your tour and access your favorite activities faster.",
         "IniciarSesion": "Login",
         "Editar": "Edit",
+        "InformacionPersonal": "Información personal",
         "Comofunciona": "How it works",
         "Terminosycondiciones": "Terms and conditions",
         "Comopodemosayudarte": "How can we help you?",
@@ -59,6 +61,7 @@
         "Selectphoto": "Update your photo",
         "InformacionPersonal": "Personal information",
         "name": "Name",
+        "email": "Email",
         "telephone": "Telephone",
         "Biografia": "Biography",
         "Enviar": "Send",

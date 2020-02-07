@@ -1,0 +1,52 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home/profile">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'Emergencia.ContactoEmergencia' | translate }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row>
+        <ion-col size="12">
+            <ion-text>
+                <h3>{{ 'Emergencia.TextoContactoEmergencia' | translate }}</h3>
+            </ion-text>
+            <div></div>
+            <ion-img class="poli" src="assets/img/default/Policia.png"></ion-img>
+        </ion-col>
+        <br>
+        <ion-col size="12">
+            <form [formGroup]='formulario' (ngSubmit)="actualizarInfoContactoEmergencia()">
+                <ion-label position="floating"> </ion-label>
+
+                <ion-item>
+                    <ion-label position="floating">{{ 'EditProfile.name' | translate }}</ion-label>
+                    <ion-input class="form-control" type="text" formControlName="name">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">{{ 'EditProfile.email' | translate }}</ion-label>
+                    <ion-input class="form-control" type="text" formControlName="email">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">{{ 'EditProfile.telephone' | translate }}</ion-label>
+                    <ion-input class="form-control" type="number" formControlName="telephone">
+                    </ion-input>
+                </ion-item>
+                <ion-col size="12" style="margin:auto">
+                    <ion-button color="primary" type="submit" expand="full" shape="round" class="btn-primary" mode="ios">
+                        {{ 'EditProfile.Enviar' | translate }}
+                    </ion-button>
+                </ion-col>
+            </form>
+        </ion-col>
+    </ion-row>
+
+
+</ion-content>

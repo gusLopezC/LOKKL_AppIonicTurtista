@@ -1,8 +1,9 @@
 {
     "TabsMenu": {
         "Explora": "Explora",
-        "Reservaciones": "Reservaciones",
+        "Reservaciones": "Reservas",
         "Favoritos": "Favoritos",
+        "Chat": "Mensajes",
         "Perfil": "Perfil"
     },
     "Login": {
@@ -46,6 +47,7 @@
         "SincronizaSesion": "Sincroniza tu reservación y administra tu tour y accede más rápido a tus actividades favoritas.",
         "IniciarSesion": "Iniciar Sesión",
         "Editar": "Editar",
+        "InformacionPersonal": "Información personal",
         "Comofunciona": "Cómo funciona",
         "Terminosycondiciones": "Términos y condiciones",
         "Comopodemosayudarte": "¿Cómo podemos ayudarte?",
@@ -59,7 +61,12 @@
         "Selectphoto": "Actualiza tu foto",
         "InformacionPersonal": "Información personal",
         "name": "Nombre",
+        "email": "Email",
         "telephone": "Teléfono",
+        "sexo": "Sexo",
+        "masculino": "Masculino",
+        "femenino": "Femenino",
+        "otro": "Otro",
         "Biografia": "Biografía",
         "Enviar": "Enviar",
         "ChangePassword": "Cambiar Contraseña",
@@ -70,6 +77,13 @@
         "DesactivarcuentaTexto": "Si desactiva su cuenta, ya no estará disponible. No podrá iniciar sesión y acceder a su perfil. Todas las opiniones, fotos y consejos que ha proporcionado específicamente aparecieron en el sitio web.",
         "Deletecuenta": " Desactivar cuenta"
 
+    },
+    "Emergencia": {
+        "ContactoEmergencia": "Contacto de emergencia",
+        "TextoContactoEmergencia": "Disponer de un contacto de emergencia nos da otra opcion para ayduarte si alguna vez te encuentras en una situacion de emergencia.",
+        "": "",
+        "": "",
+        "": ""
     },
     "ComoFunciona": {
         "ComoFuncionaTitle": "Diseña tu viaje ideal",
@@ -185,7 +199,7 @@
         "Total": "Total",
         "Comisión": "Comisión",
         "Seleccionametodopago": "Selecciona tu método de pago",
-        "Paypal": "Paypal",
+        "Paypal": "Pagar con Paypal",
         "Tarjeta": "Tarjeta de credito o debito",
         "NameCard": "Nombre titular de la tarjeta",
         "NumberCard": "Número de tarjeta",
@@ -193,6 +207,15 @@
         "AnioExpiracion": "Año de Expiración",
         "CVV": "CVV",
         "Reservar": "Reservar"
+    },
+    "Mensajes": {
+        "Mensajes": "Mensajes",
+        "Nomensajes": "No tienes mensajes",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
     }
 
 }

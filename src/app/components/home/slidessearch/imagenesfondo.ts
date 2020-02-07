@@ -30,5 +30,5 @@ export const ImagenesFondo = [
     {
         imgRuta: 'assets/img/tikis/Venecia.jpg'
     }
-    
+
 ];

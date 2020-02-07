@@ -32,7 +32,6 @@ export class GeolocationService {
 
 
   setGoogleAutocomplete() {
-    console.log(google.maps);
     if (google.maps) {
       this.googleAutocomplete = new google.maps.places.AutocompleteService();
 

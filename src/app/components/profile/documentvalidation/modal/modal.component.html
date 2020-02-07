@@ -1,0 +1,41 @@
+<ion-header no-border (click)="salir()">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button (click)="salir()">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Carga tu documento
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row>
+        <ion-col size="12">
+            <ion-text>
+                <h3 class="textcenter">Vamos a añadir una identificacion oficial </h3>
+                <br>
+            </ion-text>
+            <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png"></ion-img>
+
+            <div>
+                <ion-text>
+                    <p class="textcenter">
+                        <ion-icon name="lock"></ion-icon>
+                        No compartiremos esta información con ninguna personal o entidad</p>
+                </ion-text>
+            </div>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-img *ngIf="image" [src]="image" class="fotocargada" alt="Profile Picture"></ion-img>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="selectImage()">
+        <ion-fab-button>
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

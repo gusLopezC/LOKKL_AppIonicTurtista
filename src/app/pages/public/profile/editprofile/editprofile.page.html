@@ -17,13 +17,13 @@
         <img *ngIf="imagenTemp" [src]='imagenTemp' alt="" class="image-round border-white">
     </div>
     <br>
-    <div class="margin-bottom margin-top text-center">
+    <!--<div class="margin-bottom margin-top text-center">
         <label class="custom-file-upload" style="margin:auto;max-width:400px">
               <input id="file-upload" placeholder="Seleciona imagen" type="file" accept=".png, .jpg"
                 (change)="onUpload($event)" />
               <ion-icon margin-right name="cloud-download"></ion-icon> {{ 'EditProfile.Selectphoto' | translate }}
             </label>
-    </div>
+    </div>-->
 
     <ion-row *ngIf="user">
         <ion-col size="12">
@@ -39,15 +39,30 @@
                     </ion-input>
                 </ion-item>
                 <ion-item>
+                    <ion-label position="floating">{{ 'EditProfile.email' | translate }}</ion-label>
+                    <ion-input class="form-control" type="text" formControlName="email">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
                     <ion-label position="floating">{{ 'EditProfile.telephone' | translate }}</ion-label>
                     <ion-input class="form-control" type="number" formControlName="telephone">
                     </ion-input>
                 </ion-item>
                 <ion-item>
+                    <ion-label>{{ 'EditProfile.sexo' | translate }}</ion-label>
+                    <ion-select placeholder="Select One" formControlName="sexo">
+                        <ion-select-option value="Femenino">{{ 'EditProfile.femenino' | translate }}</ion-select-option>
+                        <ion-select-option value="Masculino">{{ 'EditProfile.masculino' | translate }}</ion-select-option>
+                        <ion-select-option value="Other">{{ 'EditProfile.otro' | translate }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <!--
+                    <ion-item>
                     <ion-label position="floating">{{ 'EditProfile.Biografia' | translate }} </ion-label>
                     <ion-textarea class="form-control" type="text" formControlName="infopersonal">
                     </ion-textarea>
                 </ion-item>
+            -->
 
                 <ion-col size="12" style="margin:auto">
                     <ion-button color="primary" type="submit" expand="full" shape="round" class="btn-primary" mode="ios">
@@ -56,11 +71,24 @@
                 </ion-col>
             </form>
         </ion-col>
-        <br><br>
     </ion-row>
 
+    <ion-slides>
+        <ion-slide>
+            <div class="texto">
+                <h2>Añade el documento de identidad</h2>
+                <ion-label>Este proceso nos ayuda comprar que eres tu</ion-label>
+                <br><br>
+                <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png"></ion-img>
+                <br><br>
+                <ion-button class="log-in-button" color="primary" expand="block" (click)="abrirModalCargar()">
+                    Cargar documento
+                </ion-button>
+            </div>
+        </ion-slide>
+    </ion-slides>
 
-    <br><br>
+
     <ion-row *ngIf="user">
         <ion-col *ngIf="PasswordRedSocial">
             <ion-text>
@@ -69,7 +97,6 @@
             <app-change-password></app-change-password>
         </ion-col>
     </ion-row>
-    <br><br>
     <ion-row>
         <ion-text>
             <h3>{{ 'EditProfile.Desactivarcuenta' | translate }}</h3>
