@@ -32,4 +32,28 @@
         </ion-slide>
     </ion-slides>
 
+    <div>
+        <ion-row>
+            <ion-col size="12">
+                <div *ngFor="let mensaje of mensajes" class="fullwidth">
+                    <ion-card class="tall" (click)="abrirChat(mensaje)">
+                        <ion-card-content>
+                            <ion-card-subtitle>{{mensaje.get_guia[0].name}}
+                                <strong class="fecha">{{mensaje.get_reserva[0].Fechareserva    }}</strong>
+                            </ion-card-subtitle>
+                            <ion-list mode='ios' lines='none'>
+                                <ion-item>
+                                    <ion-avatar slot="start">
+                                        <img [src]="mensaje.get_guia[0].img  | imagenprofile:'profile'">
+                                    </ion-avatar>
+                                    <ion-label class="ion-text-wrap">{{mensaje.get_reserva[0].NameTour}}</ion-label>
+                                </ion-item>
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+
 </ion-content>

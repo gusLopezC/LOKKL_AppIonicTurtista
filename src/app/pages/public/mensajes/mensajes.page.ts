@@ -3,6 +3,7 @@ import { UsuariosService, ReservasService, NetworkService, ChatService } from '.
 import { ToastController } from '@ionic/angular';
 
 import { Payment } from '../../../models/payment.model';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-mensajes',
@@ -11,6 +12,7 @@ import { Payment } from '../../../models/payment.model';
 })
 export class MensajesPage {
 
+  mensajes: any;
   user: any;
   reservas: Payment[] = [];
   NoHayReservas = false;
@@ -23,6 +25,7 @@ export class MensajesPage {
 
   NoConexion = false;
   Nomensajes = false;
+  token: string;
 
   constructor(
     private _usuarioService: UsuariosService,
@@ -30,10 +33,10 @@ export class MensajesPage {
     public _ChatService: ChatService,
     private _networkService: NetworkService,
     public toastController: ToastController,
+    private router: Router
   ) { }
 
   async ionViewWillEnter() {
-    console.log('Entra a mensajes');
     this.revisarSesion();
 
     this.obtenerMensajes();
@@ -41,7 +44,6 @@ export class MensajesPage {
 
   async revisarSesion() {
     this.user = await this._usuarioService.getUsuario();
-    console.log(this.user);
     if (!this.user) {
       this.NoHaySesioIniciada = true;
       return false;
@@ -51,22 +53,30 @@ export class MensajesPage {
 
   async obtenerMensajes() {
     this.user = await this._usuarioService.getUsuario();
+    this.token = await this._usuarioService.getToken();
 
     if (this.user) {
-      this._ChatService.obtenerMensajesTurista(this.user.id)
+      this._ChatService.obtenerMensajesTurista(this.user.id, this.token)
         .subscribe(resp => {
-          console.log(resp.Mensajes);
-
+          console.log(resp);
           if (resp.Mensajes.length > 0) {
-
+            this.mensajes = resp.Mensajes;
           } else {
             this.Nomensajes = true;
           }
 
         });
     }
+  }
 
+  abrirChat(mensajes) {
 
+    let navigationExtras: NavigationExtras = {
+      state: {
+        reserva: mensajes,
+      }
+    };
+    this.router.navigate(['/chat'], navigationExtras);
   }
 
 }

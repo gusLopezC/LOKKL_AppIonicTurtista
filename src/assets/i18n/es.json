@@ -75,15 +75,17 @@
         "PasswordOldConfirm": "Confirma tu nueva contraseña",
         "Desactivarcuenta": "Desactivar cuenta",
         "DesactivarcuentaTexto": "Si desactiva su cuenta, ya no estará disponible. No podrá iniciar sesión y acceder a su perfil. Todas las opiniones, fotos y consejos que ha proporcionado específicamente aparecieron en el sitio web.",
-        "Deletecuenta": " Desactivar cuenta"
+        "Deletecuenta": " Desactivar cuenta",
+        "Añadedocumento": "Añade el documento de identidad",
+        "Cargardocumento": "Cargar documento",
+        "AñadedocumentoText": "Este proceso nos ayuda a comprobar que eres tu",
+        "IdentificacionTitle": "Vamos a añadir una identificacion oficial",
+        "IdentificacionText": "No compartiremos esta información con ninguna personal o entidad"
 
     },
     "Emergencia": {
         "ContactoEmergencia": "Contacto de emergencia",
-        "TextoContactoEmergencia": "Disponer de un contacto de emergencia nos da otra opcion para ayduarte si alguna vez te encuentras en una situacion de emergencia.",
-        "": "",
-        "": "",
-        "": ""
+        "TextoContactoEmergencia": "Disponer de un contacto de emergencia nos da otra opcion para ayduarte si alguna vez te encuentras en una situacion de emergencia."
     },
     "ComoFunciona": {
         "ComoFuncionaTitle": "Diseña tu viaje ideal",
@@ -171,9 +173,7 @@
         "ServiciosAdicionales": "Servicios adicionales",
         "Politicasdecancelación": "Políticas de cancelación",
         "Cancelacion48": "Cuentas con 48 horas para cancelación sin costo",
-        "Reservar": "Reservar",
-        "": "",
-        "": ""
+        "Reservar": "Reservar"
     },
     "Calender": {
         "Cuando": "¿Cuando te gustaría ir?",
@@ -210,12 +210,7 @@
     },
     "Mensajes": {
         "Mensajes": "Mensajes",
-        "Nomensajes": "No tienes mensajes",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": ""
+        "Nomensajes": "No tienes mensajes"
     }
 
 }

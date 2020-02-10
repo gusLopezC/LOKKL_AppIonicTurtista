@@ -10,8 +10,6 @@ import { Storage } from '@ionic/storage';
   providedIn: 'root'
 })
 export class ChatService {
-
-
   token: string;
 
   constructor(public http: HttpClient, private storage: Storage) {
@@ -24,16 +22,51 @@ export class ChatService {
 
 
 
-  obtenerMensajesTurista(id: any): Observable<any> {
+  obtenerMensajesTurista(id: any, token: string): Observable<any> {
 
-    this.obtenertoken();
     const url = environment.apiUrl + 'api/mensajes/obtenerChatsTurista/' + id;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     headers = headers.set('Accept', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + this.token);
+    headers = headers.set('Authorization', 'Bearer ' + token);
 
     return this.http.get(url, { headers });
   }
+
+  obtenerChatReservacion(id: any, token: string): Observable<any> {
+
+
+    const url = environment.apiUrl + 'api/mensajes/obtenerChatReservacion/' + id;
+
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    headers = headers.set('Accept', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+
+    return this.http.get(url, { headers });
+  }
+
+
+  sendMessage(reserva, message: string, token: string): Observable<any> {
+
+    console.log(reserva);
+
+    var cuerpoDatos = {
+      id_reservacion : reserva.id_reservacion,
+      id_comprador : reserva.id_comprador,
+      id_guia : reserva.id_guia,
+      message
+    };
+
+    const url = environment.apiUrl + 'api/mensajes/sendMessage';
+
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    headers = headers.set('Accept', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+
+    return this.http.post(url, cuerpoDatos, { headers });
+  }
+
 }

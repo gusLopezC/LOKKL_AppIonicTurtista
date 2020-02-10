@@ -60,9 +60,13 @@
         "EditProfileTitle": "Edit Profile",
         "Selectphoto": "Update your photo",
         "InformacionPersonal": "Personal information",
-        "name": "Name",
+        "name": "Nombre",
         "email": "Email",
         "telephone": "Telephone",
+        "sexo": "Sex",
+        "masculino": "Masculino",
+        "femenino": "Feminine",
+        "otro": "Other",
         "Biografia": "Biography",
         "Enviar": "Send",
         "ChangePassword": "Change Password",
@@ -70,9 +74,18 @@
         "PasswordOld": "New Password",
         "PasswordOldConfirm": "Confirm your new password",
         "Desactivarcuenta": "Deactivate account",
-        "DesactivarcuentaTexto": "If you deactivate your account, it will no longer be available. You will not be able to log in and access your profile. All the opinions, photos and advice that you have specifically provided appeared on the website.",
-        "Deletecuenta": "Deactivate account"
+        "DesactivarcuentaTexto": "If your account is deactivated, it will no longer be available. You will not be able to log in and access your profile. All opinions, photos and tips that have been easily published on the website",
+        "Deletecuenta": "Deactivate account",
+        "Añadedocumento": "Add the identity document",
+        "Cargardocumento": "Upload document",
+        "AñadedocumentoText": "This process helps us to verify that you are your",
+        "IdentificacionTitle": "We will add an official identification",
+        "IdentificacionText": "We will not share this information with any personnel or entity"
 
+    },
+    "Emergencia": {
+        "ContactoEmergencia": "Emergency contact",
+        "TextoContactoEmergencia": "Having an emergency contact gives us another option to help you if you are ever in an emergency situation."
     },
     "ComoFunciona": {
         "ComoFuncionaTitle": "Diseña tu viaje ideal",
@@ -116,7 +129,8 @@
         "Pendiente": "Pending",
         "Aceptado": "Accepted",
         "Realizado": "Done",
-        "Cancelado": "Canceled"
+        "Cancelado": "Canceled",
+        "Exploremos": "Let's explore"
     },
     "CancelReservation": {
         "Title": "Cancel Reservation",
@@ -146,6 +160,7 @@
         "Detallescompletos": "See Full Details",
         "Itinerario": "Itinerary",
         "Queincluye": "What does it include",
+        "DondeEncontrarme": "Where to find me",
         "AbrirGoogleMaps": "Open in Google Maps",
         "TuLOKKL": "Your LOKKL"
     },
@@ -192,6 +207,10 @@
         "AnioExpiracion": "Year of Expiration",
         "CVV": "CVV",
         "Reservar": "Book"
+    },
+    "Mensajes": {
+        "Mensajes": "Messages",
+        "Nomensajes": "You have no messages"
     }
 
 }

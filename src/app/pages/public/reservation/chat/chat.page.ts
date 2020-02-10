@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { Location } from '@angular/common';
 
-import { ChatService } from '../../../../services/service.index';
+import { ChatService, UsuariosService, ReservasService, NetworkService } from '../../../../services/service.index';
 import * as firebase from 'firebase';
+import { Usuario } from '../../../../models/usuario.model';
 
 
 
@@ -13,7 +14,7 @@ import * as firebase from 'firebase';
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
 })
-export class ChatPage implements OnInit {
+export class ChatPage {
 
   reserva: any;
 
@@ -21,11 +22,16 @@ export class ChatPage implements OnInit {
 
   userId = '';
   message: string;
-  messages = [];
   chats = [];
+  token: string;
+  user: Usuario;
 
   constructor(
-    private chatService: ChatService,
+    private _usuarioService: UsuariosService,
+    public _reservasService: ReservasService,
+    public _ChatService: ChatService,
+    private _networkService: NetworkService,
+    public toastController: ToastController,
     public navCtrl: NavController,
     private location: Location,
     public route: ActivatedRoute,
@@ -33,14 +39,31 @@ export class ChatPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.reserva = this.router.getCurrentNavigation().extras.state.reserva;
-        console.log(this.reserva);
       }
     });
   }
 
-  ngOnInit() {
-
+  async ionViewWillEnter() {
+    this.user = await this._usuarioService.getUsuario();
+    console.log(this.user);
+    this.obtenerMensajes();
   }// end ngOnit
+
+
+  async obtenerMensajes() {
+
+    this.token = await this._usuarioService.getToken();
+
+    this._ChatService.obtenerChatReservacion(this.reserva.id, this.token)
+      .subscribe(resp => {
+        console.log(resp.Mensajes);
+        if (resp.Mensajes.length > 0) {
+          this.chats = resp.Mensajes;
+
+        }
+      });
+
+  }
 
 
   exitChat() {
@@ -48,20 +71,18 @@ export class ChatPage implements OnInit {
     this.location.back();
   }
 
+  async sendChatMessage() {
 
+    this.token = await this._usuarioService.getToken();
 
-  sendMessage(type: string, message: string) {
-    const newData = firebase.database().ref('chatrooms/' + this.roomkey + '/chats').push();
-    newData.set({
-      type: type,
-      user: this.userId,
-      message: message,
-      sendDate: Date()
-    });
-  }
+    this._ChatService.sendMessage(this.reserva, this.message, this.token)
+      .subscribe(resp => {
+        console.log(resp.Mensajes);
+        if (resp.Mensajes.length > 0) {
+          this.chats = resp.Mensajes;
 
-  sendChatMessage() {
-
+        }
+      });
   }
 
 }

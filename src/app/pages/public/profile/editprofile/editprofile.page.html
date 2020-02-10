@@ -76,13 +76,13 @@
     <ion-slides>
         <ion-slide>
             <div class="texto">
-                <h2>Añade el documento de identidad</h2>
-                <ion-label>Este proceso nos ayuda comprar que eres tu</ion-label>
+                <h2>{{ 'EditProfile.Añadedocumento' | translate }}</h2>
+                <ion-label>{{ 'EditProfile.AñadedocumentoText' | translate }}</ion-label>
                 <br><br>
                 <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png"></ion-img>
                 <br><br>
                 <ion-button class="log-in-button" color="primary" expand="block" (click)="abrirModalCargar()">
-                    Cargar documento
+                    {{ 'EditProfile.Cargardocumento' | translate }}
                 </ion-button>
             </div>
         </ion-slide>
