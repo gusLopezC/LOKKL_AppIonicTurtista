@@ -15,6 +15,7 @@ export class FacturacionPage implements OnInit {
   fechaReserva: Date;
   numberTuristias: number;
   fechaCalender: any;
+  Horaprupuesta: any;
   priceFinal: any;
 
   constructor(
@@ -28,6 +29,7 @@ export class FacturacionPage implements OnInit {
         this.tour = this.router.getCurrentNavigation().extras.state.tour;
         this.fechaReserva = this.router.getCurrentNavigation().extras.state.fechaReserva;
         this.fechaCalender = this.router.getCurrentNavigation().extras.state.fechaCalender;
+        this.Horaprupuesta = this.router.getCurrentNavigation().extras.state.Horaprupuesta;
         this.numberTuristias = this.router.getCurrentNavigation().extras.state.numberTuristias;
       }
 
@@ -51,14 +53,13 @@ export class FacturacionPage implements OnInit {
         tour: this.tour,
         fechaCalender: this.fechaCalender,
         fechaReserva: this.fechaReserva,
+        Horaprupuesta: this.Horaprupuesta,
         numberTuristias: this.numberTuristias,
         name: this.facturacionform.value.name,
         email: this.facturacionform.value.email,
         telephone: this.facturacionform.value.telephone
       }
     };
-
-    console.log(navigationExtras);
     this.router.navigate(['/payment'], navigationExtras);
   }
 

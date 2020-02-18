@@ -59,7 +59,6 @@ export class MapaTourComponent implements OnInit {
     };
 
     this.map = GoogleMaps.create(this.mapElement, mapOptions);
-    console.log(this.map);
     try {
       await this.map.one(GoogleMapsEvent.MAP_READY);
       this.addOriginMarker();

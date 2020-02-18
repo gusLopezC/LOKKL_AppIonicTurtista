@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, IonContent, LoadingController } from '@ionic/angular';
 import { Location } from '@angular/common';
 
 import { ChatService, UsuariosService, ReservasService, NetworkService } from '../../../../services/service.index';
@@ -15,6 +15,8 @@ import { Usuario } from '../../../../models/usuario.model';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage {
+
+  @ViewChild(IonContent, { static: true }) content: IonContent;
 
   reserva: any;
 
@@ -32,6 +34,7 @@ export class ChatPage {
     public _ChatService: ChatService,
     private _networkService: NetworkService,
     public toastController: ToastController,
+    public loadingController: LoadingController,
     public navCtrl: NavController,
     private location: Location,
     public route: ActivatedRoute,
@@ -43,23 +46,39 @@ export class ChatPage {
     });
   }
 
+
+
   async ionViewWillEnter() {
     this.user = await this._usuarioService.getUsuario();
-    console.log(this.user);
     this.obtenerMensajes();
   }// end ngOnit
 
+  ionViewDidEnter(): void {
+    setTimeout(() => {
+      let y = document.getElementById('endVista').offsetTop;
+      this.content.scrollToPoint(0, y);
+    }, 1000);
+  }
 
   async obtenerMensajes() {
 
     this.token = await this._usuarioService.getToken();
+
+    if (this.reserva.order_nr) {
+      this.reserva.id_reservacion = this.reserva.id;
+    }
+
+    const loading = await this.loadingController.create({
+
+    });
+    await loading.present();
 
     this._ChatService.obtenerChatReservacion(this.reserva.id, this.token)
       .subscribe(resp => {
         console.log(resp.Mensajes);
         if (resp.Mensajes.length > 0) {
           this.chats = resp.Mensajes;
-
+          loading.dismiss();
         }
       });
 
@@ -74,14 +93,24 @@ export class ChatPage {
   async sendChatMessage() {
 
     this.token = await this._usuarioService.getToken();
+    const loading = await this.loadingController.create({
+      duration: 2000
+    });
+    await loading.present();
+
 
     this._ChatService.sendMessage(this.reserva, this.message, this.token)
       .subscribe(resp => {
+        this.message = '';
         console.log(resp.Mensajes);
         if (resp.Mensajes.length > 0) {
           this.chats = resp.Mensajes;
 
         }
+        setTimeout(() => {
+          let y = document.getElementById('endVista').offsetTop;
+          this.content.scrollToPoint(0, y);
+        }, 1000);
       });
   }
 

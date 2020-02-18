@@ -17,7 +17,7 @@ export class EmergenciaPage implements OnInit {
 
   usuario: Usuario;
   user: any = null;
-  datospersonales: DatosPersonales = new DatosPersonales('', '', '', '');
+  datospersonales: DatosPersonales = new DatosPersonales('', '', '', '', '');
   token: string;
 
   constructor(
@@ -32,6 +32,7 @@ export class EmergenciaPage implements OnInit {
       name: new FormControl('', { updateOn: 'blur' }),
       email: new FormControl('', { updateOn: 'blur' }),
       telephone: new FormControl('', { updateOn: 'blur' }),
+      parentesco: new FormControl('', { updateOn: 'blur' }),
     }, { updateOn: 'change' });
 
     this.obtenerInformacion();
@@ -50,8 +51,9 @@ export class EmergenciaPage implements OnInit {
 
     this._usuarioService.obtenerInformacionContacto(this.user.id, this.token).subscribe(
       resp => {
+        console.log(resp)
         if (resp.guia.length < 1) {
-          console.log('');
+          console.log();
         } else {
           this.datospersonales = resp.guia[0];
 
@@ -59,6 +61,7 @@ export class EmergenciaPage implements OnInit {
             name: this.datospersonales.NameContactoEmergencia,
             email: this.datospersonales.EmailContactoEmergencia,
             telephone: this.datospersonales.NumContactoEmergencia,
+            parentesco: this.datospersonales.ParentescoEmergencia,
           });
         }
       }
@@ -74,6 +77,7 @@ export class EmergenciaPage implements OnInit {
       this.formulario.value.name,
       this.formulario.value.telephone,
       this.formulario.value.email,
+      this.formulario.value.parentesco,
       this.user.id,
     );
 

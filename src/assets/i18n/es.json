@@ -67,6 +67,7 @@
         "masculino": "Masculino",
         "femenino": "Femenino",
         "otro": "Otro",
+        "parentesco": "Parentesco",
         "Biografia": "Biografía",
         "Enviar": "Enviar",
         "ChangePassword": "Cambiar Contraseña",
@@ -76,16 +77,16 @@
         "Desactivarcuenta": "Desactivar cuenta",
         "DesactivarcuentaTexto": "Si desactiva su cuenta, ya no estará disponible. No podrá iniciar sesión y acceder a su perfil. Todas las opiniones, fotos y consejos que ha proporcionado específicamente aparecieron en el sitio web.",
         "Deletecuenta": " Desactivar cuenta",
-        "Añadedocumento": "Añade el documento de identidad",
+        "Añadedocumento": "Añade una idenficación oficial",
         "Cargardocumento": "Cargar documento",
-        "AñadedocumentoText": "Este proceso nos ayuda a comprobar que eres tu",
+        "AñadedocumentoText": "",
         "IdentificacionTitle": "Vamos a añadir una identificacion oficial",
         "IdentificacionText": "No compartiremos esta información con ninguna personal o entidad"
 
     },
     "Emergencia": {
         "ContactoEmergencia": "Contacto de emergencia",
-        "TextoContactoEmergencia": "Disponer de un contacto de emergencia nos da otra opcion para ayduarte si alguna vez te encuentras en una situacion de emergencia."
+        "TextoContactoEmergencia": "Tu seguridad es nuestra prioridad."
     },
     "ComoFunciona": {
         "ComoFuncionaTitle": "Diseña tu viaje ideal",
@@ -151,7 +152,7 @@
     "TourDetalle": {
         "Desde": "Desde",
         "porpersona": "por persona",
-        "Reservarya": "Reservar ya",
+        "Reservarya": "Comprobar disponibilidad",
         "Informaciongeneral": "Información general",
         "Duración": "Duración",
         "Lugar": "Lugar",
@@ -189,6 +190,7 @@
         "Completatupedido": "Completa tu pedido",
         "En": "En",
         "Participantes": "Participantes",
+        "HoraPropuesta":"Hora propuesta",
         "IngresaDatos": "Ingresa los datos de facturación",
         "NumTelefono": "Número telefónico ",
         "Reservar": "Reservar"

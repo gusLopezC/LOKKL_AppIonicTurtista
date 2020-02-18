@@ -132,6 +132,7 @@ export class UsuariosService {
 
   async actualizarUsuario(usuario: Usuario) {
 
+    console.log(usuario);
     this.token = await this.storage.get('token') || null;
     const url = environment.apiUrl + '/api/users/' + usuario.id;
 
@@ -143,6 +144,7 @@ export class UsuariosService {
     return new Promise(resolve => {
       return this.http.put(url, usuario, { headers })
         .subscribe(async resp => {
+          console.log(resp);
           if (resp['token']) {
             await this.guardarToken(resp['token'], resp['user']);
             resolve(true);

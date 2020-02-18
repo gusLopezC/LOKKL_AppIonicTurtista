@@ -1,8 +1,9 @@
 <ion-header no-border (click)="salir()">
     <ion-toolbar color="primary">
         <ion-buttons slot="start">
-            <ion-back-button (click)="salir()">
-            </ion-back-button>
+            <ion-button icon-only (click)="salir()">
+                <ion-icon name="exit"></ion-icon>
+            </ion-button>
         </ion-buttons>
         <ion-title>
             Carga tu documento
@@ -30,8 +31,9 @@
         </ion-col>
     </ion-row>
 
+    <ion-img *ngIf="existeImagen" [src]="imageUser" class="fotocargada"></ion-img>
 
-    <ion-img *ngIf="image" [src]="image" class="fotocargada" alt="Profile Picture"></ion-img>
+    <ion-img *ngIf="image" [src]="image" class="fotocargada"></ion-img>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="selectImage()">
         <ion-fab-button>

@@ -48,7 +48,7 @@ export class ChatService {
   }
 
 
-  sendMessage(reserva, message: string, token: string): Observable<any> {
+  sendMessage(reserva, mensaje: string, token: string): Observable<any> {
 
     console.log(reserva);
 
@@ -56,7 +56,7 @@ export class ChatService {
       id_reservacion : reserva.id_reservacion,
       id_comprador : reserva.id_comprador,
       id_guia : reserva.id_guia,
-      message
+      mensaje
     };
 
     const url = environment.apiUrl + 'api/mensajes/sendMessage';

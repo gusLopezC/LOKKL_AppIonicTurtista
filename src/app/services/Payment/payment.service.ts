@@ -32,4 +32,19 @@ export class PaymentService {
   }
 
 
+
+
+  /**
+   * Revisar disponibilidad reserva
+   */
+
+  revisarDisponibilidad(id: string): Observable<any> {
+
+    const url = environment.apiUrl + '/api/revisarDisponibilidad/' + id;
+
+    return this.http.get(url);
+
+
+  }
+
 }

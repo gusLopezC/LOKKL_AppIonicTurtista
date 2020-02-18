@@ -52,6 +52,7 @@ export class MensajesPage {
 
 
   async obtenerMensajes() {
+    this.Nomensajes = false;
     this.user = await this._usuarioService.getUsuario();
     this.token = await this._usuarioService.getToken();
 

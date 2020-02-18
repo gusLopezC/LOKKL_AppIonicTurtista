@@ -8,7 +8,8 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content [scrollEvents]="true">
+    <div class="margen10"></div>
     <ion-list class="chat-list" mode='ios' lines='none'>
         <ion-item *ngFor="let chat of chats" no-lines>
             <!--<div class="chat-status" text-center>
@@ -29,6 +30,7 @@
 
         </ion-item>
     </ion-list>
+    <div id="endVista"></div>
 </ion-content>
 
 <ion-footer>

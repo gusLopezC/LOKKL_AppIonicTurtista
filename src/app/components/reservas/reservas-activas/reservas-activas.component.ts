@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { Payment } from '../../../models/payment.model';
 
@@ -15,6 +15,7 @@ export class ReservasActivasComponent implements OnInit {
 
   constructor(
     public actionSheetController: ActionSheetController,
+    public alertController: AlertController,
     private route: ActivatedRoute,
     private router: Router, ) {
   }
@@ -28,6 +29,11 @@ export class ReservasActivasComponent implements OnInit {
         text: 'Send Message',
         icon: 'chatboxes',
         handler: () => {
+
+          if (this.reservas[0].status === 'Pendiente') {
+            this.mostrarAlertaChat();
+            return false;
+          }
           let navigationExtras: NavigationExtras = {
             state: {
               reserva: reserva,
@@ -51,5 +57,15 @@ export class ReservasActivasComponent implements OnInit {
     await actionSheet.present();
   }
 
+  async mostrarAlertaChat() {
+    const alert = await this.alertController.create({
+      header: 'Alerta',
+      message: 'Deben aceptar la reserva primero',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+  }
 
 }

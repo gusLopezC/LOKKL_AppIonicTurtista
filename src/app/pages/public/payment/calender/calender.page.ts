@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { ModalController, ToastController } from '@ionic/angular';
+import { PaymentService } from './../../../../services/service.index';
+
 import { Ionic4DatepickerModalComponent } from '@logisticinfotech/ionic4-datepicker';
 import * as moment from 'moment';
 
@@ -10,7 +12,7 @@ import * as moment from 'moment';
   templateUrl: './calender.page.html',
   styleUrls: ['./calender.page.scss'],
 })
-export class CalenderPage implements OnInit {
+export class CalenderPage {
 
   public datePickerDate;
   public endPickerDate;
@@ -22,6 +24,10 @@ export class CalenderPage implements OnInit {
   tour: any;
   precioredondo: any;
   fechaCalender: any;
+  Horaprupuesta: string = null;
+  public disabledDates: Date[];
+  FechaValida = false;
+
 
   constructor(
     private location: Location,
@@ -29,7 +35,10 @@ export class CalenderPage implements OnInit {
     private route: ActivatedRoute,
     public modalCtrl: ModalController,
     public toastController: ToastController,
+    public _paymentService: PaymentService
   ) {
+
+    this.FechaValida = false;
     this.datePickerDate = moment(this.datePickerDate).format('LL');
     this.endPickerDate = moment(this.datePickerDate).add(24, 'M');
     moment.locale('en');
@@ -37,7 +46,8 @@ export class CalenderPage implements OnInit {
     this.datePickerObj = this.datePickerConfiguration(
       this.datePickerDate,
       this.endPickerDate,
-      this.datePickerDate);
+      this.datePickerDate,
+    );
 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -46,15 +56,41 @@ export class CalenderPage implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ionViewWillEnter() {
+    this.FechaValida = false;
+    this.revisarFechasReservas(this.tour.id);
     this.precioredondo = this.tour.price;
   }
 
-  public onCalendarChange($event) {
-    this.fechaCalender = $event.detail.value;
-    this.fechaReserva = moment(this.fechaCalender).format('YYYY-MM-DD');
+
+
+  revisarFechasReservas(id: string) {
+
+    this._paymentService.revisarDisponibilidad(id)
+      .subscribe(async resp => {
+        if (resp.Fechas.length >= 1) {
+          this.datePickerObj = this.datePickerConfiguration(
+            this.datePickerDate,
+            this.endPickerDate,
+            this.datePickerDate,
+            resp.Fechas
+          );
+        }
+      });
+
   }
 
+  public onCalendarChange($event) {
+    this.FechaValida = false;
+    this.fechaCalender = $event.detail.value;
+    this.fechaReserva = moment(this.fechaCalender).format('YYYY-MM-DD');
+    this.FechaValida = true;
+  }
+
+  public updateMyDate($event) {
+    this.Horaprupuesta = $event.detail.value;
+
+  }
   async pagarTour() {
     if (this.fechaReserva == null) {
       const toast = await this.toastController.create({
@@ -65,11 +101,22 @@ export class CalenderPage implements OnInit {
       toast.present();
       return false;
     }
+    if (this.Horaprupuesta == null) {
+      const toast = await this.toastController.create({
+        message: 'Selecciona la hora propuesta de inicio del tour',
+        color: 'danger',
+        duration: 2000
+      });
+      toast.present();
+      return false;
+    }
+
     let navigationExtras: NavigationExtras = {
       state: {
         tour: this.tour,
         fechaCalender: this.fechaCalender,
         fechaReserva: this.fechaReserva,
+        Horaprupuesta: this.Horaprupuesta,
         numberTuristias: this.numberTuristias
 
       }
@@ -92,14 +139,32 @@ export class CalenderPage implements OnInit {
     this.location.back();
   }
 
+
+
+
+
+
   /**
    *
    * Configuracion Datepicker
    *
    */
-  private datePickerConfiguration(beginDate: Date, endDate: Date, currentDate: Date) {
-    const disabledDates: Date[] = [
-    ];
+  private datePickerConfiguration(beginDate: Date, endDate: Date, currentDate: Date, fechasDisables?: any) {
+
+    if (fechasDisables) {
+
+      fechasDisables.forEach(element => {
+
+        const date = new Date(element.Fechareserva);
+        date.setDate(date.getDate() + 1);
+        this.disabledDates.push(date);
+      });
+    } else {
+      this.disabledDates = [
+      ];
+    }
+
+
     const datePickerObj: any = {
       inputDate: currentDate, // default new Date()
       fromDate: beginDate, // default null
@@ -108,7 +173,7 @@ export class CalenderPage implements OnInit {
       closeOnSelect: true, // default false
       disableWeekDays: [], // default []
       mondayFirst: true, // default false
-      disabledDates: disabledDates, // default []
+      disabledDates: this.disabledDates, // default []
       titleLabel: 'Select a date', // default null
       dateFormat: 'DD MMMM YYYY', // default DD MMM YYYY
       clearButton: false, // default true

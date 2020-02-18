@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ModalController, ActionSheetController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { UsuariosService } from '../../../../services/service.index';
+import { Usuario } from '../../../../models/usuario.model';
 
 
 @Component({
@@ -12,10 +13,13 @@ import { UsuariosService } from '../../../../services/service.index';
 })
 
 
-export class ModalComponent implements OnInit {
+export class ModalComponent {
 
   image: any = null;
   token: any;
+  user: Usuario;
+  imageUser: string = null;
+  existeImagen = false;
 
   constructor(
     public _usuarioService: UsuariosService,
@@ -28,7 +32,18 @@ export class ModalComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  async ionViewWillEnter() {
+    this.user = await this._usuarioService.getUsuario();
+
+    if (this.user.archivovalidacion) {
+      this.existeImagen = true;
+      this.imageUser = 'https://lokkl.s3.us-east-2.amazonaws.com/images/validationUserDocumento/' + this.user.archivovalidacion;
+    }
+
+  }
+
+  obtenerUsuario() {
+
   }
 
   async selectImage() {
@@ -67,6 +82,7 @@ export class ModalComponent implements OnInit {
     }
 
     this.camera.getPicture(CAMERA_OPTIONS).then((imageData) => {
+      this.existeImagen = false;
       this.image = `data:image/jpeg;base64,${imageData}`;
       this.archivoVerificacion();
 
@@ -83,6 +99,7 @@ export class ModalComponent implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     };
     this.camera.getPicture(CAMERA_OPTIONS).then((imageData) => {
+      this.existeImagen = false;
       this.image = `data:image/jpeg;base64,${imageData}`;
       this.archivoVerificacion();
     }).catch(err => console.error(err));
@@ -92,11 +109,11 @@ export class ModalComponent implements OnInit {
 
     this.token = await this.storage.get('token') || null;
 
-    this._usuarioService.archivoValidacion(this.image, this.token)
+    await this._usuarioService.archivoValidacion(this.image, this.token)
       .subscribe(async respo => {
 
         await this.storage.set('token', respo.token);
-        await this.storage.set('usuario', respo.usuario);
+        await this.storage.set('usuario', respo.user);
 
         const toast = await this.toastCtrl.create({
           showCloseButton: true,
@@ -109,6 +126,7 @@ export class ModalComponent implements OnInit {
         toast.present();
       }
       );
+    this.user = await this._usuarioService.getUsuario();
 
   }
 

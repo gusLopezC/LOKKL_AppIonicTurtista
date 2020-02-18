@@ -9,11 +9,13 @@ export class Payment {
         public price: string,
         public moneda: string,
         public fecha: string,
+        public hora: string,
         public cantidadTurtias: string,
         public stripeToken: string,
         public id_tour: string,
         public name_tour: string,
         public id_vendedor: string,
+        public status ?: string,
     ) { }
 
 }

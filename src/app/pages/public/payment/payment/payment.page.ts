@@ -32,6 +32,7 @@ export class PaymentPage implements OnInit {
   stripe_key = 'pk_live_MFjCYjJg6B1jNNx5mUaSwFRY00q1xLT3gH';
   cardDetails: { number: string; expMonth: number; expYear: number; cvc: string; };
   metododepago = 0;
+  Horaprupuesta: any;
 
   constructor(
     private _usuarioService: UsuariosService,
@@ -51,6 +52,8 @@ export class PaymentPage implements OnInit {
         this.tour = this.router.getCurrentNavigation().extras.state.tour;
         this.fechaReserva = this.router.getCurrentNavigation().extras.state.fechaReserva;
         this.fechaCalender = this.router.getCurrentNavigation().extras.state.fechaCalender;
+        this.Horaprupuesta = this.router.getCurrentNavigation().extras.state.Horaprupuesta;
+
         this.numberTuristias = this.router.getCurrentNavigation().extras.state.numberTuristias;
         //
         this.datosFacturacion[0] = this.router.getCurrentNavigation().extras.state.name;
@@ -135,6 +138,7 @@ export class PaymentPage implements OnInit {
       this.priceFinal,
       this.tour.moneda,
       this.fechaReserva,
+      this.Horaprupuesta,
       this.numberTuristias,
       tokenStripe,
       this.tour.id,

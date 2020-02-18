@@ -67,6 +67,7 @@
         "masculino": "Masculino",
         "femenino": "Feminine",
         "otro": "Other",
+        "parentesco": "Relationship",
         "Biografia": "Biography",
         "Enviar": "Send",
         "ChangePassword": "Change Password",

@@ -11,7 +11,7 @@ import { ModalComponent } from '../../../../components/profile/documentvalidatio
   templateUrl: './editprofile.page.html',
   styleUrls: ['./editprofile.page.scss'],
 })
-export class EditprofilePage implements OnInit {
+export class EditprofilePage {
 
   formulario: FormGroup;
 
@@ -20,6 +20,8 @@ export class EditprofilePage implements OnInit {
   PasswordRedSocial: boolean = false;
   imagenTemp: string;
   Conexion: boolean;
+  archivoSubido = true;
+
 
   constructor(
     private _usuarioService: UsuariosService,
@@ -38,12 +40,17 @@ export class EditprofilePage implements OnInit {
 
   }
 
-  async ngOnInit() {
+  async ionViewWillEnter() {
 
     this.revisarConexion();
     this.user = await this._usuarioService.getUsuario();
+    console.log(this.user);
+
     if (!(this.user.password === ':D')) {
       this.PasswordRedSocial = true;
+    }
+    if (this.user.archivoSubido) {
+      this.archivoSubido = true;
     }
     this.formulario.patchValue({
       name: this.user.name,

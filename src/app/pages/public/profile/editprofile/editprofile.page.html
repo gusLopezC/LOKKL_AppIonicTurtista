@@ -79,7 +79,14 @@
                 <h2>{{ 'EditProfile.Añadedocumento' | translate }}</h2>
                 <ion-label>{{ 'EditProfile.AñadedocumentoText' | translate }}</ion-label>
                 <br><br>
-                <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png"></ion-img>
+                <div *ngIf="archivoSubido">
+                    <p>archvisubido</p>
+                </div>
+                <div  *ngIf="!archivoSubido">
+                    <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png"></ion-img>
+
+                </div>
+
                 <br><br>
                 <ion-button class="log-in-button" color="primary" expand="block" (click)="abrirModalCargar()">
                     {{ 'EditProfile.Cargardocumento' | translate }}
