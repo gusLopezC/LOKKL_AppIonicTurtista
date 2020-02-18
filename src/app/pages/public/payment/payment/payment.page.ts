@@ -33,6 +33,8 @@ export class PaymentPage implements OnInit {
   cardDetails: { number: string; expMonth: number; expYear: number; cvc: string; };
   metododepago = 0;
   Horaprupuesta: any;
+  expMonth: any;
+  expYear: any;
 
   constructor(
     private _usuarioService: UsuariosService,
@@ -66,12 +68,11 @@ export class PaymentPage implements OnInit {
       this.PagoForm = formBuilder.group({
         nameCard: ['', Validators.compose([Validators.required])],
         numberCard: ['', Validators.compose([Validators.required])],
-        expMonth: ['', Validators.compose([Validators.required, Validators.maxLength(2)])],
-        expYear: ['', Validators.compose([Validators.required, Validators.maxLength(2)])],
-        cvc: ['', Validators.compose([Validators.required])],
+        cvc: ['', Validators.compose([Validators.required, Validators.maxLength(4)])],
       });
 
     });
+
   }
 
   async ngOnInit() {
@@ -88,6 +89,12 @@ export class PaymentPage implements OnInit {
     }
   }
 
+  public updateMyDate($event) {
+    const fechaExpiracion = $event.detail.value;
+    this.expYear = fechaExpiracion.substring(2, 4);
+    this.expMonth = fechaExpiracion.substring(5, 7);
+
+  }
   payWithStripe() {
 
     this.formProcess = true;
@@ -95,8 +102,8 @@ export class PaymentPage implements OnInit {
 
     this.cardDetails = {
       number: this.PagoForm.value.numberCard,
-      expMonth: this.PagoForm.value.expMonth,
-      expYear: this.PagoForm.value.expYear,
+      expMonth: this.expMonth,
+      expYear: this.expYear,
       cvc: this.PagoForm.value.cvc,
     };
 
@@ -145,7 +152,6 @@ export class PaymentPage implements OnInit {
       this.tour.name,
       this.tour.user_id,
     );
-    console.log(pago);
     //const valido =
     this._PaymentService.crearPagoStripe(pago)
       .subscribe(resp => {
