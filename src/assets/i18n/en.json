@@ -178,6 +178,7 @@
     },
     "Calender": {
         "Cuando": "When would you like to go?",
+        "HoraInicio":"Start Time",
         "Cuantos": "How many participants?",
         "Informaciongeneral": "General information",
         "Duration": "Duration",

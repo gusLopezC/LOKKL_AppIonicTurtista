@@ -18,10 +18,11 @@
     <ion-icon name="calendar" class="calicon" slot="end" style="margin-right: 10% !important;"></ion-icon>
   </ion-item>
   <br>
-  <div >
-    <ion-item >
-      <ion-label>Hora propuesta inicio</ion-label>
-      <ion-datetime display-format="h:mm A" picker-format="h:mm A" minuteValues="0,15,30,45" value="12:00Z" (ionChange)="updateMyDate($event)">
+  <div>
+    <ion-item>
+      <ion-label>{{ 'Calender.HoraInicio' | translate }}</ion-label>
+      <ion-datetime display-format="h:mm A" picker-format="h:mm A" minuteValues="0,15,30,45" value="12:00Z"
+        (ionChange)="updateMyDate($event)">
       </ion-datetime>
     </ion-item>
     <br />

@@ -177,8 +177,9 @@
         "Reservar": "Reservar"
     },
     "Calender": {
-        "Cuando": "¿Cuando te gustaría ir?",
-        "Cuantos": "¿Cuantos participantes?",
+        "Cuando": "¿Cuándo te gustaría ir?",
+        "HoraInicio":"Hora de inicio",
+        "Cuantos": "¿Cuántos participantes?",
         "Informaciongeneral": "Información general",
         "Duration": "Duración",
         "Lugar": "Lugar",
