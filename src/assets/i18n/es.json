@@ -78,8 +78,9 @@
         "DesactivarcuentaTexto": "Si desactiva su cuenta, ya no estará disponible. No podrá iniciar sesión y acceder a su perfil. Todas las opiniones, fotos y consejos que ha proporcionado específicamente aparecieron en el sitio web.",
         "Deletecuenta": " Desactivar cuenta",
         "Añadedocumento": "Añade una idenficación oficial",
+        "AñadedocumentoText": "Actualiza tu idenficación oficial",
+
         "Cargardocumento": "Cargar documento",
-        "AñadedocumentoText": "",
         "IdentificacionTitle": "Vamos a añadir una identificacion oficial",
         "IdentificacionText": "No compartiremos esta información con ninguna personal o entidad"
 

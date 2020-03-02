@@ -52,7 +52,8 @@
                     <ion-label>{{ 'EditProfile.sexo' | translate }}</ion-label>
                     <ion-select placeholder="Select One" formControlName="sexo">
                         <ion-select-option value="Femenino">{{ 'EditProfile.femenino' | translate }}</ion-select-option>
-                        <ion-select-option value="Masculino">{{ 'EditProfile.masculino' | translate }}</ion-select-option>
+                        <ion-select-option value="Masculino">{{ 'EditProfile.masculino' | translate }}
+                        </ion-select-option>
                         <ion-select-option value="Other">{{ 'EditProfile.otro' | translate }}</ion-select-option>
                     </ion-select>
                 </ion-item>
@@ -65,7 +66,8 @@
             -->
 
                 <ion-col size="12" style="margin:auto">
-                    <ion-button color="primary" type="submit" expand="full" shape="round" class="btn-primary" mode="ios">
+                    <ion-button color="primary" type="submit" expand="full" shape="round" class="btn-primary"
+                        mode="ios">
                         {{ 'EditProfile.Enviar' | translate }}
                     </ion-button>
                 </ion-col>
@@ -76,14 +78,16 @@
     <ion-slides>
         <ion-slide>
             <div class="texto">
-                <h2>{{ 'EditProfile.Añadedocumento' | translate }}</h2>
-                <ion-label>{{ 'EditProfile.AñadedocumentoText' | translate }}</ion-label>
+                <h2 *ngIf="!archivoSubido">{{ 'EditProfile.Añadedocumento' | translate }}</h2>
+                <h2 *ngIf="archivoSubido">{{ 'EditProfile.AñadedocumentoText' | translate }}</h2>
                 <br><br>
                 <div *ngIf="archivoSubido">
-                    <p>archvisubido</p>
+                    <ion-img class="identificacion" src="assets/img/default/passportcheck.png">
+                    </ion-img>
                 </div>
-                <div  *ngIf="!archivoSubido">
-                    <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png"></ion-img>
+                <div *ngIf="!archivoSubido">
+                    <ion-img class="identificacion" src="https://lokkl.com/assets/img/becomeguide/passport.png">
+                    </ion-img>
 
                 </div>
 
@@ -111,7 +115,8 @@
         </ion-text>
         <br>
         <ion-col size="12" style="margin:auto">
-            <ion-button (click)="eliminarCuenta()" color="primary" expand="full" shape="round" class="btn-primary" mode="ios">
+            <ion-button (click)="eliminarCuenta()" color="primary" expand="full" shape="round" class="btn-primary"
+                mode="ios">
                 {{ 'EditProfile.Deletecuenta' | translate }}
             </ion-button>
         </ion-col>
