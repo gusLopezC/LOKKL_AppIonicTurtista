@@ -15,6 +15,8 @@ import { ToursWelcomeComponent } from './home/tours-welcome/tours-welcome.compon
 import { ReservasActivasComponent } from './reservas/reservas-activas/reservas-activas.component';
 import { SlidessearchComponent } from './home/slidessearch/slidessearch.component';
 import { ScrollinfinitetourComponent } from './vistastour/scrollinfinitetour/scrollinfinitetour.component';
+import { MosaicoComponent } from './home/mosaico/mosaico.component';
+
 import { ModalComponent } from './profile/documentvalidation/modal/modal.component';
 
 
@@ -27,6 +29,7 @@ import { ModalComponent } from './profile/documentvalidation/modal/modal.compone
   ],
   declarations: [
     ScrollinfinitetourComponent,
+    MosaicoComponent,
     SlidessearchComponent,
     ToursWelcomeComponent,
     ToursComponent,
@@ -40,6 +43,7 @@ import { ModalComponent } from './profile/documentvalidation/modal/modal.compone
   ],
   exports: [
     ScrollinfinitetourComponent,
+    MosaicoComponent,
     SlidessearchComponent,
     ToursWelcomeComponent,
     ToursComponent,

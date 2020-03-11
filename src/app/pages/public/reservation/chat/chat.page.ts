@@ -27,6 +27,7 @@ export class ChatPage {
   chats = [];
   token: string;
   user: Usuario;
+  nameCliente: any;
 
   constructor(
     private _usuarioService: UsuariosService,
@@ -42,6 +43,8 @@ export class ChatPage {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.reserva = this.router.getCurrentNavigation().extras.state.reserva;
+        this.nameCliente = this.router.getCurrentNavigation().extras.state.nameCliente;
+
       }
     });
   }
@@ -63,9 +66,10 @@ export class ChatPage {
   async obtenerMensajes() {
 
     this.token = await this._usuarioService.getToken();
-
     if (this.reserva.order_nr) {
-      this.reserva.id_reservacion = this.reserva.id;
+      this.reserva.id = this.reserva.id;
+    }else{
+      this.reserva.id = this.reserva.id_reservacion;
     }
 
     const loading = await this.loadingController.create({
@@ -75,11 +79,11 @@ export class ChatPage {
 
     this._ChatService.obtenerChatReservacion(this.reserva.id, this.token)
       .subscribe(resp => {
-        console.log(resp.Mensajes);
         if (resp.Mensajes.length > 0) {
           this.chats = resp.Mensajes;
-          loading.dismiss();
         }
+        loading.dismiss();
+
       });
 
   }

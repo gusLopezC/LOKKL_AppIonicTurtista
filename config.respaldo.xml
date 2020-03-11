@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lokkl.app" version="0.0.27" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.lokkl.app" version="0.0.33" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Lokkl</name>
     <description>Reserva tours</description>
     <author email="guslopezcallejas@gmail.com" href="http://ionicframework.com/">Lokkl Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://localhost:8100" />
     <access origin="*" />
     <access launch-external="yes" origin="whatsapp//*" />
     <allow-intent href="http://*/*" />

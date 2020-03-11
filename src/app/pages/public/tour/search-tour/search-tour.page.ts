@@ -41,7 +41,6 @@ export class SearchTourPage implements OnInit {
     await this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.item;
-        console.log(this.data);
       }
     });
     this.buscarTours(this.data.place_id);

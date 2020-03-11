@@ -16,7 +16,7 @@ import { Usuario } from '../../../../models/usuario.model';
   templateUrl: './tourdetalles.page.html',
   styleUrls: ['./tourdetalles.page.scss'],
 })
-export class TourdetallesPage implements OnInit {
+export class TourdetallesPage {
 
   guia: Usuario;
   tour: Tours;
@@ -39,22 +39,23 @@ export class TourdetallesPage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state) {
         this.tour = this.router.getCurrentNavigation().extras.state.tour;
       }
+      console.log(this.tour);
     });
   }
 
-  async ngOnInit() {
+  async ionViewWillEnter() {
 
     this._dataLocalService.existeEnFavoritos(this.tour.slug)
       .then(existe => this.estrella = (existe) ? 'ios-heart' : 'ios-heart-empty');
-
     this.obtenerTour();
   }
 
 
   async obtenerTour() {
 
-    this._tourService.obtenerTour(this.tour.slug)
+    await this._tourService.obtenerTour(this.tour.slug)
       .subscribe(resp => {
+        console.log(resp);
         resp.Tour.itinerary = JSON.parse(resp.Tour.itinerary);
         resp.Tour.whatsIncluded = JSON.parse(resp.Tour.whatsIncluded);
         this.guia = resp.Guia[0];

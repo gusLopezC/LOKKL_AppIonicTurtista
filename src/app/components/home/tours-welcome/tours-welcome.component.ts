@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { TourService, ToursciudadService, GeolocationService } from 'src/app/services/service.index';
 import { NetworkService, ConnectionStatus } from '../../../services/network/network.service';
@@ -42,6 +43,7 @@ export class ToursWelcomeComponent implements OnInit {
     private _geolocationService: GeolocationService,
     public loadingController: LoadingController,
     public toastCtrl: ToastController,
+    private iab: InAppBrowser,
     private router: Router, ) {
 
   }
@@ -129,6 +131,7 @@ export class ToursWelcomeComponent implements OnInit {
     }, (err => {
     }));
   }
+
 
   async revisarConexion() {
     let result;

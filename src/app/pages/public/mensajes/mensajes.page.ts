@@ -71,10 +71,12 @@ export class MensajesPage {
   }
 
   abrirChat(mensajes) {
-
+    console.log(mensajes);
     let navigationExtras: NavigationExtras = {
       state: {
         reserva: mensajes,
+        nameCliente: mensajes.get_guia[0].name
+
       }
     };
     this.router.navigate(['/chat'], navigationExtras);

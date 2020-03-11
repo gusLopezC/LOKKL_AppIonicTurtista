@@ -38,18 +38,12 @@
           <b>
             {{ 'TourDetalle.Desde' | translate }} {{ tour?.price}} {{
             tour?.moneda}}
-            <small> {{ 'TourDetalle.porpersona' | translate }} </small></b
-          >
+            <small> {{ 'TourDetalle.porpersona' | translate }} </small></b>
         </ion-item>
       </ion-list>
     </ion-col>
     <ion-col size="12">
-      <ion-button
-        class="botonprimary"
-        color="primary"
-        expand="block"
-        (click)="reservarTour()"
-      >
+      <ion-button class="botonprimary" color="primary" expand="block" (click)="reservarTour()">
         {{ 'TourDetalle.Reservarya' | translate }}
       </ion-button>
     </ion-col>
@@ -62,10 +56,8 @@
     <ion-item>
       <ion-icon color="dark" slot="start" name="time"></ion-icon>
       <ion-label>
-        <small
-          >{{ 'TourDetalle.Duración' | translate }} {{ tour?.duration }}
-          hrs.</small
-        >
+        <small>{{ 'TourDetalle.Duración' | translate }} {{ tour?.duration }}
+          hrs.</small>
       </ion-label>
     </ion-item>
     <ion-item>
@@ -77,10 +69,8 @@
     <ion-item>
       <ion-icon color="success" slot="start" name="globe"></ion-icon>
       <ion-label>
-        <small
-          >{{ 'TourDetalle.Disponibleen' | translate }} {{
-          tour?.lenguajes}}</small
-        >
+        <small>{{ 'TourDetalle.Disponibleen' | translate }} {{
+          tour?.lenguajes}}</small>
       </ion-label>
     </ion-item>
   </ion-list>
@@ -118,18 +108,17 @@
   <ion-text>
     <p>{{tour?.puntoInicio}}</p>
   </ion-text>
-  <app-mapa-tour [coordenadas]="tour?.mapaGoogle "></app-mapa-tour>
+  <div *ngIf="tour.mapaGoogle">
+    <app-mapa-tour [coordenadas]="tour?.mapaGoogle"></app-mapa-tour>
+
+  </div>
   <br />
   <div class="hr"></div>
   <ion-text>
     <h5>{{ 'TourDetalle.TuLOKKL' | translate }}</h5>
   </ion-text>
   <div class="bg-secondary vertical-padding ">
-    <img
-      [src]="guia?.img | imagenprofile: 'profile' "
-      alt=" "
-      class="image-round "
-    />
+    <img [src]="guia?.img | imagenprofile: 'profile' " alt=" " class="image-round " />
 
     <div class="ion-text-center ">
       <h4>{{ guia?.name}}</h4>

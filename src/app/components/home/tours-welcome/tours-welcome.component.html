@@ -77,13 +77,18 @@
             <div class="text-9pt"><strong>{{ 'Home.Buscacercania' | translate }} </strong></div>
             <br>
             <div class="text-8pt">
-                <ion-button color="dark" fill="outline" expand="full" shape="round" (click)="buscarporGeolocation()" mode="ios">
+                <ion-button color="dark" fill="outline" expand="full" shape="round" (click)="buscarporGeolocation()"
+                    mode="ios">
                     {{ 'Home.Buscar' | translate }}
                 </ion-button>
             </div>
             <br>
         </ion-card-content>
     </ion-card>
+
+    <div>
+        <app-mosaico></app-mosaico>
+    </div>
     <div>
         <app-scrollinfinitetour></app-scrollinfinitetour>
     </div>

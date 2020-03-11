@@ -37,6 +37,8 @@ export class ReservasActivasComponent implements OnInit {
           let navigationExtras: NavigationExtras = {
             state: {
               reserva: reserva,
+              nameCliente: reserva.get_guia[0].name
+
             }
           };
           this.router.navigate(['/chat'], navigationExtras);

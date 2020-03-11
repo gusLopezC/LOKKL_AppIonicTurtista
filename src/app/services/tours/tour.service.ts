@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslateconfigService } from '../translate/translateconfig.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,13 @@ import { Storage } from '@ionic/storage';
 export class TourService {
 
   token: string;
+  selectedLanguage: string;
 
-  constructor(public http: HttpClient, private storage: Storage) {
+  constructor(
+    public http: HttpClient,
+    private storage: Storage,
+    private translateConfigService: TranslateconfigService,
+  ) {
     this.obtenertoken();
   }
 
@@ -25,7 +32,10 @@ export class TourService {
   }
 
   obtenerTour(slug: string): Observable<any> {
-    const url = environment.apiUrl + '/api/tours/ObtenerTour/' + slug;
+
+    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
+
+    const url = environment.apiUrl + '/api/tours/ObtenerTour/' + slug + '/' + this.selectedLanguage;
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     headers = headers.set('Accept', 'application/json');
@@ -36,7 +46,9 @@ export class TourService {
 
   buscarPorCiudad(placeID: string): Observable<any> {
 
-    const url = environment.apiUrl + 'api/tours/ObtenerPorCiudad/' + placeID;
+    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
+
+    const url = environment.apiUrl + 'api/tours/' + this.selectedLanguage + '/ObtenerPorCiudad/' + placeID;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
@@ -49,7 +61,9 @@ export class TourService {
 
   obtenerTourScrollInfinite(numeropagina: number): Observable<any> {
 
-    const url = environment.apiUrl + 'api/tours/ObtenerTourInfiniteScroll?page=' + numeropagina;
+    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
+
+    const url = environment.apiUrl + 'api/tours/' + this.selectedLanguage + '/ObtenerTourInfiniteScroll?page=' + numeropagina;
 
     return this.http.get(url);
 
