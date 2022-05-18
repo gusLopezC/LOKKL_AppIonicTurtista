@@ -28,7 +28,7 @@
         "@ionic-native/geolocation": "^5.20.0",
         "@ionic-native/google-maps": "^5.5.0",
         "@ionic-native/google-plus": "^5.20.0",
-        "@ionic-native/in-app-browser": "^5.20.0",
+        "@ionic-native/in-app-browser": "^5.36.0",
         "@ionic-native/ionic-webview": "^5.20.0",
         "@ionic-native/native-geocoder": "^5.20.0",
         "@ionic-native/native-storage": "^5.20.0",
